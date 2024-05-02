@@ -1,0 +1,201 @@
+ion-header {
+    ion-toolbar {
+        --background: white;
+
+        .title {
+            margin-left: 10px;
+            color: #000;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .more {
+            font-size: 25px;
+        }
+
+        .user {
+            font-size: 35px;
+            margin: 0px 10px;
+        }
+    }
+}
+
+ion-content {
+    --background: #F6F7F9;
+
+    .search {
+        background: white;
+        padding: 40px 20px 20px 20px;
+
+        .left {
+            flex: 1;
+
+            ion-input {
+                border-radius: 10px;
+                border: 1px solid rgba(195, 212, 233, 0.40);
+                height: 48px;
+                --padding-start: 50px;
+                --padding-end: 10px;
+                position: relative;
+
+                ion-icon {
+                    position: absolute;
+                    left: 10px;
+                    top: 15px;
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .filter {
+            height: 48px;
+            width: 48px !important;
+            border-radius: 10px;
+            border: 1px solid rgba(195, 212, 233, 0.40);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            ion-icon {
+                font-size: 25px;
+            }
+        }
+    }
+
+    .grid1 {
+        margin: 20px;
+        border-radius: 10px;
+        background: white;
+
+        .top2 {
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+            margin: 10px;
+
+            span {
+                color: #1A202C;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            ion-icon {
+                font-size: 24px;
+            }
+        }
+
+        .chart {
+            margin: 20px 0px;
+            justify-content: center;
+
+            img {
+                height: 220px;
+            }
+        }
+
+        .bottom1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px;
+
+            .left {
+                display: flex;
+                align-items: center;
+
+                .circle {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 20px;
+                    background: #0D3559;
+                    margin-right: 10px;
+                }
+
+                color: #90A3BF;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            span {
+                color: #1A202C;
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .grid2 {
+        margin: 20px;
+        border-radius: 10px;
+        background: white;
+
+        .top2 {
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+            margin: 10px;
+
+            .left {
+                color: #1A202C;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .right {
+                color: #3563E9;
+                font-size: 12px;
+                font-weight: 500;
+            }
+        }
+
+        .item {
+            margin: 10px 20px;
+            .left2{
+                align-items: center;
+                display: flex;
+                img {
+                    width: 60px;
+                }
+            }
+
+            .right2 {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+
+                .top1 {
+                    justify-content: space-between;
+
+                    .left {
+                        color: #1A202C;
+                        font-size: 14px;
+                        font-weight: 700;
+                    }
+
+                    .right {
+                        color: #90A3BF;
+                        font-size: 12px;
+                        font-weight: 500;
+                    }
+                }
+
+                .mid1 {
+                    justify-content: space-between;
+                    margin-top: 10px;
+
+                    .left {
+                        color: #90A3BF;
+                        font-size: 12px;
+                        font-weight: 500;
+                    }
+
+                    .right {
+                        color: #1A202C;
+                        font-size: 16px;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}

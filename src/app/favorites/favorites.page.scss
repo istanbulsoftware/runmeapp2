@@ -1,0 +1,32 @@
+
+.ion-item {
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+}
+
+.grd{
+    --background: white;
+
+}
+ion-content {
+    --background: white;
+
+    --color : var(--ion-color-dark)
+}
+ion-header {
+    --background: white;
+    --color : var(--ion-color-light)
+
+}
+ion-toolbar {
+    --background: transparant;
+    --color : var(--ion-color-light);
+
+    padding: 15px;
+}
+
+.items {
+    --background: var(--ion-color-warning);
+    --background: white;
+
+}

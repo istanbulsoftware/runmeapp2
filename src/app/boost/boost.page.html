@@ -1,0 +1,63 @@
+<ion-content fullscreen='false'>
+
+  <ion-item lines="none">
+    <ion-text slot="start" (click)="addToWeekly(50)"><small><b>{{truecoin}} </b>Jeton</small></ion-text>
+    <ion-text slot="end" (click)="dismiss()">
+      <ion-icon name="close"></ion-icon>
+    </ion-text>
+
+  </ion-item>
+  <div style="padding: 10px; background-color: rgb(239, 239, 239);">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../assets/message.png">
+        </ion-col>
+        <ion-col size="9" style="text-align: center;">
+          <h4 style="color: var(--ion-color-dark); font-weight: bold; text-align: center; font-size: 15px;">Hesabını en
+            üste
+            sabitleyenler arasına katil</h4>
+        </ion-col>
+        <br><br>
+        <ion-col size="4" class="ion-align-self-center" style="text-align:center ;">
+          <img src="../../assets/top-list.png">
+        </ion-col>
+        <ion-col size="8" class="ion-align-self-center" style="text-align:center; font-size: small;">
+          Şimdi profilini en üste taşı<br>
+         
+          <ion-button mode="ios" color="danger" shape="round" (click)="boostNow(4,1800)"> 30 Dakika 4000 Jeton</ion-button>
+        </ion-col>
+        <ion-col size="4" class="ion-align-self-center" style="text-align:center ;">
+          <img src="../../assets/top-list.png">
+        </ion-col>
+        <ion-col size="8" class="ion-align-self-center" style="text-align:center; font-size: small;">
+          Şimdi profilini en üste taşı<br>
+         
+          <ion-button mode="ios" color="danger" shape="round" (click)="boostNow(8,3600)"> 60 Dakika 6000 Jeton</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <div style="padding: 10px; background-color: rgb(239, 239, 239);">
+    <ion-grid class="ion-padding">
+      <ion-row>
+
+        <ion-col size="3">
+          <img src="../../assets/rocket.png">
+        </ion-col>
+        <ion-col size="9" style="text-align: center;">
+          <h4 style="color: var(--ion-color-danger); font-weight: bold; text-align: center; font-size: 15px;">Hesabını
+            en üste sabitle
+            daha fazla mesaj al</h4>
+
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+
+</ion-content>

@@ -1,0 +1,162 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon slot="start" name="search-outline" routerLink="/search"
+      style="color: red; margin-right: 10px; font-size: x-large; padding: 7px; color: #000; height: 20px; width: 20px; border-radius: 50%;">
+    </ion-icon>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+    <ion-icon slot="end" name="star-outline" color="warning" routerLink="/watch-ads"
+      style="color: red; margin-right: 10px; font-size: x-large; padding: 7px; color: #000; height: 20px; width: 20px; border-radius: 50%;">
+    </ion-icon>
+    <ion-icon slot="end" name="filter-outline" color="danger" (click)="goFilter()"
+      *ngIf="user.subscribeStatus !== 'person'"
+      style="color: red; margin-right: 10px; font-size: x-large; padding: 7px; color: #000; height: 20px; width: 20px; border-radius: 50%;">
+    </ion-icon>
+    <ion-icon slot="end" name="filter-outline" color="danger" *ngIf="user.subscribeStatus === 'person'"
+      routerLink="/tabs/walletsubs"
+      style="color: red; margin-right: 10px; font-size: x-large; padding: 7px; color: #000; height: 20px; width: 20px; border-radius: 50%;">
+    </ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="warning">
+    <ion-card-header>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Muzaffer Şen
+      </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Muzaffer Şen
+      </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Muzaffer Şen
+      </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Muzaffer Şen
+      </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-card>
+  <ion-card color="warning">
+    <ion-card-header>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Muzaffer Şen
+      </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Muzaffer Şen
+      </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Muzaffer Şen
+      </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Muzaffer Şen
+      </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+          <ion-col class="ion-text-center">df</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-card>
+</ion-content>

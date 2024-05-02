@@ -1,0 +1,99 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text ="" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-label color="light" slot="end">{{truecoin}} coin</ion-label>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen='false'>
+
+  <ion-grid>
+    <ion-row class="yellow-row">
+
+
+      <ion-col size="12" class="ion-no-margin ion-text-center">
+        <h1 style="font-weight: bolder ; color: #F94C72;">Coin Satın al</h1>
+        <span>Coinlerini mesajlaşmaya kullan ve yeni etkinlik eklemek için kullan</span>
+      </ion-col>
+
+
+
+
+      <ion-col size="12" class="ion-text-left ion-no-margin">
+        <ion-grid >
+
+          <div  >
+
+          <!--- Günlük -->
+          <ion-row style="background-color: #fff; margin-bottom: 15px" (click)="buyCoins(10)"
+            class="border-radius10 font-bold  padding-all-10">
+   
+            <ion-col size="9">
+              <div class="mancolored">
+                10 coin satın al<br><span style="font-size: x-small; color: #7b6100;">
+                 Etkinlik ekleme coini</span>
+              </div>
+            </ion-col>
+            <ion-col size="3" class="ion-text-right">50TL</ion-col>
+          </ion-row>
+
+          <!--- haftalık -->
+
+          <ion-row style="background-color: #fff; margin-bottom: 15px" (click)="buyCoins(20)"
+            class="border-radius10 font-bold  padding-all-10">
+   
+            <ion-col size="9">
+              <div class="mancolored">
+                20 coin satın al<br><span style="font-size: x-small; color: #7b6100;">
+                 Etkinlik ekleme coini</span>
+              </div>
+            </ion-col>
+            <ion-col size="3" class="ion-text-right">80TL</ion-col>
+          </ion-row>
+          <!--- aylık -->
+
+          <ion-row style="background-color: #fff; margin-bottom: 15px" (click)="buyCoins(50)"
+            class="border-radius10 font-bold  padding-all-10">
+   
+            <ion-col size="9">
+              <div class="mancolored">
+                50 coin satın al<br><span style="font-size: x-small; color: #7b6100;">
+                 Etkinlik ekleme coini</span>
+              </div>
+            </ion-col>
+            <ion-col size="3" class="ion-text-right">160TL</ion-col>
+          </ion-row>
+
+          <!--- 3 aylık -->
+
+          <ion-row style="background-color: #fff; margin-bottom: 15px" (click)="buyCoins(100)"
+            class="border-radius10 font-bold  padding-all-10">
+   
+            <ion-col size="9">
+              <div class="mancolored">
+                100 coin satın al<br><span style="font-size: x-small; color: #7b6100;">
+                 Etkinlik ekleme coini</span>
+              </div>
+            </ion-col>
+            <ion-col size="3" class="ion-text-right">280TL</ion-col>
+          </ion-row>
+
+          <!--- yıllık artı toplu mesaj  -->
+
+
+
+        </div>
+
+        </ion-grid>
+
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center"
+        style="color: aliceblue; padding: 18px 0px 8px 0px; background-color: #F2A40F; width: 100%; border-radius: 0px 0px 8px 8px;">
+        Coinlerini etkinlik eklemek için kullan. <span style="color: black;">Kampanyaları takip et</span> ve
+        en uygun fiyatlara coinler satın al. </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

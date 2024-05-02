@@ -1,0 +1,88 @@
+<ion-header class="ion-no-border" no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text=""></ion-back-button>
+    </ion-buttons>
+    <span class="back" slot="start">Geri</span>
+    <ion-title>Profil</ion-title>
+    <ion-icon  class="end" slot="end" src="../../../../assets/icon/share.svg"></ion-icon>
+    <span class="share" slot="end">Paylaş</span>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="swipper">
+    <swiper-container [pagination]="true" [slidesPerView]="1" [loop]="true"> 
+      <swiper-slide *ngFor="let a of [1,2,3,4]">
+        <img src="../../../../assets/postImg.jpeg">
+      </swiper-slide>
+    </swiper-container>
+  </ion-row>
+  <ion-row class="user">
+    <ion-col class="img" size="auto">
+      <img src="../../assets/person.jpg">
+    </ion-col>
+    <ion-col class="userData">
+      <span class="name">Aydın İşık</span>
+      <span class="date">İstanbul/Turkiye</span>
+    </ion-col>
+    <ion-col class="btnsRight" size="auto">
+      <div class="btn">
+        <ion-icon src="assets/icon/heartHollow.svg"></ion-icon>
+        <span>45</span>
+      </div>
+      <div class="btn">
+        <ion-icon src="assets/icon/comment.svg"></ion-icon>
+        <span>28</span>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="details">
+    <ion-col size="4">
+      <span class="name">Mesafe</span>
+      <span class="desc">0,00 km</span>
+    </ion-col>
+    <ion-col size="4">
+      <span class="name">Zaman</span>
+      <span class="desc">0:00:00</span>
+    </ion-col>
+    <ion-col size="4">
+      <span class="name">Kalori</span>
+      <span class="desc">0,00 kCal</span>
+    </ion-col>
+  </ion-row>
+  <ion-row class="rowItems">
+    <span class="title">En son beğeniler</span>
+    <ion-row class="imagesRow">
+      <div class="img">
+        <img src="../../../../assets/person.jpg" *ngFor="let a of [1,2,3,4,5,6,7,8]" alt="">
+      </div>
+      <span>+9 ></span>
+    </ion-row>
+  </ion-row>
+  <ion-row class="userRow">
+    <ion-col class="img" size="auto">
+      <img src="../../assets/person.jpg">
+    </ion-col>
+    <ion-col class="userData">
+      <span class="name">Aydın İşık</span>
+      <span class="date">Bu mekan koşu için çok güzel bir yer</span>
+    </ion-col>
+    <span class="timeAgo">3 saat önce</span>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="main">
+    <ion-col class="addMessage">
+      <img src="../../../../assets/person.jpg" alt="">
+        <ion-input placeholder="Message">
+        </ion-input>
+    </ion-col>
+    <ion-col size="auto" style="display: flex;
+    align-items: center;">
+      <div class="send">
+        <ion-icon src="../../../../assets/icon/send.svg" ></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,30 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/tabs/tab5"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">
+        <ion-icon slot="icon-only" color="danger" name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-radio-group value="selectedLang" mode='ios' formControlName="selectedLang" *ngIf="langs.length > 0">
+      <ion-item lines="full" *ngFor="let lang of langs" color="light">
+        <ion-avatar slot="start"
+          style="width: 55px; height: 55px; padding: 0; margin-top: 13px; margin-bottom: 13px; border: 2px solid var(--ion-color-primary-shade);">
+          <img [src]="lang.img" [alt]="lang.value" style="width: 100%; height: 100%; padding: 0; margin: 0;" />
+        </ion-avatar>
+        <ion-label color="dark">{{ lang.text }}</ion-label>
+        <ion-radio slot="end" color="success" [value]="lang.value"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </form>
+</ion-content>

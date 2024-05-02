@@ -1,0 +1,77 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon slot="start" name="images" routerLink="/my-questions"
+      style="color: red; margin-right: 10px; font-size: x-large; padding: 7px; color: #000; height: 20px; width: 20px; border-radius: 50%;">
+    </ion-icon>
+    <ion-icon slot="end" name="add" routerLink="/ask-question"
+      style="color: red; margin-right: 10px; font-size: x-large; padding: 7px; color: #000; height: 20px; width: 20px; border-radius: 50%;">
+    </ion-icon>
+    <ion-title color="dark">Sorular</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="false" [options]="slideOpts">
+    <ion-slide *ngFor="let question of questions">
+      <div class="cont" *ngIf="showBtns === true" >
+
+    
+      <div style="position: absolute; top: 40px; width: 100%; color: var(--ion-color-light);">
+        <ion-item lines="none">
+          <ion-avatar slot="start" class="ion-avatar100" routerLink="/profile/{{question.userId}}">
+            <img *ngIf="question.userId.profilePicture.publicPath" src="{{question.userId.profilePicture.publicPath}}">
+            <img *ngIf="!question.userId.profilePicture.publicPath" src="../../assets/images/other.png">
+          </ion-avatar>
+          <ion-label slot="start" color="light" style="font-size: 12px;">{{question.userId.name}} </ion-label>
+
+          <ion-label slot="end" color="light" style="font-size: 12px;">{{ago(question.createdAt)}} önce</ion-label>
+        </ion-item>
+      </div>
+      <div style="position: absolute; top: 40px; left:50px; color: var(--ion-color-light); font-weight: bold;">
+      </div>
+      <div style="position: absolute; bottom: 150px; text-align: center; width: 100%; color: var(--ion-color-light); font-family: 'MontserratExtraBold';">
+        <h4>{{question.text}}</h4>
+      </div>
+      <div *ngIf="showMsh === true" 
+      style="position: absolute; padding: 10px 10px; bottom: 200px; text-align: center; width: 92%; color: var(--ion-color-light); background-color: #000; border-radius: 10px; margin: 4%;">
+      <ion-item lines="none">
+        <ion-input   type="text" placeholder="Mesajınızı yazın"></ion-input>
+        <ion-icon name="send-outline" color="medium" slot="end"></ion-icon>
+
+      </ion-item>
+      </div>
+
+      <div *ngIf="showBtns === true" style="position: absolute; padding: 0px 50px; bottom: 20px; text-align: center; width: 100%; color: var(--ion-color-light);">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="3" class="ion-text-center" (click)="dislike(question._id)">
+              <ion-icon name="close-circle"
+                style="font-size: 60px; border: solid 2px var(--ion-color-secondary); border-radius: 50%;"
+                color="secondary"></ion-icon>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center" routerLink="/profile/{{question.userId}}">
+              <ion-icon name="person-circle"
+                style="font-size: 60px; border: solid 2px var(--ion-color-light); border-radius: 50%;" color="light">
+              </ion-icon>
+
+            </ion-col>
+            <ion-col size="3" class="ion-text-center" (click)="likeIt(question._id)">
+              <ion-icon name="heart-circle"
+                style="font-size: 60px; border: solid 2px var(--ion-color-danger); border-radius: 50%;" color="danger">
+              </ion-icon>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+            <!-- <ion-col size="12"  (click)="mesajgonder()" class="ion-text-center"><small>Mesaj gönder</small></ion-col> -->
+
+          </ion-row>
+        </ion-grid>
+      </div>
+      <img *ngIf="showBtns === true"  src="http://45.200.120.51:7700/listimages/{{question.photos[0].fileName}}" >
+    </div>
+    <div class="cont" *ngIf="showBtns === false" style="padding-top: 50%;">
+      <ion-button shape="round" mode="ios" color="danger" >Tüm hikayeler gösterildi </ion-button>
+    </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

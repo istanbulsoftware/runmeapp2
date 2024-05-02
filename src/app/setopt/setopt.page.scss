@@ -1,0 +1,167 @@
+ion-avatar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 16px;
+    width: 133px;
+    height: 133px;
+    border: 3px solid var(--ion-color-warning-shade);
+    color: var(--ion-color-warning-shade);
+    ion-icon{
+        width: 77px;
+        height: 77px;
+    }
+}
+
+.girl{
+    border: 3px solid var(--ion-color-secondary-shade);
+    color: var(--ion-color-secondary-shade);
+    ion-icon{
+        width: 100px;
+        height: 100px;
+    }
+}
+.boy{
+    border: 3px solid var(--ion-color-primary-shade);
+    color: var(--ion-color-primary-shade);
+    ion-icon{
+        width: 77px;
+        height: 77px;
+    }
+}
+
+
+.errors {
+    width: 100%;
+    font-size: small;
+    color: var(--ion-color-dark);
+    background-color: var(--ion-color-warning);
+    border-radius: 7px;
+    padding: 3px;
+    padding-left: 16px;
+}
+
+.input-container{
+    margin-bottom: 10px;
+
+}
+
+
+.my-icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+ion-item.my-item {
+  height: 45px;
+  border-radius: 7px;
+  --background: #fff;
+  color: var(--ion-color-dark);
+}
+
+ion-button {
+  width: 100%;
+  height: 45px;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 7px;
+}
+
+.boy{
+    border: 3px solid #3d6cb9;
+    ion-icon{color: #3d6cb9;}
+    color: #3d6cb9;
+}
+
+.girl{
+    border: 3px solid #ea7dc7;
+    ion-icon{color: #ea7dc7;}
+    color: #ea7dc7;
+}
+
+.restaurant{
+    border: 3px solid #b31e6f;
+    ion-icon{color:#b31e6f;}
+    color:#b31e6f;
+}
+.fastfood{
+    border: 3px solid #be6a15;
+    ion-icon{color: #be6a15;}
+    color: #be6a15;
+}
+.cafe{
+    border: 3px solid #430d27;
+    ion-icon{color: #430d27;}
+}
+.bakery{
+    border: 3px solid #582233;
+    ion-icon{color: #582233;}
+    color: #582233;
+}
+.pastry{
+    border: 3px solid #ee5a5a;
+    ion-icon{color: #ee5a5a;}
+    color: #ee5a5a;
+}
+.store{
+    border: 3px solid #40514e;
+    ion-icon{color: #40514e;}
+    color: #40514e;
+}
+.hotel{
+    border: 3px solid #fc85ae;
+    ion-icon{color: #fc85ae;}
+    color: #fc85ae;
+}
+.bar{
+    border: 3px solid #278ea5;
+    ion-icon{color: #278ea5;}
+    color: #278ea5;
+}
+
+.carservice{
+    border: 3px solid#88bef5;
+    ion-icon{color: #88bef5;}
+}
+.carrepair{
+    border: 3px solid #1e4ba0;
+    ion-icon{color: #1e4ba0;}
+    color: #1e4ba0;
+}
+.carstore{
+    border: 3px solid #3d5af1;
+    ion-icon{color: #3d5af1;}
+    color: #3d5af1;
+}
+.gym{
+    border: 3px solid #0b8457;
+    ion-icon{color: #0b8457;}
+    color: #0b8457;
+}
+.barber{
+    border: 3px solid #3f3b3b;
+    ion-icon{color: #3f3b3b;}
+    color: #3f3b3b;
+}
+.pharmacy{
+    border: 3px solid #10316b;
+    ion-icon{color: #10316b;}
+    color: #10316b;
+}
+.taxi{
+    border: 3px solid #eac100;
+    ion-icon{color: #eac100;}
+    color: #eac100;
+}
+.other{
+    border: 3px solid var(--ion-color-secondary-shade);
+    ion-icon{color: var(--ion-color-secondary-shade);}
+    color: var(--ion-color-secondary-shade);
+}

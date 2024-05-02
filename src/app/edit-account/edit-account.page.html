@@ -1,0 +1,49 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/tabs/tab5"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br> <br>
+  <ion-item lines='full' detail='false'  routerLink='/edit-profile'>
+    <ion-avatar class="profile-avatar" slot="start">
+      <ion-icon  name="person" color='danger' size='large'></ion-icon>
+    </ion-avatar>
+    <ion-label>{{ "EDIT_ACCOUNT.pInfo" | translate }}</ion-label>
+  </ion-item>
+
+  <ion-item lines='full' detail='false'  routerLink='/user-photos'>
+    <ion-avatar class="profile-avatar" slot="start">
+      <ion-icon  name="image" color='danger' size='large'></ion-icon>
+    </ion-avatar>
+    <ion-label>{{ "EDIT_ACCOUNT.photos" | translate }}</ion-label>
+  </ion-item>
+  
+  <ion-item lines='full' detail='false'  routerLink='/social-accounts'>
+    <ion-avatar class="profile-avatar" slot="start">
+      <ion-icon  name="share-social" color='danger' size='large'></ion-icon>
+    </ion-avatar>
+    <ion-label>{{ "EDIT_ACCOUNT.social" | translate }}</ion-label>
+  </ion-item>
+
+  <ion-item lines='full' detail='false'  routerLink='/edit-email'>
+    <ion-avatar class="profile-avatar" slot="start">
+      <ion-icon  name="mail" color='danger' size='large'></ion-icon>
+    </ion-avatar>
+    <ion-label>{{ "EDIT_ACCOUNT.email" | translate }}</ion-label>
+  </ion-item>
+
+  <ion-item lines='full' detail='false'  routerLink='/edit-password'>
+    <ion-avatar class="profile-avatar" slot="start">
+      <ion-icon  name="lock-open" color='danger' size='large'></ion-icon>
+    </ion-avatar>
+    <ion-label>{{ "EDIT_ACCOUNT.password" | translate }}</ion-label>
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,37 @@
+ion-header, ion-toolbar {
+    --background : #000 !important;
+}
+ion-content {
+    color: #fff;;
+    --background : #000 !important;
+
+}
+h1 {
+    color: #F94C72;
+    font-weight: bold;
+}
+h2 {
+    color: #E7DCC8;
+    font-weight: bold;
+}
+ion-col {
+    color: #fff;
+}
+.flex-container {
+    text-align: center;
+    padding: 140px 40px 40px 40px;
+    background: #000 url('../../assets/images/intro-bg.jpg') 0 0/100% 100% no-repeat;
+    min-height: 80%;
+    border-bottom: solid 2px #eba153;
+     
+        img {
+            width: 60%;
+            border: solid 5px #eba153;
+            border-radius: 7px;
+        }
+     
+  }
+  .intro-bottom {
+    text-align: center;
+    padding: 40px;
+  }

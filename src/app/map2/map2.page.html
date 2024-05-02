@@ -1,0 +1,13 @@
+<ion-content [scrollEvents]="false" [scrollY]='false' [scrollX]='false'>
+  <div id="myMap2" #myMap2 style="width: 100%; height: 105%;" data-tap-disabled="true"></div>
+  <ion-button class="btn" (click)="toggleDrawing()">
+    toggle
+  </ion-button>
+  <ion-button class="btn2" *ngIf="this.startLat && this.startLng && this.endLat && this.endLng" (click)="calculateAndDisplayRoute()">
+    draw Map
+  </ion-button>
+
+  <ion-button *ngIf="openMap" style="position: absolute;z-index: 10;top: 10px;" (click)="openInMap()">
+    Open IN Map
+  </ion-button>
+</ion-content>

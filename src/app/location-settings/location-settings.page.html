@@ -1,0 +1,54 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/account-type"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)='changeLocationSettings()' fill='clear'>
+        <ion-icon slot="icon-only" name="checkmark"  style="color:red; font-weight: bold;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="loading-container" *ngIf='isLoading'>
+    <ion-spinner></ion-spinner>
+  </div>
+  <form (ngSubmit)="changeLocationSettings()" [formGroup]="credentials" class="ion-padding">
+
+
+    <div class="input-container">
+      <ion-radio-group value="locationSetting"  color="danger" formControlName="locationSetting">
+        <ion-list-header lines="full">
+          <ion-label><h2 style="font-weight: bold;">{{'LOCATION_SETTINGS.locationSet' | translate}}</h2></ion-label>
+        </ion-list-header>
+    
+        <ion-item lines="none">
+          <ion-label>{{'LOCATION_SETTINGS.off' | translate}}</ion-label>
+          <ion-radio slot="start" value="off"  color="danger"></ion-radio>
+        </ion-item>
+    
+
+        <ion-item lines="none">
+          <ion-label>{{'LOCATION_SETTINGS.live' | translate}}</ion-label>
+          <ion-radio slot="start" value="liveLocation"  color="danger"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <div *ngIf="(locationSetting.dirty || locationSetting.touched) && locationSetting.errors" class="errors">
+        <span *ngIf="locationSetting.errors?.required">{{'LOCATION_SETTINGS.locationReq' | translate}}</span>
+        <span *ngIf="locationSetting.errors?.invalid">{{'LOCATION_SETTINGS.locationInv' | translate}}</span>
+      </div>
+    </div>
+    
+
+    <ion-button *ngIf="locationSetting.value == 'fixedLocation'" (click)="onOpenModel()" expand="block" mode="ios" fill="solid" class="mybutton">
+      <ion-icon slot="start" name="map"></ion-icon> {{'LOCATION_SETTINGS.pickLocation' | translate}}
+    </ion-button>
+  </form>
+
+
+</ion-content>

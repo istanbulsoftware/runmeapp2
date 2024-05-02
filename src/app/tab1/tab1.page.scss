@@ -1,0 +1,177 @@
+ion-header {
+    ion-toolbar {
+        --background: white;
+        padding: 0px 15px;
+
+        span {
+            color: #000;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        ion-avatar {
+            height: 25px;
+            width: 25px;
+        }
+    }
+}
+
+ion-content {
+    .items {
+        margin: 10px 20px;
+
+        ion-col {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+
+            .top2 {
+                .img {
+                    position: relative;
+                    height: 35px;
+                    width: 35px;
+
+                    ion-avatar {
+                        height: 35px;
+                        width: 35px;
+                    }
+
+                    .status {
+                        position: absolute;
+                        background: #F2C94C;
+                        height: 12px;
+                        width: 12px;
+                        border-radius: 20px;
+                        border: 2px solid white;
+                        bottom: 0px;
+                        right: 0px;
+                    }
+                }
+
+                .name {
+                    padding-left: 10px;
+                    color: #000;
+                    font-size: 14px;
+                    font-weight: 500;
+                    width: min-content;
+                }
+
+            }
+
+            .bottom {
+                span {
+                    margin-top: 10px;
+                    text-align: center;
+                    justify-content: center;
+                    color: #000;
+                    font-size: 12px;
+                    font-weight: 400;
+                    flex: 1;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+
+    ion-grid {
+        border-radius: 40px 40px 0px 0px;
+        box-shadow: 0px -8px 32px 0px rgba(70, 96, 135, 0.10);
+
+        .title2 {
+            margin: 40px 20px;
+            color: #000;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .items {
+            margin: 20px;
+            gap: 10px;
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                border-radius: 4px;
+                color: #00000078;
+                font-size: 12px;
+                font-weight: 400;
+                padding: 4px 8px;
+                width: max-content;
+            }
+
+            .selected {
+                color: #ffffff;
+                background: var(--ion-color-primary) !important;
+            }
+        }
+
+        .chatItem {
+            margin: 10px 20px;
+
+            .left {
+                position: relative;
+
+                ion-avatar {
+                    height: 50px;
+                    width: 50px;
+                }
+
+                .status {
+                    position: absolute;
+                    background: #F2C94C;
+                    height: 12px;
+                    width: 12px;
+                    border-radius: 20px;
+                    border: 2px solid white;
+                    bottom: 6px;
+                    right: 6px;
+                }
+            }
+
+            .mid {
+                padding-left: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                flex: 1;
+
+                .name {
+                    color: #3D3D3D;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .message {
+                    color: #636363;
+                    font-size: 11px;
+                    font-weight: 400;
+                }
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                .time {
+                    color: #000;
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+
+                .num {
+                    border-radius: 20px;
+                    background: #2D6ADC;
+                    padding: 3px 6px;
+                    color: #FFF;
+                    font-size: 12px;
+                    font-weight: 700;
+                    width: max-content;
+                }
+            }
+        }
+    }
+}

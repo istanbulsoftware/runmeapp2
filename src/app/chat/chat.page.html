@@ -1,0 +1,322 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="myBackButton()">
+      <ion-button fill="clear">
+        <ion-icon name="chevron-back-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-avatar slot="start">
+      <img style="padding: 4px 2px;" *ngIf="userInfo?.profilePicture?.publicPath" src="{{userInfo?.profilePicture?.publicPath}}">
+      <img  style="padding: 4px 2px;" *ngIf="!userInfo?.profilePicture?.publicPath"  src="../../assets/avatars/{{userInfo?.avatarimg}}.png">
+    </ion-avatar>
+    <ion-title color="dark" (click)="gotorpfie()">
+      {{ userInfo?.name }}
+    </ion-title>
+
+    <!-- <ion-label slot="end" style="font-size: small; color: var(--ion-color-primary);">{{myCoins}} Coin</ion-label> -->
+    <ion-buttons slot="end">
+      <ion-button (click)="onMore()">
+        <ion-icon slot="icon-only" style="color: #acacac;" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content #chatContent [scrollEvents]='true' (ionScroll)="onScroll($event.detail)">
+  <ion-infinite-scroll threshold="15%" (ionInfinite)="loadData($event)" position='top'
+    style="color: var(--ion-color-primary-shade);">
+    <ion-infinite-scroll-content style="color: var(--ion-color-primary-shade);">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <ion-grid #myGrid>
+    <ion-row *ngFor="let m of messages.reverse()">
+      <ion-col *ngIf="m.senderId == myId" size="10" offset="2" class="my-message-col">
+        <div class="my-container">
+          <div class="my-message-item" *ngIf='m.mesType !== "voice" || c'>
+            <p class="my-message" (click)="showDate(m._id)"
+              *ngIf='m.mesType != "image" && m.mesType != "location" && m.mesType != "voice"'>{{m.message}}
+            </p>
+
+            <p class="my-message" (click)="presentModal(m.message); showDate(m._id)" *ngIf='m.mesType == "location"'>
+              <ion-thumbnail slot="start">
+                <img src="../../assets/images/map-location.jpg">
+              </ion-thumbnail>
+
+            </p>
+            <p class="my-message" (click)="openIpmagemodal(m.message); showDate(m._id)" *ngIf='m.mesType == "image"'>
+
+              <img style="  width: 200px; height: 150px;  object-fit: cover;" src="{{m.publicPath}}">
+
+            </p>
+
+            <div style="text-align: right; color: red;">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </div>
+          </div>
+          <p class="my-voice-message" *ngIf='m.mesType == "voice"'>
+
+            <audio controls>
+              <source src="{{m.message}}" type="audio/ogg">
+              <source src="{{m.message}}" type="audio/mpeg">
+            </audio>
+
+          </p>
+
+
+
+
+          <div [id]="m._id" class="hide2">
+            <p class="my-date">
+              <ion-icon name="calendar-outline" color="medium"></ion-icon>
+              {{ (m.createdAt | glob).split('T')[0] }}
+              <span style=" padding: 0 5px;"></span>
+              <ion-icon name="time-outline" color="medium"></ion-icon>
+              {{ (m.createdAt | glob).split('T')[1].split('.')[0] }}
+            </p>
+          </div>
+        </div>
+
+      </ion-col>
+      <ion-col *ngIf="m.senderId != myId" size="10" offset="0" class="other-message-col">
+        <div class="other-container">
+          <div class="other-message-item" *ngIf='m.mesType !== "voice"'>
+            <p class="other-message" (click)="showDate(m._id)"
+              *ngIf='m.mesType != "image" && m.mesType != "location" && m.mesType != "voice"'>{{m.message}}
+            </p>
+            <p class="other-message" (click)="presentModal(m.message); showDate(m._id)" *ngIf='m.mesType == "location"'>
+              <ion-thumbnail slot="start">
+                <img src="../../assets/images/map-location.jpg">
+              </ion-thumbnail>
+            </p>
+
+            <p class="other-message" (click)="openIpmagemodal(m.message); showDate(m._id)" *ngIf='m.mesType == "image"'>
+              <img style="  width: 200px; height: 150px;  object-fit: cover;" src="{{m.publicPath}}">
+            </p>
+          </div>
+          <p class="other-message" *ngIf='m.mesType == "voice"'>
+
+
+            <audio controls>
+              <source src="{{m.message}}" type="audio/ogg">
+              <source src="{{m.message}}" type="audio/mpeg">
+            </audio>
+          </p>
+          <div [id]="m._id" class="hide2">
+            <p class="my-date">
+              {{ (m.createdAt | glob).split('T')[0] }}
+              <ion-icon name="calendar-outline" color="medium"></ion-icon>
+              <span style=" padding: 0 5px;"></span>
+              {{ (m.createdAt | glob).split('T')[1].split('.')[0] }}
+              <ion-icon name="time-outline" color="medium"></ion-icon>
+            </p>
+          </div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <!-- new messages -->
+    <!-- new messages -->
+    <ion-row *ngFor="let m of newMessages">
+      <ion-col *ngIf="m.senderId == myId" size="10" offset="2" class="my-message-col">
+        <div class="my-container">
+          <div class="my-message-item" *ngIf='m.mesType !== "voice"'>
+            <p class="my-message" (click)="showDate(m._id)"
+              *ngIf='m.mesType != "image" && m.mesType != "location" && m.mesType != "voice"'>{{m.message}}
+            </p>
+
+            <p class="my-message" (click)="presentModal(m.message); showDate(m._id)" *ngIf='m.mesType == "location"'>--
+              <ion-thumbnail slot="start">
+                <img src="../../assets/images/map-location.jpg">
+              </ion-thumbnail>
+
+            </p>
+            <p class="my-message" (click)="openIpmagemodal(m.message); showDate(m._id)" *ngIf='m.mesType == "image"'>
+
+              <img style="  width: 200px; height: 150px;  object-fit: cover;"src="{{m.publicPath}}">
+
+            </p>
+
+            <div style="text-align: right; color: red;" *ngIf='m.mesType !== "voice"'>
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+            </div>
+          </div>
+          <p class="my-voice-message" *ngIf='m.mesType == "voice"'>
+            <audio controls>
+              <source src="{{m.publicPath}}" type="audio/ogg">
+              <source src="{{m.publicPath}}" type="audio/mpeg">
+            </audio>
+
+          </p>
+          <div [id]="m._id" class="hide2">
+            <p class="my-date">
+              <ion-icon name="calendar-outline" color="medium"></ion-icon>
+              {{ (m.createdAt | glob).split('T')[0] }}
+              <span style=" padding: 0 5px;"></span>
+              <ion-icon name="time-outline" color="medium"></ion-icon>
+              {{ (m.createdAt | glob).split('T')[1].split('.')[0] }}
+            </p>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col *ngIf="m.senderId != myId" size="10" offset="0" class="other-message-col">
+        <div class="other-container">
+          <div class="other-message-item" *ngIf='m.mesType !== "voice"'>
+
+            <p class="other-message" (click)="showDate(m._id)"
+              *ngIf='m.mesType != "image" && m.mesType != "location" && m.mesType != "voice"'>{{m.message}}</p>
+            <p class="other-message" (click)="presentModal(m.message); showDate(m._id)" *ngIf='m.mesType == "location"'>
+              <ion-thumbnail slot="start">
+                <img src="../../assets/images/map-location.jpg">
+              </ion-thumbnail>
+            </p>
+            <p class="other-voice-message" (click)="openIpmagemodal(m.message); showDate(m._id)" *ngIf='m.mesType == "image"'>
+              <img style="  width: 200px; height: 150px;  object-fit: cover;" src="{{m.publicPath}}">
+            </p>
+ 
+          </div>
+          <p class="other-voice-message" *ngIf='m.mesType == "voice"'>
+            <audio controls>
+              <source src="{{m.message}}" type="audio/ogg">
+              <source src="{{m.message}}" type="audio/mpeg">
+            </audio>
+          </p>
+          <div [id]="m._id" class="hide2">
+            <p class="my-date">
+              {{ (m.createdAt | glob).split('T')[0] }}
+              <ion-icon name="calendar-outline" color="medium"></ion-icon>
+              <span style=" padding: 0 5px;"></span>
+              {{ (m.createdAt | glob).split('T')[1].split('.')[0] }}
+              <ion-icon name="time-outline" color="medium"></ion-icon>
+            </p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+
+
+    <ion-fab-button id="scroll-to-bottom-btn" (click)="onScrollToBottom()">
+      <ion-icon name="arrow-down"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+
+<ion-footer class="ion-no-border">
+  <div *ngIf="!isBlocked" class="footer-toolbar">
+
+    
+
+    <ion-text color="danger" slot="start" style="padding: 10px 10px ; font-weight: bold;"  *ngIf="isRecording"> {{duratin}} </ion-text>
+    <ion-text style="padding: 10px 10px ;"  *ngIf="isRecording"> Saniye </ion-text>
+
+
+    <ion-buttons slot="start" class="chat-buttons" *ngIf="!isRecording">
+      <ion-button (click)="presentUploadActionSheet()">
+        <ion-icon slot="icon-only" name="add-circle-outline" class="emoji-icon" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" class="chat-buttons" *ngIf="!isRecording">
+      <ion-button (click)="toggled = !toggled; onFocus()">
+        <ion-icon slot="icon-only" name="happy-outline" class="emoji-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <form [formGroup]="form">
+      <ion-textarea class="txtareacls" *ngIf="!isRecording" #textArea autofocus="true" auto-grow="true" rows="1" enterkeyhint="send"
+        formControlName="message" (ionFocus)="toggled = false; onFocus()"></ion-textarea>
+    </form>
+
+    <ion-buttons slot="end" class="chat-buttons" style="display: none;" *ngIf="!isRecording">
+      <ion-button (click)="onTime()">
+        <ion-icon slot="icon-only" name="time-outline" class="time-icon" id="sendIcon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" class="chat-buttons" *ngIf="!isRecording">
+      <ion-button (click)="onSendMessage()">
+        <ion-icon slot="icon-only" name="send" class="send-icon" id="sendIcon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+ 
+  </div>
+  <div *ngIf='toggled && !isBlocked' class="keyboard-container">
+    <div *ngIf="selectedCategory == 'tab1'" class="emojis">
+      <button *ngFor='let i of tab1' (click)="addEmoji(i)" expand="block" fill="clear"
+        class="emoji-button">{{i}}</button>
+    </div>
+    <div *ngIf="selectedCategory == 'tab2'" class="emojis">
+      <button *ngFor='let i of tab2' (click)="addEmoji(i)" expand="block" fill="clear"
+        class="emoji-button">{{i}}</button>
+    </div>
+    <div *ngIf="selectedCategory == 'tab3'" class="emojis">
+      <button *ngFor='let i of tab3' (click)="addEmoji(i)" expand="block" fill="clear"
+        class="emoji-button">{{i}}</button>
+    </div>
+    <div *ngIf="selectedCategory == 'tab4'" class="emojis">
+      <button *ngFor='let i of tab4' (click)="addEmoji(i)" expand="block" fill="clear"
+        class="emoji-button">{{i}}</button>
+    </div>
+    <div *ngIf="selectedCategory == 'tab5'" class="emojis">
+      <button *ngFor='let i of tab5' (click)="addEmoji(i)" expand="block" fill="clear"
+        class="emoji-button">{{i}}</button>
+    </div>
+    <div *ngIf="selectedCategory == 'tab6'" class="emojis">
+      <button *ngFor='let i of tab6' (click)="addEmoji(i)" expand="block" fill="clear"
+        class="emoji-button">{{i}}</button>
+    </div>
+    <div *ngIf="selectedCategory == 'tab7'" class="emojis">
+      <button *ngFor='let i of tab7' (click)="addEmoji(i)" expand="block" fill="clear"
+        class="emoji-button">{{i}}</button>
+    </div>
+    <div *ngIf="selectedCategory == 'tab8'" class="emojis">
+      <button *ngFor='let i of tab8' (click)="addEmoji(i)" expand="block" fill="clear"
+        class="emoji-button">{{i}}</button>
+    </div>
+    <div class="emoji-footer">
+      <ion-button [ngClass]="{'selected-button': selectedCategory == 'tab1'}" (click)="selectedCategory = 'tab1'"
+        expand="block" fill="clear" class="emoji-footer-button">😃</ion-button>
+      <ion-button [ngClass]="{'selected-button': selectedCategory == 'tab2'}" (click)="selectedCategory = 'tab2'"
+        expand="block" fill="clear" class="emoji-footer-button">🐱</ion-button>
+      <ion-button [ngClass]="{'selected-button': selectedCategory == 'tab3'}" (click)="selectedCategory = 'tab3'"
+        expand="block" fill="clear" class="emoji-footer-button">🍔</ion-button>
+      <ion-button [ngClass]="{'selected-button': selectedCategory == 'tab4'}" (click)="selectedCategory = 'tab4'"
+        expand="block" fill="clear" class="emoji-footer-button">⚽</ion-button>
+      <ion-button [ngClass]="{'selected-button': selectedCategory == 'tab5'}" (click)="selectedCategory = 'tab5'"
+        expand="block" fill="clear" class="emoji-footer-button">🌇</ion-button>
+      <ion-button [ngClass]="{'selected-button': selectedCategory == 'tab6'}" (click)="selectedCategory = 'tab6'"
+        expand="block" fill="clear" class="emoji-footer-button">💡</ion-button>
+      <ion-button [ngClass]="{'selected-button': selectedCategory == 'tab7'}" (click)="selectedCategory = 'tab7'"
+        expand="block" fill="clear" class="emoji-footer-button">🔣</ion-button>
+      <ion-button [ngClass]="{'selected-button': selectedCategory == 'tab8'}" (click)="selectedCategory = 'tab8'"
+        expand="block" fill="clear" class="emoji-footer-button">🎌</ion-button>
+      <ion-button (click)="handleCharDelete()" fill="clear"
+        style="width: 11.110vw; margin: 0; --padding-start: 0; --padding-end: 0; display: flex; align-items: center;">
+        <ion-icon slot="icon-only" name="backspace" color="dark" style="width: 8vw; height: 8vw; padding: 0;">
+        </ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+
+  <div *ngIf="isBlocked" class="footer-toolbar">
+
+    <p style="color: var(--ion-color-danger-shade);" *ngIf="getLang === 'tr'">Bu kişiyi daha önce engellediniz</p>
+    <p style="color: var(--ion-color-danger-shade);" *ngIf="getLang === 'en'">You have blocked this user before</p>
+
+  </div>
+
+  <div id="nextmessage"
+    style="text-align: center; padding: 15px; z-index: 99999; position: fixed; bottom: 0px; background-color: #FAC129; width: 100%;"
+    class="ion-hide">
+    <ion-icon name="close" style="position: fixed; right:10px;" (click)="onTimeClose()"></ion-icon>
+    <ion-icon name="calendar-outline" style="margin: 0px 10px;"></ion-icon>
+    <ion-label>Tarih Seçiniz</ion-label>
+    <ion-datetime doneText="Tamam" cancelText="İptal" min="1994-03-14" locale="en-GB-u-hc-h12"></ion-datetime>
+    <ion-label>Mesaj Yazınız</ion-label>
+
+    <ion-input type="text" style="background-color: rgb(245, 245, 245); border-radius: 10px;"></ion-input>
+    <ion-button size="small" shape="round" (click)="onTimeClose()" color="dark">Gönder</ion-button>
+  </div>
+
+</ion-footer>

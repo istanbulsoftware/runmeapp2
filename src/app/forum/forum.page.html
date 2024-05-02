@@ -1,0 +1,55 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-text slot="end">
+      Forum
+    </ion-text>
+
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  
+  <div class="oval-light">
+    <ion-card *ngFor="let forumTitle of forumTitles">
+      <ion-card-content>
+        <ion-card-subtitle routerLink="/forum-detail/{{forumTitle._id}}"  class="bolder">{{forumTitle.title}}</ion-card-subtitle>
+        <small routerLink="/profile/{{forumTitle.userId?._id}}">Konuyu açan : {{forumTitle.userId?.name}}</small>
+        
+      </ion-card-content>
+      <ion-grid routerLink="/forum-detail/{{forumTitle._id}}" >
+        <ion-row>
+          <ion-col class="ion-text-center" class="textsmall"><b>Cevaplar:</b> {{forumTitle.replyCount}}</ion-col>
+          <ion-col class="ion-text-center" class="textsmall"><b>Görüntü:</b> {{forumTitle.viewCount}}
+          </ion-col>
+          <ion-col class="ion-text-center" class="textsmall"><b>{{ago(forumTitle.createdAt)}} önce</b></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+
+    <br> <br> <br>
+  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button id="open-forum">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-modal trigger="open-forum" [initialBreakpoint]="0.75" [breakpoints]="[0.75]" handleBehavior="cycle">
+    <ng-template>
+      <ion-content class="ion-padding modal-content">
+        <div class="ion-margin-top">
+          <ion-label>Yeni konu başlığını yazınız</ion-label>
+          <br><br>
+          <ion-textarea (ionChange)="count($event)" label="Email:" maxlength="100" rows="6"
+            [(ngModel)]="newTitle"></ion-textarea>
+          <div class="ion-text-right"><small>Maksimum karakter uzunluğu : {{countChar}}/100</small></div>
+          <br>
+          <ion-button mode="ios" color="danger" *ngIf="countChar > 5" (click)="saveForum()">Kaydet</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

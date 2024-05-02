@@ -1,0 +1,92 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-label slot="start">
+      <ion-img style="width: 150px; height: 50px;" src="../../assets/logo-pink.png"></ion-img>
+    </ion-label>
+    <ion-text slot="end" style="font-family: 'MontserratExtraBold';">
+      Mesajlar
+    </ion-text>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-item class="itemcls">
+      <ion-searchbar placeholder="" class="more-padding" mode="ios" showClearButton="never" showCancelButton="never"
+        (input)="search($event.target.value)"></ion-searchbar>
+    </ion-item>
+    <div *ngIf="error" class="ion-margin" style="
+  background: var(--ion-color-danger-shade); 
+  color: var(--ion-color-light);
+  border-radius: 7px;
+  padding: 19px;
+  ">
+      <p style="text-align: center;">Hata oluştu</p>
+      <ion-button (click)="onRefresh()" expand="block" fill="solid" shape="round" color="dark">
+        <span *ngIf="!isLoading" style="color: var(--ion-color-light);">Yenile</span>
+        <span *ngIf="isLoading">
+          <ion-spinner style="color: var(--ion-color-light);"></ion-spinner>
+        </span>
+      </ion-button>
+    </div>
+    <ion-row class="chatItem"
+      (click)="openConv(conv.user1._id, conv.user2._id, conv._id, conv.user1.name, conv.user2.name, conv.user1.profilePicture.fileName, conv.user2.profilePicture.fileName)"
+      *ngFor="let conv of conversations | searchPipe : searchText : myId">
+      <ion-item-sliding>
+        <ion-item-options side="end">
+          <ion-item-option (click)="deleteConv(conv._id, $event)"
+            style="--background:var(--ion-color-danger-shade); width: 50px;">
+            <ion-icon name="trash" color="light" style="width: 23px; height: 23px;"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item *ngIf="conv.messages.length > 0" lines="full" class="my-item">
+
+
+          <ion-avatar *ngIf="conv.user1._id != conv.user2._id && conv.user1._id != myId" slot="start" class="my-avatar">
+
+            <img *ngIf="conv.user1.profilePicture && conv.user1.profilePicture.publicPath"
+              [src]="conv.user1.profilePicture.publicPath" alt="" width="56px" height="56px" />
+
+            <img *ngIf="!conv.user1.profilePicture.publicPath" src="../../assets/images/other.png" alt="" width="56px"
+              height="56px" />
+            <ion-badge *ngIf="chats && chats[conv._id] && chats[conv._id].count > 0 " mode='ios' class="my-badge">{{
+              chats[conv._id].count }}</ion-badge>
+          </ion-avatar>
+
+
+          <ion-avatar *ngIf="conv.user1._id != conv.user2._id && conv.user2._id != myId" slot="start" class="my-avatar">
+            <img *ngIf="conv.user2.profilePicture.publicPath" [src]="conv.user2.profilePicture.publicPath" alt=""
+              width="56px" height="56px" />
+
+            <img *ngIf="!conv.user2.profilePicture.publicPath" src="../../assets/images/other.png" alt="" width="56px"
+              height="56px" />
+
+            <ion-badge *ngIf="chats && chats[conv._id] && chats[conv._id].count > 0 " mode='ios' class="my-badge">{{
+              chats[conv._id].count }}</ion-badge>
+          </ion-avatar>
+
+
+          <ion-text>
+            <h4 *ngIf="conv.user1._id != conv.user2._id && conv.user1._id != myId"
+              style="color: var(--ion-color-primary); font-size:small; margin-bottom: 4px; margin-top: 10px;">{{
+              conv.user1.name }}</h4>
+            <h4 *ngIf="conv.user1._id != conv.user2._id && conv.user2._id != myId"
+              style="color: var(--ion-color-primary); font-size:small; margin-bottom: 4px; margin-top: 10px;">{{
+              conv.user2.name }}</h4>
+            <ion-label *ngIf="conv.messages[0].mesType === 'text'"
+              style="font-size: small;">{{conv.messages[0].message}}</ion-label>
+            <ion-label *ngIf="conv.messages[0].mesType === 'image'"><ion-icon name="image"></ion-icon> resim</ion-label>
+            <p class="datingcls" style="font-size: x-small;">
+              {{conv.messages[0].createdAt | date : 'dd/MM/yyyy HH:mm'}}</p>
+
+          </ion-text>
+          <ion-badge class="my-badgenew" *ngIf="chats && chats[conv._id] && chats[conv._id].count > 0 ">{{
+            chats[conv._id].count }}</ion-badge>
+
+
+        </ion-item>
+      </ion-item-sliding>
+    </ion-row>
+
+    <br><br><br><br><br>
+  </div>
+</ion-content>

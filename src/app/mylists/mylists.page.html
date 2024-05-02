@@ -1,0 +1,90 @@
+<ion-header mode='ios' class="ion-no-border grd">
+  <ion-toolbar>
+    <ion-icon  routerLink="/tabs/tab4" src="../../../../assets/icon/arrow-left.svg"  style="margin-right: 15px; font-size: x-large;" slot="start"></ion-icon >
+
+      <span slot="end" class="title" style="margin-right: 13px;">İlanlarım</span>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content class="grd">
+  <ion-row class="bottomCard" routerLink="/advert-detail/{{list._id}}" *ngFor="let list of userlist" style="padding-bottom:5px;border-bottom:  solid 1px #d6d6d6; margin-bottom: 10px;">
+    <ion-col size="4">
+      <img *ngIf="!list.photos[0]" src="../../assets/no-photo.png" style="border-radius: 7px;">
+      <img *ngIf="list.photos[0]" src="{{list.photos[0]?.publicPath}}">
+    </ion-col>
+    <ion-col size="7" class="mid">
+      <span class="title3">{{list.title}}</span>
+      <span class="desc" style="font-weight: bold;">Günlük {{list.price}} ₺ </span>
+    </ion-col>
+    <ion-col size="1" class="right">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <!--
+  <ion-row class="banner" *ngFor="let list of userlist">
+    <ion-col size="auto">
+      <div class="color"></div>
+    </ion-col>
+    <ion-col class="right">
+      <span class="top1">Tesla Model Y</span>
+      <img   src="../../assets/images/other.png" alt="">
+      <img *ngIf="list.photos"  src="{{list.photos[0]?.publicPath}}" alt="">
+      <span class="bottom1">Günlük {{list.price}} ₺</span>
+    </ion-col>
+  </ion-row>
+   <div class="oval-light">
+    
+    <ion-item-sliding *ngFor="let list of userlist">
+      <ion-item-options side="end">
+        <ion-item-option color="success" *ngIf="list.status === 'inactive'" (click)="changeStatus(list._id, 'active')"  style="height: 80%; margin-top: 8px;">
+          <b  *ngIf="getLang === 'tr'">İlanı Aktif yap</b>
+          <b  *ngIf="getLang === 'en'">Active</b>
+        </ion-item-option>
+        <ion-item-option color="danger" *ngIf="list.status === 'active'" (click)="changeStatus(list._id, 'inactive')"  style="height: 80%; margin-top: 8px;">
+          <b  *ngIf="getLang === 'tr'">Pasif yap</b>
+          <b  *ngIf="getLang === 'en'">inactive</b>        
+        </ion-item-option>
+        <ion-item-option color="secondary" *ngIf="list.status === 'pending'" mode="ios" style="height: 80%; margin-top: 8px;">
+          <b  *ngIf="getLang === 'tr'">Onay bekliyor</b>
+          <b  *ngIf="getLang === 'en'">Pending</b>             
+         </ion-item-option>
+      </ion-item-options>
+      <ion-item lines="none" routerLink="/advert-detail/{{list._id}}">
+        <ion-thumbnail slot="start">
+          <img *ngIf="list.photos?.length < 1" src="../../assets/images/other.png">
+          <img *ngIf="list.photos?.length > 0" src="{{list.photos[0]?.publicPath}}">
+        </ion-thumbnail>
+        <ion-label slot="start">
+          <div>
+            <h5>
+
+              {{list.title}}
+            </h5>
+          </div>
+          <div> <small>{{list.userId?.name}}</small></div>
+          <div> <small>
+              <p class="msg" style="color: rgb(164, 164, 164); font-size: small;">
+                {{(list.createdAt | glob).split('T')[0] }} {{
+                (list.createdAt | glob).split('T')[1].split('.')[0] }}</p>
+            </small></div>
+
+        </ion-label>
+        <ion-label slot="end">
+
+
+          
+        
+        </ion-label>
+        <ion-label  *ngIf="list.status === 'active'"  style="color: var(--ion-color-danger); font-size: x-small; font-family: 'avenirbold';">
+          <div  *ngIf="getLang === 'tr'">Aktif</div>
+          <div  *ngIf="getLang === 'en'">Active</div>
+        </ion-label>
+        <ion-label  *ngIf="list.status === 'pending'"  style="color: var(--ion-color-danger); font-size: x-small; font-family: 'avenirbold';">
+          <div  *ngIf="getLang === 'tr'">Onay<br>sürecinde</div>
+          <div  *ngIf="getLang === 'en'">pending</div>
+        </ion-label>
+      </ion-item>
+    </ion-item-sliding>
+  </div> -->
+</ion-content>

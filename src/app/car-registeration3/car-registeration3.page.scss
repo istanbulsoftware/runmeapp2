@@ -1,0 +1,116 @@
+ion-header {
+    ion-toolbar {
+        --background: white;
+
+        .title {
+            margin-left: 10px;
+            color: #000;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .more {
+            font-size: 25px;
+        }
+
+        .user {
+            font-size: 35px;
+            margin: 0px 10px;
+        }
+    }
+}
+
+ion-content {
+    .title {
+        margin: 10px 20px 10px 0px;
+        color: #121214;
+        font-size: 28px;
+        font-weight: 900;
+        align-items: center;
+    }
+
+    .desc {
+        margin: 10px 20px;
+        align-items: center;
+        gap: 10px;
+
+        .left {
+            color: #121214;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .mid {
+            color: #898989;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .right {
+            color: #3474FF;
+            font-size: 11px;
+            font-weight: 900;
+        }
+    }
+
+    .progress {
+        margin: 10px;
+
+        app-progress-bar {
+            width: 100%;
+        }
+    }
+
+    .chip {
+        margin: 10px 20px;
+
+        span {
+            padding: 8px 12px;
+            color: #414143;
+            font-size: 11px;
+            font-weight: 900;
+            border-radius: 46px;
+            border: 1px solid #D0D0D0;
+        }
+    }
+
+    hr {
+        margin: 10px 20px;
+        background: #C7C7C7;
+        width: -webkit-fill-available;
+    }
+
+    .img {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+
+        img {
+            height: 190px;
+            width: 190px;
+            margin-bottom: 20px;
+        }
+
+        span {
+            color: #000;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+
+
+
+    .btn {
+        position: absolute;
+        bottom: 20px;
+        justify-content: flex-end;
+        width: 100%;
+
+        ion-button {
+            --padding-start: 50px;
+            --padding-end: 50px;
+            margin-right: 10px;
+        }
+    }
+}

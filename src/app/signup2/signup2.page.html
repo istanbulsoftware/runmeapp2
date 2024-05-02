@@ -1,0 +1,128 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/account-type"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="my-icon-container">
+    <img src="../../assets/logo-business.png">
+  </div>
+  <div class="input-container">
+    <h3><span style="color: #ff0000; font-weight: bold;">Hey!</span> True Contact</h3>
+    Bilgilerini gir ve giriş yap
+  </div>
+
+  <br>
+  <form (ngSubmit)="signup()" [formGroup]="credentials" class="ion-padding">
+
+    <div class="input-container">
+
+      <ion-item class="my-item" lines="none">
+        <ion-icon slot="start" name="person-outline" color='dark'></ion-icon>
+        <ion-input type="text" pattern="[^!@#$%^&-=_+/\*<>':|]+" maxlength='50'
+          [placeholder]="'EDIT_PROFILE.name' | translate" formControlName="name"></ion-input>
+      </ion-item>
+      <div *ngIf="(name.dirty || name.touched) && name.errors" class="errors">
+        <span *ngIf="name.hasError('required')">{{"EDIT_PROFILE.nameRequired" | translate}}</span>
+        <span *ngIf="name.hasError('pattern')">{{"EDIT_PROFILE.symbolsNotAllowed" | translate}}</span>
+      </div>
+
+    </div>
+
+    <div class="input-container">
+
+      <ion-item class="my-item" lines="none">
+        <ion-icon slot="start" name="mail-outline" color='dark'></ion-icon>
+        <ion-input type="email" [placeholder]=" 'SIGNUP.email' | translate " formControlName="email"></ion-input>
+      </ion-item>
+      <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+        <span *ngIf="email.errors?.required">{{ 'SIGNUP.emailReq' | translate }}</span>
+        <span *ngIf="email.errors?.email">{{ 'SIGNUP.emailExample' | translate }}</span>
+      </div>
+
+    </div>
+
+    <div class="input-container">
+      <ion-item class="my-item" lines="none">
+        <ion-icon slot="start" name="lock-closed-outline" color='dark'></ion-icon>
+        <ion-input [type]="showPassword ? 'text' : 'password' " [placeholder]=" 'SIGNUP.password' | translate "
+          formControlName="password"></ion-input>
+        <ion-icon color='dark' class="margin-center" slot="end" [name]="passwordToggleIcon" (click)="togglePassword()">
+        </ion-icon>
+      </ion-item>
+      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+        <span *ngIf="password.errors?.required">{{ 'SIGNUP.passwordReq' | translate }}</span>
+        <span *ngIf="password.errors?.minlength">{{ 'SIGNUP.minPass' | translate }}</span>
+      </div>
+    </div>
+
+
+    <div class="input-container">
+      <ion-item class="my-item" lines='none'>
+        <ion-icon slot="start" name="calendar-outline" color='dark'></ion-icon>
+        <ion-label>{{ 'EDIT_PROFILE.birthday' | translate}}</ion-label>
+        <ion-datetime display-format="DD.MM.YYYY" picker-format='DD-MM-YYYY' formControlName="birthday"></ion-datetime>
+      </ion-item>
+      <div *ngIf="(birthday.dirty || birthday.touched) && birthday.errors" class="errors">
+        <span *ngIf="birthday.errors?.required">{{"EDIT_PROFILE.birthdayRequired" | translate}}</span>
+        <span *ngIf="birthday.errors?.invalid">{{"EDIT_PROFILE.birthdayInvalid" | translate}}</span>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <ion-item class="my-item" lines='none'>
+        <ion-icon slot="start" name="grid-outline" color='dark'></ion-icon>
+        <ion-label>{{"EDIT_PROFILE.businessCat" | translate}}</ion-label>
+        <ion-select value="businessCategory" multiple="false" [placeholder]="'EDIT_PROFILE.select' | translate"
+          formControlName="businessCategory1">
+          <ion-select-option value="bakery">{{"EDIT_PROFILE.bakery" | translate}}</ion-select-option>
+          <ion-select-option value="bar">{{"EDIT_PROFILE.bar" | translate}}</ion-select-option>
+          <ion-select-option value="barber">{{"EDIT_PROFILE.barber" | translate}}</ion-select-option>
+          <ion-select-option value="cafe">{{"EDIT_PROFILE.cafe" | translate}}</ion-select-option>
+          <ion-select-option value="carRepair">{{"EDIT_PROFILE.carRepair" | translate}}</ion-select-option>
+          <ion-select-option value="carStore">{{"EDIT_PROFILE.carStore" | translate}}</ion-select-option>
+          <ion-select-option value="carService">{{"EDIT_PROFILE.carService" | translate}}</ion-select-option>
+          <ion-select-option value="fastFood">{{"EDIT_PROFILE.fastFood" | translate}}</ion-select-option>
+          <ion-select-option value="gym">{{"EDIT_PROFILE.gym" | translate}}</ion-select-option>
+          <ion-select-option value="hotel">{{"EDIT_PROFILE.hotel" | translate}}</ion-select-option>
+          <ion-select-option value="pastry">{{"EDIT_PROFILE.pastry" | translate}}</ion-select-option>
+          <ion-select-option value="pharmacy">{{"EDIT_PROFILE.pharmacy" | translate}}</ion-select-option>
+          <ion-select-option value="restaurant">{{"EDIT_PROFILE.restaurant" | translate}}</ion-select-option>
+          <ion-select-option value="store">{{"EDIT_PROFILE.store" | translate}}</ion-select-option>
+          <ion-select-option value="taxi">{{"EDIT_PROFILE.taxi" | translate}}</ion-select-option>
+          <ion-select-option value="other">{{"EDIT_PROFILE.other" | translate}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="(businessCategory1.dirty || businessCategory1.touched) && businessCategory1.errors" class="errors">
+        <span *ngIf="businessCategory1.errors?.required">{{"EDIT_PROFILE.businessCatReq" | translate}}</span>
+        <span *ngIf="businessCategory1.errors?.invalid">{{"EDIT_PROFILE.businessCatInv" | translate}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="businessCategory1.value == 'other'" class="input-container">
+      <ion-item class="my-item" lines='none'>
+        <ion-icon slot="start" name="business-outline" color='dark'></ion-icon>
+        <ion-input type="text" [placeholder]="'EDIT_PROFILE.businessCat' | translate"
+          formControlName='businessCategory2'></ion-input>
+      </ion-item>
+      <div *ngIf="(businessCategory2.dirty || businessCategory2.touched) && businessCategory2.errors" class="errors">
+        <span *ngIf="businessCategory2.errors?.required">{{"EDIT_PROFILE.businessCatReq" | translate}}</span>
+      </div>
+    </div>
+
+
+    <div class="input-container">
+      <div style="margin-top: 16px; padding: 0 !important; text-align: right;">
+        <ion-button type="submit" color="danger" shape="round" [disabled]="!credentials.valid"
+          style='--background: var(--ion-color-primary-light); color: var(--ion-color-danger);'>{{ 'SIGNUP.signup' |
+          translate }}</ion-button>
+      </div>
+    </div>
+
+
+  </form>
+
+</ion-content>

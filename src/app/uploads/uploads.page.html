@@ -1,0 +1,60 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid >
+    <ion-row>
+      <ion-col size="6" style="text-align: left;">
+        <div *ngIf="details?.userId?._id === myId && images?.length < 6" class="ion-text-center">
+          <ion-button  mode="ios" size="small" color="secondary" (click)="presentActionSheet()">
+            <ion-icon name="camera" style="margin-right: 10px;" ></ion-icon> {{ 'ADVERT.resimyukle' | translate }}
+          </ion-button>
+      
+      
+        </div>
+      </ion-col>
+      <ion-col size="6" style="text-align: right;"  *ngIf="images?.length  < 1">
+        <div *ngIf="details?.userId?._id === myId" class="ion-text-center">
+          <ion-button  mode="ios" size="small" color="warning" routerLink="/car-registeration5">
+            <ion-icon name="camera" style="margin-right: 10px;" ></ion-icon>Resimsiz devam et
+          </ion-button>
+      
+      
+        </div>
+      </ion-col>
+      <ion-col size="6" style="text-align: right;" *ngIf="images?.length > 0">
+        <ion-button color="dark" mode="ios"  size="small"  routerLink="/car-registeration5">
+          <b>Devam Et<ion-icon style="margin-left : 10px" name="arrow-forward-outline"></ion-icon></b>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12" class="ion-text-center smallsize">Kalan fotoğraf adeti ({{images?.length}} / 6 )</ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+<ion-row>
+  <ion-col size="12" *ngIf="images?.length < 1">
+    <div style="padding: 3px; background-color: aliceblue; border-radius: 3px; text-align: center;">
+      <img src="../../../../assets/icon/target.png" alt="" (click)="presentActionSheet()">
+    </div>
+  </ion-col>
+  <ion-col size="6" *ngFor="let img of images">
+    <div style="padding: 3px; background-color: aliceblue; border-radius: 3px;">
+      <ion-icon name="trash" *ngIf="details?.userId?._id === myId" (click)="delPhoto(img?._id)" style="font-size: x-large; color: red; z-index: 99999; position: absolute; top: 10px; right: 10px;"></ion-icon>
+      <img style=" border-radius: 10px;" src="{{img.publicPath}}">
+    </div>
+  </ion-col>
+</ion-row>
+
+
+
+
+
+
+
+
+
+  
+</ion-content>

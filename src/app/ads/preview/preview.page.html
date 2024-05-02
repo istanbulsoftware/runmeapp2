@@ -1,0 +1,27 @@
+<ion-content style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <ion-slides mode="ios" scrollbar="ios">
+    <ion-slide>
+      <ion-toolbar  style="
+      position: absolute;
+      top: 2vh; 
+      --background: rgba(0,0,0,0); 
+      " class="ion-no-border" >
+        <ion-buttons slot="start" >
+          <ion-back-button text="" defaultHref="/ads"></ion-back-button>
+        </ion-buttons>
+      </ion-toolbar>
+      
+      <video [id]="adDetail._id" *ngIf="adDetail && adDetail.video && adDetail.video.publicPath" [src]="adDetail.video.publicPath" poster="./../../../assets/loading2.gif">
+        <source [src]="adDetail.video.publicPath" type="video/mp4" >
+      </video>
+      <img *ngIf="adDetail && adDetail.photo && adDetail.photo.publicPath" [src]="adDetail.photo.publicPath" alt=""/>
+      <ion-button *ngIf="adDetail && adDetail.action == 'profile'" (click)="onVisitProfile(adDetail.userId)" expand="block" fill="solid" shape="round" color="medium">
+        {{'PRESENT_AD.visit' | translate}}
+      </ion-button>
+      <ion-button *ngIf="adDetail && adDetail.action == 'link'" (click)="onMore(adDetail.link)"  expand="block" fill="solid" shape="round" color="medium">
+        {{'PRESENT_AD.more' | translate}}
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+  
+</ion-content>

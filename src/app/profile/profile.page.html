@@ -1,0 +1,212 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar  style="--background : #ffffff">
+    <ion-back-button slot="start" text="" mode="ios" color="dark"></ion-back-button>
+    <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline" size="large" style="color: rgb(91, 91, 91); padding-left: 5px;"
+      slot="end"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div *ngIf='!isLoading' style="height: 100%;">
+
+
+
+    <br><br>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" style="text-align: center;">
+            <ion-avatar>
+              <img *ngIf="userInfo.profilePicture.publicPath" [src]="userInfo.profilePicture.publicPath">
+              <img *ngIf='!userInfo.profilePicture.publicPath' src="../../assets/avatars/{{userInfo.avatarimg}}.png">
+            </ion-avatar>
+
+          </ion-col>
+          <ion-col size="8" class="ion-no-padding ion-no-margin ion-align-self-center" style="padding-left: 20px;">
+            <h1 style="padding: 0px; margin:0px; font-weight: bold;">{{ userInfo.name }}, {{userInfo.birthday}}</h1>
+
+
+            <div style="font-size: x-small; font-weight: 400; padding: 10px 0px"  (click)="openRate()">
+            
+              <ion-icon style="font-size: small; color: rgb(255, 230, 0);"  *ngFor="let item of list;let i = index"
+              [name]="condition <= i? 'star-outline' :'star' "
+              >
+            </ion-icon>
+            
+            </div>
+
+          </ion-col>
+          <ion-col size="8" class="ion-no-padding ion-no-margin">
+
+
+          </ion-col>
+
+          <ion-col size="2" class="ion-no-padding ion-text-center" (click)="onSendMessage()">
+            <ion-icon
+              style="background: #42cf00; padding: 8px; font-weight: bold; border-radius: 50%; font-size: x-large;"
+              color="light" name="chatbubble-ellipses-outline"></ion-icon>
+
+              
+              <br>
+            <div style="font-size: x-small;"> 
+         Mesaj Gönder</div>
+          </ion-col>
+          <ion-col size="2" class="ion-no-padding ion-text-center" (click)="onPrivateRequest()">
+            <ion-icon
+              style="background: #ecd500; padding: 8px; font-weight: bold; border-radius: 50%; font-size: x-large;"
+              color="light" name="add-outline"></ion-icon><br>
+            <div style="font-size: x-small;">İstek gönder</div>
+
+          </ion-col>
+          <ion-col size="12" *ngFor="let h of userInfo.hobbies ">
+            <div class="hobbies">{{h.hobbyname}}</div>
+          </ion-col>
+          <ion-col size="12" *ngIf="userInfo.bio !== null">
+            <h6 style="font-size: small;">{{ userInfo.bio }} </h6>
+          </ion-col>
+          <ion-col size="12">
+            <div *ngIf="userInfo.bio === null"
+              style="text-align: center; padding: 15px; margin: 15px 0px; width: 100%;  background-color: rgb(245, 245, 245); font-size: small; color:rgb(0, 0, 0) ; border-radius: 15px;">
+              Kullanıcı bio bilgisi bulunmuyor</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </div>
+
+    <div
+      style="background-color: #fff; padding: 5px  10px  30px  10px ; border-radius: 30px 30px 0px 0px; min-height: 100%">
+
+
+
+      <ion-item *ngFor='let social of userInfo.socialAccounts' lines='full'
+        (click)="onSocial(social.name, social.type)">
+        <ion-avatar slot="start">
+          <ion-icon [src]="'./../../assets/images/socialIcons/' + social.type + '.svg' "></ion-icon>
+        </ion-avatar>
+
+        <ion-label style="color: var(--ion-color-dark); text-transform: capitalize;" slot="start">
+          {{social.type}}</ion-label>
+
+
+        <ion-label slot="end" style="color: var(--ion-color-medium); padding-bottom: 7px; font-size: small;">
+          {{social.name}}</ion-label>
+      </ion-item>
+
+
+
+
+
+      <ion-grid>
+        <ion-row style="padding: 10px;">
+          <ion-col size="6" class="ion-text-center" (click)="selectTab('etkinlik')" [ngClass]="selectedTab === 'etkinlik' ? 'active' : 'passive'">
+            <ion-icon name="caret-up-outline" ></ion-icon>
+            <h6 style="margin: 2px;"><b><small >İlanları</small></b></h6>
+          </ion-col>
+
+          <ion-col size="6" class="ion-text-center" (click)="selectTab('resimler')"  [ngClass]="selectedTab === 'resimler' ? 'active' : 'passive'">
+            <ion-icon name="camera-outline" ></ion-icon>
+            <h6 style="margin: 2px;"><b><small >Resimler</small></b></h6>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div id="etkinlik" *ngIf="selectedTab === 'etkinlik'">
+        <ion-item lines="full" *ngFor="let list of userlist" routerLink="/advert-detail/{{list._id}}">
+
+          <ion-label >
+            <div> <small style="font-family: 'MontserratExtraBold'; color: var(--ion-color-primary);">{{list.catId?.name}}</small></div>
+            <div>            {{list.desc}}
+            </div>
+            <div> <small>{{list.userId?.name}}</small></div>
+            <div> <small>
+                <p class="msg" style="color: rgb(164, 164, 164); font-size: small;">
+                  {{list.createdAt | date: 'dd/MM/yyyy'}}</p>
+              </small></div>
+
+          </ion-label>
+        </ion-item>
+      </div>
+      <div id="katildiklarim" *ngIf="selectedTab === 'katildiklarim'">
+
+        <ion-item lines="full" *ngFor="let list of userlist" routerLink="/advert-detail/{{list._id}}">
+          <ion-thumbnail slot="start" class="small-thumbnail">
+            <img *ngIf="list.photos?.length < 1" src="../../assets/images/other.png">
+            <img *ngIf="list.photos?.length > 0" src="{{list.photos[0]?.publicPath}}">
+          </ion-thumbnail>
+          <ion-label slot="start">
+            <div>
+              <h5>
+
+                {{list.title}}
+              </h5>
+            </div>
+            <div> <small>{{list.userId?.name}}</small></div>
+            <div> <small>
+                <p class="msg" style="color: rgb(164, 164, 164); font-size: small;">
+                  {{list.createdAt | date: 'dd/MM/yyyy'}}</p>
+              </small></div>
+
+          </ion-label>
+          <ion-label slot="end">
+
+
+
+
+          </ion-label>
+
+        </ion-item>
+      </div>
+
+      <div id="resimler" *ngIf="selectedTab === 'resimler' && userInfo.photos.length > 0">
+        <ion-row>
+          <ion-col size="4" *ngFor="let p of userInfo.photos" routerLink="/photo-viewer/{{id}}/other">
+            <ion-img class="small-thumbnail"         [src]="p.publicPath"></ion-img>
+          </ion-col>
+
+        </ion-row>
+      </div>
+
+
+      <br> <br> <br>
+
+      <!-- show Card -->
+      <!-- <div *ngIf="isNormal" class="request-container" lines="none">
+      <ion-icon  name="lock-closed"></ion-icon>
+      <p>{{ 'PROFILE.reqNotSent' | translate }}
+        <span *ngIf="!sendRequestLoading" style="font-weight: bold; color: var(--ion-color-primary-shade);" tapable (click)="onSendRequest()">
+          {{ 'PROFILE.sendReq' | translate }}
+        </span>
+        <span *ngIf="sendRequestLoading"><ion-spinner  style="color: var(--ion-color-primary-shade);"></ion-spinner> </span>
+      </p>
+    </div>
+    <div *ngIf="isPending" class="request-pending-container" lines="none">
+      <ion-icon  name="lock-closed"></ion-icon>
+      <p>{{ 'PROFILE.reqSent' | translate }} 
+      </p>
+    </div>
+    <div *ngIf="isRejected" class="request-rejected-container" lines="none">
+      <ion-icon  name="lock-closed"></ion-icon>
+      <p>{{ 'PROFILE.reqRejected' | translate }}</p>
+    </div> -->
+
+    </div>
+
+
+  </div>
+
+
+
+
+  <div class="animate__animated animate__fadeInUp" style="position: fixed; bottom: 0px; background-color: #ffffff; border-radius: 10px 10px 0px 0px; width: 100%; z-index: 99999;" *ngIf="isRate === true">
+    <div class="ion-padding ion-text-center"><h4>Hemen oy verin</h4>
+      <div style="font-size: x-small; font-weight: 400;">
+            
+        <ion-icon style="font-size: xx-large; color: rgb(255, 72, 0); margin: 15px;"  *ngFor="let item of list;let i = index"
+        [name]="condition <= i? 'star-outline' :'star' "
+        (click)="review(details?.userId?.rating, details?.userId?.ratecount, i, details?.userId?._id)">
+      </ion-icon>
+      
+      </div>
+    </div>
+  </div>
+</ion-content>

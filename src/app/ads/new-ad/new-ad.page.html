@@ -1,0 +1,382 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides mode="ios" pager="false" scrollbar="ios" #slides>
+    <!-- SLIDE 1111 -->
+    <ion-slide>
+      <div class="slide-content">
+
+        <form [formGroup]='form1' class="ion-padding" (ngSubmit)="onNextSlide1()">
+          <div class="tokens">Mevcut True Coin : {{coins}}</div>
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="grid-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: small;">{{'ADS.NEW_AD.category' | translate}}</ion-label>
+              <ion-select value="adCategory" multiple="false" [placeholder]="'ADS.NEW_AD.select' | translate" formControlName="adCategory">
+                <ion-select-option value="cafeBar">{{'ADS.NEW_AD.cafeBar' | translate}}</ion-select-option>
+                <ion-select-option value="hotel">{{'ADS.NEW_AD.hotel' | translate}}</ion-select-option>
+                <ion-select-option value="other">{{'ADS.NEW_AD.other' | translate}}</ion-select-option>
+                
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(adCategory.dirty || adCategory.touched) && adCategory.errors" class="errors">
+              <span *ngIf="adCategory.errors?.required">{{'ADS.NEW_AD.categoryReq' | translate}}</span>
+            </div>
+          </div>
+
+
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="calendar-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: small;">{{'ADS.NEW_AD.targetAge' | translate}}</ion-label>
+              <ion-select  value="ageFrom" multiple="false" [placeholder]="'ADS.NEW_AD.from' | translate" formControlName="ageFrom">
+                <ion-select-option *ngFor="let i of ageList" [value]="i.toString()">{{i}}</ion-select-option>
+              </ion-select>
+              <ion-select  value="ageTo" multiple="false" [placeholder]="'ADS.NEW_AD.to' | translate" formControlName="ageTo">
+                <ion-select-option *ngFor="let i of ageList" [value]="i.toString()">{{i}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(ageFrom.dirty || ageFrom.touched) && ageFrom.errors" class="errors">
+              <span *ngIf="ageFrom.errors?.required">{{'ADS.NEW_AD.targetAgeFromReq' | translate}}</span>
+            </div>
+            <div *ngIf="(ageTo.dirty || ageTo.touched) && ageTo.errors" class="errors">
+              <span *ngIf="ageTo.errors?.required">{{'ADS.NEW_AD.targetAgeToReq' | translate}}</span>
+            </div>
+            <div *ngIf=" s2n(ageFrom.value)  > s2n(ageTo.value)" class="errors">
+              <span *ngIf="s2n(ageFrom.value)  > s2n(ageTo.value)">{{'ADS.NEW_AD.targetAgeInv' | translate}}</span>
+            </div>
+          </div>
+
+
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="earth-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: small;">{{'ADS.NEW_AD.tarLocation' | translate}}</ion-label>
+              <ion-select  value="adDuration" multiple="false" [placeholder]="'ADS.NEW_AD.select' | translate" formControlName="iLocation">
+                <ion-select-option value="wholeWorld">{{'ADS.NEW_AD.wholeW' | translate}}</ion-select-option>
+                <ion-select-option value="limitedLocations">{{'ADS.NEW_AD.limitedLoc' | translate}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(iLocation.dirty || iLocation.touched) && iLocation.errors" class="errors">
+              <span *ngIf="iLocation.errors?.required">{{'ADS.NEW_AD.tarLoccationReq' | translate}}</span>
+            </div>
+          </div>
+
+          <div *ngIf="iLocation.value == 'limitedLocations'" class="locationPicker">
+            <ion-button (click)="pickPlace()" expand="block"  shape="round">
+              <ion-icon slot="start" name="map-outline"></ion-icon> {{'ADS.NEW_AD.selectLoc' | translate}}
+            </ion-button>
+          </div>
+
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="time-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: small;">{{'ADS.NEW_AD.duration' | translate}}</ion-label>
+              <ion-select value="adDuration" multiple="false" [placeholder]="'ADS.NEW_AD.select' | translate" formControlName="adDuration">
+                <ion-select-option value="5">5 {{'ADS.NEW_AD.sec' | translate}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(adDuration.dirty || adDuration.touched) && adDuration.errors" class="errors">
+              <span *ngIf="adDuration.errors?.required">{{'ADS.NEW_AD.durationReq' | translate}}</span>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <ion-item class="my-question-text" lines='none'>
+              <ion-icon slot="start" name="male-female-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: medium;">Cinsiyet</ion-label>
+              <ion-select  formControlName="gender">
+                <ion-select-option value="all">Farketmez</ion-select-option>
+                <ion-select-option value="male">Erkek</ion-select-option>
+                <ion-select-option value="female">Kadın</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(gender.dirty || gender.touched) && gender.errors" class="errors">
+              <span *ngIf="gender.errors?.required">{{ 'SURVEYS.genderReq' | translate }}</span>
+            </div>
+          </div>
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="calendar-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: small;">{{'ADS.NEW_AD.start' | translate}}</ion-label>
+              <ion-datetime display-format="DD.MM.YYYY" format="DD-MM-YYYY" [min]="min" max="2045-12-23" formControlName="startDate"></ion-datetime>
+            </ion-item>
+            <div *ngIf="(startDate.dirty || startDate.touched) && startDate.errors" class="errors">
+              <span *ngIf="startDate.errors?.required">{{'ADS.NEW_AD.startReq' | translate}}</span>
+            </div>
+          </div>
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="calendar-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: small;">{{'ADS.NEW_AD.end' | translate}}</ion-label>
+              <ion-datetime display-format="DD.MM.YYYY" format="DD-MM-YYYY" [min]="min2" max="2045-12-23" formControlName="endDate"></ion-datetime>
+            </ion-item>
+            <div *ngIf="(endDate.dirty || endDate.touched) && endDate.errors" class="errors">
+              <span *ngIf="endDate.errors?.required">{{'ADS.NEW_AD.endReq' | translate}}</span>
+            </div>
+ 
+          </div>
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="calendar-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: small;">Gösterim adedi</ion-label>
+              <ion-input style="background-color: rgb(247, 247, 247);" type="number"  formControlName="quantity" (ionChange)="ionchanges($event)"></ion-input>
+            </ion-item>
+            <div class="errors" *ngIf="quantityCount">
+              <span >{{quantityCount}} True Coin harcanır<br><b style="color: red; font-weight: bold; " *ngIf="coins < quantityCount  && quantityCount > 0">True Coin yetersiz</b></span>
+            </div>
+ 
+          </div>
+          <!-- <div style="display: flex; flex-direction: column; border-radius: 7px; background: var(--ion-color-warning); padding: 19px;">
+            <ion-label *ngIf="!pReachLoading && pReach!=null" style="color: var(--ion-color-dark); font-size: large; text-align: start;">{{'ADS.NEW_AD.pReach' | translate}}{{pReach.toLocaleString()}}{{'ADS.NEW_AD.people' | translate}}</ion-label>
+            <ion-label *ngIf="!pReachLoading && pReach == null" style="color: var(--ion-color-dark); font-size: large;">{{'ADS.NEW_AD.hint' | translate}}</ion-label>
+            <ion-spinner *ngIf="pReachLoading" style="color: var(--ion-color-dark); width: 100%;"></ion-spinner>
+          </div> -->
+
+        </form>
+      </div>
+
+      <div class="first-slide-footer ion-padding" >
+        <ion-button (click)="onNextSlide1()" *ngIf="coins >= quantityCount && quantityCount > 0" expand="block"  shape="round" class="footer-button">{{'ADS.NEW_AD.next' | translate}}</ion-button>
+        <ion-button routerLink="/walletcoin" *ngIf="coins < quantityCount  && quantityCount > 0" expand="block" color="danger"  shape="round" class="footer-button">True Coin Satın Al</ion-button>
+      </div>
+    </ion-slide>
+
+    <!-- SLIDE 2222 -->
+    <ion-slide>
+      <div class="slide-content">
+        <ion-text color="dark">
+          <h4 style="font-size: medium; font-weight: bold; margin-bottom: 0;">{{'ADS.NEW_AD.chooseMedia' | translate}}</h4>
+        </ion-text>
+
+        <ion-row class="ion-padding">
+          <ion-col size="6">
+            <div class="my-div" (click)="onPhoto()">
+              <ion-icon slot="start" name="image-outline" color='dark' size='large'></ion-icon>
+              <ion-label >{{'ADS.NEW_AD.img' | translate}}</ion-label>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="my-div" (click)="onVideo()">
+              <ion-icon slot="start" name="film-outline" color='dark' size='large'></ion-icon>
+              <ion-label >{{'ADS.NEW_AD.vid' | translate}}</ion-label>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div style="display: flex; flex-direction: column;">
+              <ion-label style="font-size: small; margin-bottom: 7px; font-weight: bold;">{{'ADS.NEW_AD.bestReq' | translate}}</ion-label>
+              <ion-label style="font-size: small; margin-bottom: 7px;">{{'ADS.NEW_AD.aspect' | translate}}</ion-label>
+              <ion-label style="font-size: small; margin-bottom: 7px;">{{'ADS.NEW_AD.imgFormat' | translate}}</ion-label>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div style="display: flex; flex-direction: column;">
+              <ion-label style="font-size: small; margin-bottom: 7px; font-weight: bold;">{{'ADS.NEW_AD.bestReq' | translate}}</ion-label>
+              <ion-label style="font-size: small; margin-bottom: 7px;">{{'ADS.NEW_AD.aspect' | translate}}</ion-label>
+              <ion-label style="font-size: small; margin-bottom: 7px;">{{'ADS.NEW_AD.vidFormat' | translate}}</ion-label>
+            </div>
+          </ion-col>
+          
+        </ion-row>
+          
+
+
+
+      </div>
+      <div class="slide-footer ion-padding" >
+        <ion-button (click)="onPreviousSlide()" expand="block"  shape="round" class="footer-button">{{'ADS.NEW_AD.prev' | translate}}</ion-button>
+        <ion-button (click)="onNextSlide2()" expand="block"  shape="round" class="footer-button">{{'ADS.NEW_AD.next' | translate}}</ion-button>
+      </div>
+    </ion-slide>
+
+    <!-- SLIDE 333 -->
+    <ion-slide>
+      <div class="slide-content">
+        <ion-text color="dark">
+          <h4 style="font-size: medium; font-weight: bold; margin-bottom: 10px;">{{'ADS.NEW_AD.manageButton' | translate}}</h4>
+        </ion-text>
+        <!-- [poster]="videoThumbnail" -->
+        <div style="height: 48vh; display: flex; flex-direction: column; align-items: center;">
+          <img *ngIf="photo"  [src]="photo" alt="" style="object-fit: cover; ">
+          <video *ngIf="video"  width="100%" height="100%" id="myVideo" autoplay >
+            <source [src]="video" type="video/mp4">
+          </video>
+          <ion-button expand="block" shape="round" style="margin-top: -25px; font-size: x-small; height: 20px; width: 30px; --background: var(--ion-color-medium);">{{'ADS.NEW_AD.action' | translate}}</ion-button>
+        </div>
+
+        <form [formGroup]= 'form3' class="ion-padding">
+
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="alert-circle-outline" color='dark'></ion-icon>
+              <ion-label>{{'ADS.NEW_AD.action' | translate}}</ion-label>
+              <ion-select value="type" multiple="false" [placeholder]="'ADS.NEW_AD.select' | translate" formControlName="buttonSelect">
+                <ion-select-option value="profile">{{'ADS.NEW_AD.visit' | translate}}</ion-select-option>
+                <ion-select-option value="link">{{'ADS.NEW_AD.openLink' | translate}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(buttonSelect.dirty || buttonSelect.touched) && buttonSelect.errors" class="errors">
+              <span *ngIf="buttonSelect.errors?.required">{{'ADS.NEW_AD.actionReq' | translate}}</span>
+              <span *ngIf="buttonSelect.errors?.invalid">{{'ADS.NEW_AD.actionInv' | translate}}</span>
+            </div>
+          </div>
+
+          <div class="input-container" *ngIf="buttonSelect.value == 'link'">
+      
+            <ion-item class="my-item" lines="none" >
+              <ion-icon slot="start" name="link-outline" color='dark'></ion-icon>
+              <ion-input type="text" pattern="[^<>]+" [placeholder]="'ADS.NEW_AD.link' | translate" formControlName="buttonLink"></ion-input>
+            </ion-item>
+            <div *ngIf="(buttonLink.dirty || buttonLink.touched) && buttonLink.errors" class="errors">
+              <span *ngIf="buttonLink.hasError('required')">{{'ADS.NEW_AD.linkReq' | translate}}</span>
+              <span *ngIf="buttonLink.hasError('pattern')">{{'ADS.NEW_AD.symbolsNotAllowed' | translate}}</span>
+            </div>
+      
+          </div>
+        </form>
+    
+
+      </div>
+      <div class="slide-footer ion-padding" >
+        <ion-button (click)="onPreviousSlide()" expand="block"  shape="round" class="footer-button">{{'ADS.NEW_AD.prev' | translate}}</ion-button>
+        <ion-button (click)="onNextSlide3()" expand="block"  shape="round" class="footer-button">{{'ADS.NEW_AD.next' | translate}}</ion-button>
+      </div>
+    </ion-slide>
+    <!-- SLIDE 4444 -->
+    <ion-slide>
+      <div class="slide-content">
+        <ion-text color="dark">
+          <h4 style="font-size: medium; font-weight: bold; margin-bottom: 10px;">{{'ADS.NEW_AD.pricePayment' | translate}}</h4>
+        </ion-text>
+        
+        <ion-row class="ion-padding">
+          <ion-col size="12">
+            <div class="my-div2">
+              <ion-row class="s-row" style="height: 10vh;">
+                <ion-col  class="s-col">
+                  <div>
+                    <ion-label>{{'ADS.NEW_AD.duration' | translate}}</ion-label>
+                    <p *ngIf="form1.value.adDuration" style="font-weight: 430;font-size: small; margin-top: 5px;margin-bottom: 0; width: fit-content;">{{form1.value.adDuration}} {{'ADS.NEW_AD.sec' | translate}}</p>
+                  </div>
+                </ion-col>
+                <ion-col  size="" class="s-col" offset="1" size="5">
+                  <div>
+                    <ion-label>{{'ADS.NEW_AD.price' | translate}}</ion-label>
+                    <p *ngIf="form1.value.adDuration" style="font-weight: 430;font-size: small; margin-top: 5px;margin-bottom: 0; width: fit-content;"> Gösterim başı 2 True Coin</p>
+                  </div>
+                </ion-col>
+              </ion-row>
+              
+              <ion-row class="s-row">
+                <ion-col  class="s-col">
+                
+                    <ion-label>{{'ADS.NEW_AD.start' | translate}}</ion-label>
+                  
+                </ion-col>
+                <ion-col  class="s-col" offset="1" size="5">
+                
+                    <p *ngIf="form1.value.startDate" class="s-p"> {{ form1.value.startDate.split('T')[0] }}</p>
+                  
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="s-row">
+                <ion-col  class="s-col">
+                
+                    <ion-label>{{'ADS.NEW_AD.end' | translate}}</ion-label>
+                  
+                </ion-col>
+                <ion-col  class="s-col" offset="1" size="5">
+                
+                    <p *ngIf="form1.value.endDate" class="s-p"> {{ form1.value.endDate.split('T')[0] }}</p>
+                  
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="s-row">
+                <ion-col  class="s-col">
+                
+                    <ion-label>{{'ADS.NEW_AD.numOfDays' | translate}}</ion-label>
+                  
+                </ion-col>
+                <ion-col  class="s-col" offset="1" size="5">
+                
+                    <p *ngIf="form1.value.startDate && form1.value.endDate" class="s-p"> {{ calculateDays() }}</p>
+                  
+                </ion-col>
+              </ion-row>
+
+              <!-- <ion-row class="s-row">
+                <ion-col  class="s-col">
+                
+                    <ion-label>{{'ADS.NEW_AD.reachPrice' | translate}}</ion-label>
+                  
+                </ion-col>
+                <ion-col  class="s-col" offset="1" size="5">
+                
+                    <p *ngIf="pReach >= 0" class="s-p">{{ ((pReach / 100000) * (3/10)).toFixed(7) }}{{'ADS.NEW_AD.dPerDay' | translate}}</p>
+                  
+                </ion-col>
+              </ion-row> 
+
+              <ion-row class="s-row" style="border-top: 1px solid var(--ion-color-dark-shade);">
+                <ion-col  class="s-col">
+                
+                    <ion-label>{{'ADS.NEW_AD.total' | translate}}</ion-label>
+                  
+                </ion-col>
+                <ion-col  class="s-col"  offset="1" size="5">
+                
+                    <p *ngIf="form1.value.adDuration && form1.value.startDate && form1.value.endDate" class="s-p" style="font-weight: bold;"> {{ ((getPrice() + ((pReach / 100000) * (3/10))) * calculateDays()).toFixed(7)  }}$</p>
+                  
+                </ion-col>
+              </ion-row>-->
+
+            </div>
+          </ion-col>
+                    
+        </ion-row>
+
+        <!-- <form [formGroup]="form4" class="ion-padding">
+          <div class="input-container">
+            <ion-item class="my-item" lines='none'>
+              <ion-icon slot="start" name="wallet-outline" color='dark' size='small'></ion-icon>
+              <ion-label style="font-size: small;">Payment Option</ion-label>
+              <ion-select value="paymentOption" multiple="false" [placeholder]="'ADS.NEW_AD.select' | translate" formControlName="paymentOption">
+                <ion-select-option value="trueCoin">True Coin</ion-select-option>
+                <ion-select-option value="paypal">PayPal</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(paymentOption.dirty || paymentOption.touched) && paymentOption.errors" class="errors">
+              <span *ngIf="paymentOption.errors?.required">Payment Option is required</span>
+              <span *ngIf="paymentOption.errors?.invalid">Payment Option is invalid</span>
+            </div>
+          </div>
+
+        </form> -->
+
+      </div>
+      <div class="slide-footer ion-padding" >
+        <ion-button (click)="onPreviousSlide()" expand="block"  shape="round" class="footer-button">{{'ADS.NEW_AD.prev' | translate}}</ion-button>
+        <ion-button (click)="onFinish()" expand="block"  shape="round" class="footer-button">Reklamı Yayınla</ion-button>
+      </div>
+    </ion-slide>
+    
+    
+
+
+    
+  </ion-slides>
+
+</ion-content>

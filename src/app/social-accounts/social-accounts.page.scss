@@ -1,0 +1,30 @@
+p{
+    text-align: center;
+    color: var(--ion-color-medium);
+    padding-top: 16px;
+}
+
+ion-item{
+    --background: var(--ion-color-light);
+
+    ion-avatar{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        ion-icon{
+            width: 33px;
+            height: 33px;
+            color: var(--ion-color-medium-shade);
+            text-align: center;
+        }
+    }
+    
+}
+
+ion-spinner{
+    margin: 16px auto;
+    width: 100%;
+    color: var(--ion-color-primary-shade);
+}

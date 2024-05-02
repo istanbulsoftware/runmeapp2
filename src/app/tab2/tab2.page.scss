@@ -1,0 +1,108 @@
+ion-content {
+    --padding-start: 20px;
+    --padding-end: 20px;
+
+    .segment {
+        ion-segment {
+            border-bottom: 1px solid #999;
+        }
+    }
+
+    .card {
+        margin-top: 10px;
+        border-radius: 9px;
+        border: 1px solid #D9D9D9;
+        padding: 20px;
+        .postImg {
+            img {
+                height: 135px;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 9px;
+            }
+        }
+
+        .btnsRow {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            .btnsLeft {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .btnsRight {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+            .btn {
+                display: flex;
+                align-items: center;
+                ion-icon {
+                    font-size: 18px;
+                    margin-right: 6px;
+                }
+
+                span {
+                    color: #1C1E21;
+                    font-size: 13px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    ion-item{
+        border: 1px solid #999;
+        border-radius: 9px;
+        margin-top: 10px;
+        --background: white;
+    }
+    ion-item-option{
+        background: transparent !important;
+        margin-top: 10px;
+        ion-icon{
+            font-size: 30px;
+        }
+    }
+    .item-options-ios.item-options-end{
+        border-bottom-width: 0px !important;
+    }
+    .user {
+
+        .img {
+            img {
+                height: 40px;
+                width: 40px;
+                border-radius: 40px;
+                object-fit: cover;
+            }
+        }
+
+        .userData {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .name {
+                color: #1C1E21;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .date {
+                color: #1C1E21;
+                font-size: 9px;
+                font-weight: 700;
+            }
+        }
+
+    }
+}

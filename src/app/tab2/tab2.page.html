@@ -1,0 +1,88 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="add-circle" slot="end" style="margin: 10px; font-size: x-large;" routerLink="/map"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="search">
+    <ion-searchbar placeholder="Kullanıcı ara" mode="ios"></ion-searchbar>
+  </ion-row>
+  <ion-row class="segment">
+    <ion-segment mode="md" [(ngModel)]="segment">
+      <ion-segment-button value="first">Keşfet</ion-segment-button>
+      <ion-segment-button value="second">Arkadaşlar</ion-segment-button>
+      <ion-segment-button value="third">Mesajlar</ion-segment-button>
+    </ion-segment>
+  </ion-row>
+  <div *ngIf="segment=='first'">
+    <ion-grid class="card" *ngFor="let a of items" routerLink="/running">
+      <ion-row class="user"  routerLink="/user-profile">
+        <ion-col class="img" size="auto">
+          <img src="../../assets/person.jpg">
+        </ion-col>
+        <ion-col class="userData">
+          <span class="name">{{a?.userId?.name}}</span>
+          <span class="date">02.11.2023 - İstanbul/Turkiye</span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="postImg">
+        <img src="../../assets/postImg.jpeg" alt="">
+      </ion-row>
+      <ion-row class="btnsRow">
+        <ion-col class="btnsLeft" size="6">
+          <div class="btn">
+            <ion-icon src="../../assets/icon/heartHollow.svg"></ion-icon>
+            <span>{{a?.likeCount}}</span>
+          </div>
+          <div class="btn">
+            <ion-icon src="../../assets/icon/comment.svg"></ion-icon>
+            <span>{{a?.CommentCount}}</span>
+          </div>
+        </ion-col>
+        <ion-col size="6" class="btnsRight">
+          <div class="btn">
+            <ion-icon src="../../assets/icon/share.svg"></ion-icon>
+            <span>Paylaş</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="segment=='second'">
+  <ion-item-sliding *ngFor="let a of [1,2,3]" routerLink="/user-profile">
+    <ion-item lines="none">
+      <ion-row class="user">
+        <ion-col class="img" size="auto">
+          <img src="../../assets/person.jpg">
+        </ion-col>
+        <ion-col class="userData">
+          <span class="name">Aydın İşık</span>
+          <span class="date">02.11.2023 - İstanbul/Turkiye</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option><ion-icon src="../../assets/icon/trash.svg"></ion-icon></ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+  </div>
+  <div *ngIf="segment=='third'">
+    <ion-item-sliding *ngFor="let a of [1,2,3]" routerLink="/chats">
+      <ion-item lines="none">
+        <ion-row class="user">
+          <ion-col class="img" size="auto">
+            <img src="../../assets/person.jpg">
+          </ion-col>
+          <ion-col class="userData">
+            <span class="name">Aydın İşık</span>
+            <span class="name">Selam nasılsın</span>
+            <span class="date">02.11.2023 11:55</span>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option><ion-icon src="../../assets/icon/trash.svg"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    </div>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header class="ion-no-border" no-border>
+  <ion-toolbar>
+    <span slot="start" class="title">RunME App</span>
+    
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="img">
+    <img src="../../../../assets/images/placeholderCar.jpeg">
+    <div class="heart">
+      <ion-icon src="../../../../assets/icon/heartHollow.svg"></ion-icon>
+    </div>
+    <div class="pagination">1 of 15</div>
+  </ion-row>
+  <ion-row class="title2">
+    <span class="name">Porsche Macan 2018</span>
+    <span class="model">Standart Model</span>
+    <p class="rating">5.0 <ion-icon name="star" color="primary"></ion-icon> <span class="reviews"> (13 Yolculuk)</span></p>
+  </ion-row>
+
+  <ion-row class="input1">
+    <ion-label>Başlangıç</ion-label>
+    <ion-col size="7">
+      <ion-input type="date"></ion-input>
+    </ion-col>
+    <ion-col size="5">
+      <ion-input type="time"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row class="input1">
+    <ion-label>Bitiş</ion-label>
+    <ion-col size="7">
+      <ion-input type="date"></ion-input>
+    </ion-col>
+    <ion-col size="5">
+      <ion-input type="time"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="input1">
+    <ion-label>Bitiş</ion-label>
+    <ion-col size="12">
+      <ion-select  toggleIcon="chevron-down-outline" value="first">
+        <ion-select-option value="first">Taksim Meydan, IST</ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+  <ion-row class="btn">
+    <ion-col size="7">
+      <p class="amount"> <span class="total">₺195</span>₺189/gün</p>
+      <span class="bottom">₺567 tahmini</span>
+    </ion-col>
+    <ion-col size="5">
+      <ion-button routerLink="/select-date">
+        Devam
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

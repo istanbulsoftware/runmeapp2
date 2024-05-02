@@ -1,0 +1,139 @@
+<ion-content class="ion-padding modal-content">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="9">
+        <h6>Kategori Seçiniz</h6>
+      </ion-col>
+      <ion-col size="3" (click)="dismiss()">
+        <b>Kapat</b>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="isInputs !== true" style="margin-bottom: 15px;">
+
+      <ion-select *ngIf="selectedLang === 'tr'" style="background	: #fff" aria-label="Fruit" interface="action-sheet" placeholder="{{ 'ADVERT.choosecategory' | translate }}" [(ngModel)]="selectedCat">
+        <ion-select-option value="{{mainCat._id}}"
+          *ngFor="let mainCat of mainCats">{{mainCat.name}}</ion-select-option>
+      </ion-select>
+
+      <ion-select *ngIf="selectedLang === 'en'" aria-label="Fruit" interface="action-sheet" placeholder="{{ 'ADVERT.choosecategory' | translate }}" [(ngModel)]="selectedCat">
+        <ion-select-option value="{{mainCat._id}}"
+          *ngFor="let mainCat of mainCats">{{mainCat.nameen}}</ion-select-option>
+      </ion-select>
+
+
+  </div>
+  <!--input başlangıcı-->
+  <div>
+
+      <ion-row >
+
+        <ion-col size="12"><ion-textarea type="text" [(ngModel)]="desc" placeholder="{{ 'ADVERT.adsdesc' | translate }}"
+            rows="6"></ion-textarea></ion-col>
+      </ion-row>
+      <ion-row >
+
+        <ion-col size="12">
+          <ion-input type="number" [(ngModel)]="price" placeholder="Fiyat giriniz"></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button shape="round" mode="ios" (click)="gotoOfferm()" color="warning" expand="block">Etkinlik Konumu</ion-button>
+          <div class="ion-text-center ion-padding" *ngIf="saveIl"><b>{{placeName}}</b></div>
+          <div class="ion-text-center ion-padding" *ngIf="saveIl"><b>{{saveIl}}</b></div>
+
+        </ion-col>
+        <ion-col size="12">
+          <ion-button shape="round" mode="ios" id="open-bostEndDate" color="warning" expand="block">Buluşma tarih ve
+            zamanı</ion-button>
+          <div class="ion-text-center ion-padding"><b>{{getdate | date: 'dd/MM/yyyy HH:mm'}}</b></div>
+          <ion-modal #bostEndDate trigger="open-bostEndDate" [initialBreakpoint]="0.75" [breakpoints]="[0.75]">
+            <ng-template>
+              <ion-content class="ion-padding" style="background: #fff;">
+                <ion-datetime size="cover" [(ngModel)]="getdate" doneText="Tamam" cancelText="İptal" pickerFormat="DD-MMMM-YYYY" [min]="MinDate"
+                  [showDefaultButtons]="true" [firstDayOfWeek]="1" locale="tr-TR">
+                  <span slot="time-label">Buluşma zamanı</span>
+                </ion-datetime>
+
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-select placeholder="Hesap tipi" cancelText="İptal" okText="Tamam" [(ngModel)]="isNew">
+            <ion-select-option value="Ben öderim">Ben öderim</ion-select-option>
+            <ion-select-option value="Fifty % fift">Fifty % fifty</ion-select-option>
+            <ion-select-option value="Belirtilmedi">Belirtilmedi</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="selectedCat === '645c23a656cf8b4cb5a6b58d'">
+        <ion-col>
+          <ion-select placeholder="{{ 'ADVERT.satilikkiralik' | translate }}" cancelText="İptal" okText="Tamam"
+            [(ngModel)]="saleRent">
+            <ion-select-option value="forsale" *ngIf="selectedLang === 'tr'">Satılık</ion-select-option>
+            <ion-select-option value="torent" *ngIf="selectedLang === 'tr'">Kiralık</ion-select-option>
+            <ion-select-option value="daily" *ngIf="selectedLang === 'tr'">Günlük kiralık</ion-select-option>
+            <ion-select-option value="project" *ngIf="selectedLang === 'tr'">Yeni proje</ion-select-option>
+
+            <ion-select-option value="forsale" *ngIf="selectedLang === 'en'">For sale</ion-select-option>
+            <ion-select-option value="torent" *ngIf="selectedLang === 'en'">To rent</ion-select-option>
+            <ion-select-option value="daily" *ngIf="selectedLang === 'en'">Daily renting</ion-select-option>
+            <ion-select-option value="project" *ngIf="selectedLang === 'en'">New Pproject</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="selectedCat === '645c237e56cf8b4cb5a6b58c'">
+        <ion-col>
+          <ion-list>
+            <ion-select placeholder="{{ 'ADVERT.satilikkiralik' | translate }}" cancelText="İptal" okText="Tamam"
+              [(ngModel)]="saleRent">
+              <ion-select-option value="forsale" *ngIf="selectedLang === 'tr'">Satılık</ion-select-option>
+              <ion-select-option value="torent" *ngIf="selectedLang === 'tr'">Kiralık</ion-select-option>
+
+
+              <ion-select-option value="forsale" *ngIf="selectedLang === 'en'">For sale</ion-select-option>
+              <ion-select-option value="torent" *ngIf="selectedLang === 'en'">To rent</ion-select-option>
+
+            </ion-select>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let input of inputs">
+        <ion-col size="8">
+          <b *ngIf="selectedLang === 'tr'">{{input.inputName}}</b>
+          <b *ngIf="selectedLang === 'en'">{{input.inputNameen}}</b>
+        </ion-col>
+        <ion-col size="3">
+          <ion-toggle *ngIf="selectedLang === 'tr' && input.inputype === 'toggle'"
+            (ionChange)="getVal(input.inputName, $event.target.value)"></ion-toggle>
+        </ion-col>
+        <ion-col size="3">
+          <ion-toggle *ngIf="selectedLang === 'en' && input.inputype === 'toggle'"
+            (ionChange)="getVal(input.inputNameen, $event.target.value)"></ion-toggle>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input type="text" *ngIf="selectedLang === 'tr' && input.inputype === 'text'"
+            (focusout)="getVal(input.inputName, $event.target.value)" placeholder="{{input.inputName}}"></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input type="text" *ngIf="selectedLang === 'en' && input.inputype === 'text'"
+            (focusout)="getVal(input.inputNameen, $event.target.value)" placeholder="{{input.inputNameen}}"></ion-input>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="saveList()" color="dark" mode="ios" expand="block" shape="round">
+            <b *ngIf="selectedLang === 'tr'">Aktivite Oluşturmayı Tamamla </b>
+            <b *ngIf="selectedLang === 'en'">Save</b>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+  </div>
+  <br><br><br><br><br>
+
+</ion-content>

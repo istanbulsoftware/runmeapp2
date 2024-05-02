@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-toolbar style="
+    position: absolute;
+    top: 2vh; 
+    --background: rgba(0,0,0,0); 
+    " class="ion-no-border">
+    <ion-buttons slot="start" (click)="myBackButton()">
+      <ion-button fill="clear">
+        <ion-icon name="chevron-back-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+   
+  </ion-toolbar>
+<div class="adiv">
+  <ion-slides>
+    <ion-slide *ngFor="let i of images">
+      
+      <ion-label>
+        <div>
+          <img src="{{i.publicPath}}"><br>
+        </div>
+        <div> <ion-text slot="end" style="font-size: small; color: rgb(53, 53, 53);" *ngIf="otherwho === 'me'" (click)="changeProfile(i.fileName)">Profil fotosu yap</ion-text></div>
+      </ion-label>
+    </ion-slide>
+  </ion-slides>
+</div>
+
+
+
+</ion-content>

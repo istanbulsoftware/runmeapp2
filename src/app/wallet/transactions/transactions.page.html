@@ -1,0 +1,32 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/wallet"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-spinner *ngIf="isLoading" style="color: var(--ion-color-primary-shade); width: 100%; margin-top: 16px;"></ion-spinner>
+  <ion-item lines="full" color="light" *ngFor="let item of data" (click)="onClick(item.data.batchId, item.detail.items[0].transaction_status)">
+    <ion-avatar slot="start">
+      <ion-label class="amount-text">${{(item.detail.batch_header.amount.value).split('.')[0]}}</ion-label>
+    </ion-avatar>
+    <ion-label class="email-container">
+      <span class="email-title">{{ 'WALLET.receiverEmail' | translate }}</span>
+      <span class="email-text">{{item.data.receiverEmail}}</span>
+      <div style="height: 3px;"></div>
+      <span class="email-title">{{ 'WALLET.dateTime' | translate }}</span>
+      <span class="date-text">{{ (item.data.createdAt | glob).split('T')[0] }} {{ (item.data.createdAt | glob).split('T')[1].split('.')[0] }}</span>
+    </ion-label>
+    <div class="status-container" slot="end">
+      <span class="email-title">{{ 'WALLET.status' | translate }}</span>
+      <span class="email-text">{{ ('WALLET.' + item.detail.items[0].transaction_status.toLowerCase()) | translate}}</span>
+    </div>
+  </ion-item>
+
+</ion-content>

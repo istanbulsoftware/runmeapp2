@@ -1,0 +1,92 @@
+<ion-header class="ion-no-border" no-border>
+  <ion-toolbar>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button mode="ios" text=""></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-row class="header">
+    <span class="head">Profilin Oaylandı</span>
+    <span class="detail">Bu senin ilk seyahatın olacağından sürücü bilgilerini
+      de kontrol etmemiz gerekecek :)</span>
+  </ion-row>
+  <hr>
+  <ion-row class="item">
+    <span>Email Doğrulama</span>
+    <ion-icon src="../../../../assets/icon/checkbox.svg"></ion-icon>
+  </ion-row>
+  <hr>
+  <ion-row class="item" (click)="presentActionSheet()">
+    <span>Profil Fotoğrafı</span>
+    Şimdi Yükle
+  </ion-row>
+  <hr>
+  <ion-row class="item">
+    <span>Telefon Numarası</span>
+    SMS Gönder
+  </ion-row>
+  <hr>
+  <form (ngSubmit)="changeProfile()" [formGroup]="form" class="ion-padding">
+  <ion-row class="input">
+    <ion-col size="12"><ion-label>Tam Adın</ion-label></ion-col>
+    <ion-input placeholder="Ad ve soyadınız" formControlName="name"></ion-input>
+  </ion-row>
+  <ion-row class="input">
+    <ion-col size="12"><ion-label>Bio</ion-label></ion-col>
+    <ion-textarea rows="5" placeholder="Bio" formControlName="bio"></ion-textarea>
+  </ion-row>
+  <ion-row class="input">
+    <ion-col size="12"><ion-label>Telefon no</ion-label></ion-col>
+    <ion-input placeholder="" type="number"  formControlName="mobile"></ion-input>
+  </ion-row>
+  <ion-row class="input">
+    <ion-col size="12"><ion-label>Ülke</ion-label></ion-col>
+    <ion-input placeholder="Türkiye">
+      <ion-icon src="../../../../assets/icon/downIcon.svg"></ion-icon>
+    </ion-input>
+  </ion-row>
+
+
+  <ion-row class="input">
+    <ion-col size="12"><ion-label>Kan Grubu</ion-label></ion-col>
+    <ion-select placeholder="Kan grubu" formControlName="bllodgroup">
+      <ion-select-option disabled>Seçiniz</ion-select-option>
+      <ion-select-option value="A RH Pozitif">A RH Pozitif</ion-select-option>
+      <ion-select-option value="O RH Pozitif">O RH Pozitif</ion-select-option>
+      <ion-select-option value="B RhD Pozitif">B RhD Pozitif</ion-select-option>
+      <ion-select-option value="AB RhD Pozitif">AB RhD Pozitif</ion-select-option>
+      <ion-select-option value="A RhD Negatif">A RhD Negatif</ion-select-option>
+      <ion-select-option value="O RhD Negatif">O RhD Negatif</ion-select-option>
+      <ion-select-option value="B RhD Negatif">B RhD Negatif</ion-select-option>
+      <ion-select-option value="AB RhD Negatif">AB RhD Negatif</ion-select-option>
+    </ion-select>
+  </ion-row>
+
+
+
+  <!-- <ion-row class="input1">
+    <ion-label>Veriliş Tarihi</ion-label>
+    <ion-row>
+      <ion-input placeholder="Ay">
+        <ion-icon src="../../../../assets/icon/downIcon.svg"></ion-icon>
+      </ion-input>
+      <ion-input placeholder="Gün">
+        <ion-icon src="../../../../assets/icon/downIcon.svg"></ion-icon>
+      </ion-input>
+      <ion-input placeholder="Yıl">
+        <ion-icon src="../../../../assets/icon/downIcon.svg"></ion-icon>
+      </ion-input>
+    </ion-row>
+  </ion-row> -->
+  <ion-row class="terms">
+    Kaydet ve ilerleye tıklayarak <span>kullanım koşullarımızı</span> kabul ediyorsun
+  </ion-row>
+  <ion-row class="btn">
+    <ion-button type="submit" shape="round">Kaydet ve İlerle</ion-button>
+  </ion-row>
+  </form>
+</ion-content>

@@ -1,0 +1,48 @@
+
+
+ion-item{
+
+    height: 57px;
+    --background : #fff;
+
+    ion-avatar {
+        background: var(--ion-color-secondary);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 42px;
+
+        ion-icon{
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+}
+
+ion-avatar.about-avatar{
+    background: var(--ion-color-warning-shade) !important;
+}
+
+
+ion-avatar.logout-avatar{
+    background: var(--ion-color-dark) !important;
+}
+
+ion-avatar.block-avatar{
+    background: var(--ion-color-light-tint) !important;
+}
+
+ion-avatar.wallet-avatar{
+    background: var(--ion-color-light-tint) !important;
+}
+
+ion-avatar.language-avatar{
+    background: var(--ion-color-light-tint) !important;
+}
+
+ion-avatar.profile-avatar{
+    background: var(--ion-color-light-tint) !important;
+}

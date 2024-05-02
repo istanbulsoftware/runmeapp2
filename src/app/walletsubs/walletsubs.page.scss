@@ -1,0 +1,95 @@
+ion-content, ion-toolbar {
+    --background: linear-gradient(90deg, #EE6C2F 0%,  #FF2D2C 100%) !important;
+}
+.top{
+    background: var(--ion-color-light);
+    width: 100%;
+    height: 199px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ion-label{
+        font-size: large;
+        font-weight: bold;
+        color: var(--ion-color-dark);
+        margin: 7px;
+    }
+
+    ion-avatar{
+        border: 5px dashed #B28228;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eee075b7;
+        width: 137px;
+        height: 137px;
+        padding: 33px;
+        color: #B28228;
+        ion-icon{
+            width: 77px;
+            height: 77px;
+        }
+    }
+}
+.price-label {
+    padding: 3px 0px;
+    margin: 6px 0px;
+    font-weight: bold;
+}
+.quantity-label {
+    padding: 8px 0px;
+    background-color: #F2A40F;
+    width: 100%;
+    border-radius: 0px 0px 5px 5px;
+
+}
+.yellow-row {
+    background-color: rgb(247, 244, 206); 
+    border-radius:15px; 
+    border: 2px solid rgb(199, 199, 0);
+}
+.cols{
+    background-color: #FCC113;
+    border-top: solid 2px #b08400;
+    border-right: solid 2px #b08400;
+    border-left: solid 2px #b08400;
+    border-bottom: solid 9px #b08400;
+    padding: 20px  0px 0px 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ion-avatar{
+        border: 1px dashed #B28228;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eee075b7;
+        color: #B28228;
+    }
+}
+.cols-premium{
+    background-color: #FCC113;
+    border-top: solid 2px #b08400;
+    border-right: solid 2px #b08400;
+    border-left: solid 2px #b08400;
+    border-bottom: solid 9px #b08400;
+    padding: 20px  0px 0px 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+ion-card-header {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.my-title{
+    text-align: center; font-size: xx-large; font-weight: bold; color: var(--ion-color-dark);
+}

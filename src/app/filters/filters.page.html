@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon  routerLink="/tabs/advert-real" src="../../../../assets/icon/arrow-left.svg"  style="margin-right: 15px; font-size: x-large;" slot="start"></ion-icon >
+
+    <ion-title>Filtre</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="title">
+    Koşu Tipi
+  </ion-row>
+  <ion-row class="scroll">
+    <ion-col size="auto" class="item" *ngFor="let a of [1,2,3,4,5,6]">
+      <img src="../../../../assets/images/car.png" alt="">
+      <span>Tüm Koşular</span>
+    </ion-col>
+  </ion-row>
+  <ion-row class="title">
+    Markalar
+  </ion-row>
+  <ion-row class="items1">
+    <ion-col size="auto" [class]="selected==1?'selected':''" (click)="selected=1" class="item1">
+      <img src="../../../../assets/icon/ferrariLogo.svg" alt="">
+      Ferrari
+    </ion-col>
+    <ion-col size="auto" [class]="selected==2?'selected':''" (click)="selected=2" class="item1">
+      <img src="../../../../assets/icon/ford.svg" alt="">
+      Ford
+    </ion-col>
+    <ion-col size="auto" [class]="selected==3?'selected':''" (click)="selected=3" class="item1">
+      <img src="../../../../assets/icon/porsche.png" alt="">
+      Porsche
+    </ion-col>
+    <ion-col size="auto" [class]="selected==4?'selected':''" (click)="selected=4" class="item1">
+      <img src="../../../../assets/icon/mitsubishi.svg" alt="">
+      Mitsubishi
+    </ion-col>
+    <ion-col size="auto" [class]="selected==5?'selected':''" (click)="selected=5" class="item1">
+      <img src="../../../../assets/icon/honda.png" alt="">
+      Honda
+    </ion-col>
+  </ion-row>
+  <ion-row class="title">
+    Fiyat
+  </ion-row>
+  <ion-row class="range">
+    <ion-range [value]="50"></ion-range>
+   <ion-row class="rangeTitles">
+    <span>₺48/Gün</span>
+    <span>₺12.000/Gün</span>
+   </ion-row>
+  </ion-row>
+  <ion-row class="title">
+    Özellik
+  </ion-row>
+
+  <ion-row class="items1">
+    <ion-col size="auto" [class]="selected1==a?'selected':''" (click)="selected1=a" *ngFor="let a of [1,2,3,4,5,6,7,8,9]" class="item1">
+      Otomatik
+    </ion-col>
+  </ion-row>
+  <ion-row class="btn">
+    <ion-button>Filtreyi Uygula</ion-button>
+  </ion-row>
+</ion-content>

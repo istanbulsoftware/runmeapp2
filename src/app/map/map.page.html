@@ -1,0 +1,45 @@
+<ion-content>
+  <div class="map-wrapper">
+    <div #map id="map"></div>
+  </div>
+  <ion-row class="top">
+    <ion-col size="auto">
+      <div class="circle">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-col class="mid">
+      <span>Konum Seç</span>
+    </ion-col>
+    <ion-col size="auto">
+      <div class="circle" (click)="showFilters()">
+        <ion-icon src="../../../../assets/icon/list-2.svg"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="center">
+    <div class="circle">
+      <img src="../../../../assets/images/user.jpeg" alt="">
+    </div>
+  </ion-row>
+  <ion-row class="card">
+    <ion-col size="6">
+      <swiper-container [slidesPerView]="1" [loop]="false" [pagination]="true">
+        <swiper-slide><img src="../../../../assets/images/car.png"></swiper-slide>
+        <swiper-slide><img src="../../../../assets/images/car.png"></swiper-slide>
+        <swiper-slide><img src="../../../../assets/images/car.png"></swiper-slide>
+      </swiper-container>
+    </ion-col>
+    <ion-col size="6" class="detail">
+      <ion-row>
+        <span class="name">Honda City</span>
+        <span class="fuel"> <ion-icon src="../../../../assets/icon/gas-station 1.svg"></ion-icon> 24% Doluy</span>
+        <span class="location"><ion-icon src="../../../../assets/icon/Location 2.svg"></ion-icon>4140 Etiler, İstanbul 31134</span>
+      </ion-row>
+      <ion-row>
+        <span class="amount">₺6.00/Gün</span>
+        <span class="rating"><ion-icon name="star" color="warning"></ion-icon> 5.0 (12K Reviews)</span>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="ios">
+      <ion-back-button text="" icon="chevron-back-outline"  defaultHref="/tabs/list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sorularım</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row style="border-bottom: solid 1px #d5d5d5 ;" *ngFor="let myquestion of myQuestions">
+    <ion-col size="4">
+      <img src="{{myquestion.photos[0].publicPath}}">
+    </ion-col>
+    <ion-col size="7">
+      <h4 style="font-size: 16px; color: var(--ion-color-danger);">{{myquestion.text}}</h4>
+      <div><small>{{ago(myquestion.createdAt)}} önce</small></div>
+      <div><small>Toplam {{myquestion.tCount}} kişi oylamış</small></div>
+        <div style="padding: 2px; width: 100%; height: 24px; border-radius: 10px;">
+          <b>{{myquestion.likes.length}} beğeni</b>  - %{{(myquestion.likes.length / myquestion.tCount) * 100  | number : '1.2-2'}}
+        </div>
+      <div>-</div>
+    </ion-col>
+    <ion-col size="1" (click)="removeQuestion(myquestion._id)">
+      <ion-icon name="trash" color="danger"></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

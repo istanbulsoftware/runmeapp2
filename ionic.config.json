@@ -1,0 +1,7 @@
+{
+  "name": "carentrip",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

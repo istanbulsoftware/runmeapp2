@@ -1,0 +1,42 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <h4 style="color: #000;">Arama sonucları</h4>
+      <img slot="start" src="../../assets/prove.png" style="padding-left: 10px; padding-top: 5px;">
+    </ion-title>
+    <ion-icon slot="end" name="filter-outline" (click)="goFilter()"
+      style="color: red; margin-right: 10px; font-size: x-large; padding: 7px; color: #000; height: 20px; width: 20px; border-radius: 50%;">
+    </ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item lines="full" routerLink="/profile/{{itemlist._id}}" *ngFor="let itemlist of filteredUsers">
+    <ion-avatar *ngIf="itemlist.profilePicture.publicPath" class="profile-thumbnail ion-avatar100" slot="start">
+      <img src="{{itemlist.profilePicture.publicPath}}">
+      
+    </ion-avatar>
+    
+    <ion-avatar *ngIf="!itemlist.profilePicture.publicPath" class="profile-thumbnail ion-avatar100" slot="start">
+      <img src="../../assets/images/other.png">
+      
+    </ion-avatar>    
+    <ion-label style="font-size: small;" slot="start">
+      <div style="font-weight: bold;">{{ itemlist.name }}</div>
+      <ion-note>{{ itemlist.bio }}</ion-note>
+      <div>{{ getAge(itemlist.birthday) }}, {{ itemlist.horoscop }}, {{ itemlist.city }}</div>
+    </ion-label>
+    <ion-label slot="end" *ngIf="itemlist.messagecount < 250"><img src="../../assets/stars/stars-1.png"></ion-label>
+    <ion-label slot="end" *ngIf="itemlist.messagecount > 250 && itemlist.messagecount > 0"><img
+        src="../../assets/stars/stars-2.png"></ion-label>
+    <ion-label slot="end" *ngIf="itemlist.messagecount > 250 "><img src="../../assets/stars/stars-3.png"></ion-label>
+    <ion-label slot="end" *ngIf="itemlist.messagecount > 250 "><img src="../../assets/stars/stars-4.png"></ion-label>
+    <ion-label slot="end" *ngIf="itemlist.messagecount > 250 "><img src="../../assets/stars/stars-5.png"></ion-label>
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,611 @@
+{
+    "dir":"ltr",
+    "TABS":{
+        "chats": "Chats",
+        "requests": "Requests",
+        "map": "Map",
+        "more": "More"
+    },
+    "ROUTES": {
+        "title": "Routes",
+        "mostlike": "Most liked",
+        "mostcomment": "Most Commented",
+        "searchPlace": "Arama...",
+        "error": "Yeni verileri almak için yenileme hatası var",
+        "refresh": "Yenile"
+      },
+    "TAB1":{
+        "title": "Chats",
+        "searchPlace": "Search...",
+        "error": "There is an error refresh to receive new data",
+        "refresh": "Refresh"
+    },
+    "TAB2":{
+        "title": "Requests",
+        "editReq": "Edit Request",
+        "accept": "Accept",
+        "accepted": "Accepted",
+        "reject": "Reject",
+        "noRequests": "No Requests",
+        "rejected": "Rejected",
+        "messaging": "Send Message",
+        "receivedreqs" : "Received Requests",
+        "sentreqs" : "Sent Requests",
+        "callvideo" : "Video Call",
+        "callvoice" : "Voice Call",
+        "pending" : "Pending"
+
+
+    },
+    "TAB3":{
+        "cafeBar": "Cafes & Bars",
+        "hotel": "Hotel",
+        "other": "Other",
+        "turnOnLocation": "Turn on location service",
+        "refresh": "Refresh",
+        "survey": "Survey",
+        "removeAll": "Remove all",
+        "people": "People",
+        "taxi": "Taxi",
+        "baker": "Baker",
+        "bar": "Bar",
+        "barber": "Berbar",
+        "cafe": "Cafe",
+        "carRepair": "Car Repair",
+        "carStore": "Car Store",
+        "carService": "Car Service",
+        "fastFood": "Fast Food",
+        "gym": "Gym",
+        "pastry": "Pastry",
+        "pharmacy": "Pharmacy",
+        "restaurant": "Restaurant",
+        "store": "Store"
+
+    },
+    "TAB5":{
+        "editAccount": "Edit Account",
+        "location": "Location",
+        "wallet": "Wallet",
+        "language": "Language",
+        "ads": "Advertisements",
+        "surveys": "Surveys",
+        "block": "Blocked Users",
+        "logout": "Log Out",
+        "paynow": "Buy True Coin"
+
+    },
+    "SEARCH":{
+        "title": "Search Users",
+        "noUser": "No Users. Search one!",
+        "search": "Search..."
+    },
+    "EDIT_ACCOUNT":{
+        
+    "myforum": "My forum titles",
+    "myforumfac": "Following forum titles",
+        "title":"Edit Account",
+        "pInfo": "Personal Information",
+        "photos": "Photos",
+        "social": "Social Accounts",
+        "email": "Change Email",
+        "password": "Change Password",
+        "myfavs" : "My favorite ads",
+        "mylists" : "My ads",
+        "languages" : "Languages",
+        "useragrement" : "Terms of service"
+
+    },
+    "EDIT_PROFILE":{
+        "title":"Personal Information",
+        "name":"Name",
+        "email": "Email",
+        "nameRequired": "Name is required",
+        "symbolsNotAllowed": "Symbols are not allowed",
+        "mobile":"Phone Number",
+        "mobileExample": "Example: +9991115533",
+        "about":"About",
+        "aboutInvalid": "About is invalid",
+        "birthday":"Birthday",
+        "birthdayRequired": "Birthday is required",
+        "birthdayInvalid": "Birthday is invalid",
+        "businessCat": "Business Category",
+        "businessCatReq": "Business category is required",
+        "businessCatInv": "Business category is invalid",
+        "bakery": "Bakery",
+        "bar": "Bar",
+        "barber": "Barber",
+        "cafe":"Cafe",
+        "carRepair":"Car Repair",
+        "carStore":"Car Store",
+        "carService":"Car Service",
+        "fastFood":"Fast Food",
+        "gym":"Gym",
+        "hotel":"Hotel",
+        "pastry":"Pastry",
+        "pharmacy":"Pharmacy",
+        "restaurant":"Restaurant",
+        "store":"Store",
+        "taxi":"Taxi",
+        "other":"Other",
+        "select": "Select",
+        "gender": "Gender",
+        "genderReq": "Gender is required",
+        "genderInv": "Gender is invalid",
+        "male": "Male",
+        "female": "Female",
+
+        "editProfImg":"Edit Profile Image",
+        "takePhoto": "Take New Photo",
+        "choose":"Choose From Device",
+        "removeImg":"Remove Photo",
+
+        "instagram":"Instagram",
+        "youtube":"YouTube",
+        "facebook":"Facebook",
+        "messenger":"Messenger",
+        "twitter":"Twitter",
+        "tiktok":"TikTok",
+        "snapchat":"Snapchat",
+        "whatsapp":"WhatsApp",
+        "qq":"QQ",
+        "line":"Line",
+        "wechat":"WeChat",
+        "kik":"Kik",
+        "kakaoTalk":"KakaoTalk",
+        "reddit":"Reddit",
+        "pinterest":"Pinterest",
+        "telegram":"Telegram",
+        "vk":"VK",
+        "skype":"Skype",
+        "linkedin":"LinkedIn",
+        "discord":"Discord",
+        "tumblr":"Tumblr",
+        "twitch":"Twitch",
+        "steam":"Steam",
+        "github":"GitHub",
+        "ok":"OK",
+        "messaging": "Send message",
+        "callvideo" : "Video Call",
+        "callvoice" : "Voice Call"
+    },
+
+    "USER_PHOTOS":{
+        "title": "Photos",
+        "noPhoto": "No photos, add one!"
+    },
+    "SOCIAL_ACCOUNTS":{
+        "title": "Social Accounts",
+        "noAccount": "No accounts. Add one!",
+        "edit":"Edit",
+        "remove":"Remove",
+        "removeSuccess":"Link removed successfully",
+        "removeError":"Problem happened. Please, try again",
+
+        "ADD":{
+            "title":"Add Link",
+            "editTitle": "Edit Link",
+            "category": "Category",
+            "categoryReq": "Category is required",
+            "symbolNotAllowed": "Symbols are not allowed",
+            "other":"Other",
+            "link": "Link",
+            "add": "Add",
+            "linkReq": "Link is required",
+            "select":"Select"
+
+        }
+    },
+
+    "EDIT_EMAIL":{
+        "title": "Change Email",
+        "verCode": "Verification Code",
+        "codeReq": "Code is required",
+        "hint": "Enter new email address to receive verification code to change email.",
+        "email": "Email",
+        "emailReq":"Email is required",
+        "emailExample": "Example: username@name.com",
+        "sendCode": "Send Code"
+    },
+
+    "EDIT_PASSWORD":{
+        "title":"Change Password",
+        "curPass":"Current Password",
+        "curPassReq":"Current password is required",
+        "newPass": "New Password",
+        "newPassReq": "New password is required",
+        "passMin": "Password needs to be at least 6 characters",
+        "forPass": "Forgot Password?"
+    },
+
+    "LOCATION_SETTINGS":{
+        "title":"Location Settings",
+        "locationSet": "Location Setting",
+        "locationReq": "Location settings are required",
+        "locationInv": "Location settings are invalid",
+        "off": "Off",
+        "fix": "Fixed Location",
+        "live": "Live Location",
+        "pickLocation": "Pick a location on the map",
+        "select":"Select",
+        "locationPicker": "Location Picker",
+        "dragmarker": "*Drag the marker for certain location"
+    },
+
+    "LANGUAGES":{
+        "title":"Languages"
+    },
+
+    "WALLET":{
+        "done" : "Successed",
+        "error" : "Error occured",
+        "filter" : "Filter",
+        "inproper" : "Report inappropriate content",
+        "blockedbefore" : "'You have blocked before'",
+
+        "boost" : "Boost your adds now",
+        "boosttext" : "More people can view your adds by boosting your adds",
+
+        "title":"Wallet",
+        "SendMetamask": "Send to Meta Mask Address",
+        "yourTrue": "Write your Meta Mask crypto address",
+        "metaMask": "This may take up to 48 hours",
+        "receiverInfo": "Receiver Information",
+        "paypalEmail": "PayPal Email",
+        "ok": "OK",
+        "quantity" : "Qauntity of tokens you want to send",
+
+        "sendCode" : "Send",
+        "cancel": "Cancel",
+        "notEnoughCoins": "You don't have enough true coins",
+
+        "returnCoins":"Return The Coins",
+        "transactions":"Transactions",
+        "status":"Status",
+        "receiverEmail":"Receiver Email",
+        "dateTime":"Date & Time",
+        "success":"Success",
+        "failed":"Failed",
+        "pending":"Pending",
+        "unclaimed":"Unclaimed",
+        "returned":"Returned",
+        "onhold":"On Hold",
+        "blocked":"Blocked",
+        "refunded":"Refunded",
+        "reversed":"Reversed"
+
+    },
+
+    "ADS":{
+        "gender" : "Gender",
+        "location" : "Location",
+        "age" : "Age from-to",
+        "title":"Advertisements",
+        "memberdate" : "Membership created",
+
+        "adId":"Advertisement ID",
+        "days": "Days Remaining",
+        "status": "Status",
+        "payment": "Payment",
+        "active": "Active",
+        "inactive": "Inactive",
+        "complete": "Completed",
+        "incomplete": "Incomplete",
+        "preview":"Preview",
+        "changeFile":"Change File",
+        "delete":"Delete",
+        "completePayment":"Complete The Payment",
+
+        "NEW_AD":{
+            "title": "Create new advertisement",
+            "category": "Category",
+            "categoryReq": "Category is required",
+            "select": "Select",
+            "cafeBar": "Cafes & Bars",
+            "hotel": "Hotels",
+            "other": "Other",
+            "targetAge": "Target Age",
+            "targetAgeFromReq": "Target age from is required",
+            "targetAgeToReq": "Target age to is required",
+            "targetAgeInv": "Target age is invalid",
+            "from": "From",
+            "to": "To",
+            "tarLocation": "Target Location",
+            "tarLocationReq": "Target location is required",
+            "wholeW": "Whole World",
+            "limitedLoc": "Limited Location",
+            "selectLoc": "Select Location",
+            "duration": "Duration",
+            "durationReq": "Duration is required",
+            "sec":"Seconds",
+            "start": "Start Date",
+            "startReq": "Start date is required",
+            "end": "End Date",
+            "endReq": "End date is required",
+            "pReach": "Potential reach: ",
+            "people":" people",
+            "hint":"After selecting the target age and location you can see the number of people that can be reached.",
+            "next":"Next",
+            "prev":"Previous",
+            "pay":"Pay",
+
+            "chooseMedia":"Choose Media File",
+            "vid":"Video",
+            "vidFormat":"Format MP4",
+            "img": "Photo",
+            "imgFormat": "Format JPEG/PNG",
+            "bestReq": "Best Requirements",
+            "aspect": "Aspect ratio 9:16",
+
+            "manageButton":"Manage Action Button",
+            "action":"Action",
+            "actionReq":"Action is required",
+            "actionInv":"Action is invalid",
+            "visit":"Visit my profile",
+            "openLink":"Open link",
+            "link":"Link",
+            "linkReq":"Link is required",
+            "symbolNotAllowed":"Symbols <> are not allowed",
+
+            "pricePayment":"Price and Payment",
+            "price":"Price",
+            "dPerDay": "$/day",
+            "numOfDays":"Number of Days",
+            "reachPrice":"Reach Price",
+            "total":"Total",
+
+            "locSelector":"Location Selector",
+            "pleasePick":"Please pick a location",
+            "pleaseCompleteForm":"Please, complete the form!",
+            "pleaseSelectAge":"Please, select a valid age.",
+            "pleaseSelectLocation":"Please, Select Location.",
+            "choosePhoto":"Choose Photo File",
+            "chooseVideo":"Choose video File",
+            "loading":"Loading...",
+            "uploading":"Uploading...",
+            "videoIsLong":"Video is longer than ",
+            "seconds":" seconds"
+        }
+
+    },
+    
+    "SURVEYS":{
+        "all" : "All",
+        "male" : "Male",
+        "female" : "Female",
+        "title":"Surveys",
+        "id":"ID",
+        "status": "Status",
+        "start":"Start Date",
+        "startReq":"Start date is required",
+        "end":"End Date",
+        "endReq":"End date is required",
+        "totalVotes":"Total Votes",
+        "q1":"Question 1",
+        "q2":"Question 2",
+        "q3":"Question 3",
+
+        "createSurvey":"Create Survey",
+        "fromAge":"From",
+        "toAge":"to",
+        "location":"Location",
+        "gender":"Gender",
+        "cancel":"Cancel",
+        "ok":"",
+        "sure":"Change survey status",
+        "nope" : "You can not change a pending survey",
+        "sufficent" : "You don't have sufficent(10) True Coins",
+        "ADD":{
+            "title":"Create New Survey",
+            "op1":"Option 1",
+            "op2":"Option 2",
+            "op3":"Option 3",
+            "op4":"Option 4"
+        }
+    },
+
+    "BLOCKED_USERS":{
+        "title":"Blocked Users",
+        "unblock":"Unblock"
+    },
+
+    "PROFILE":{
+        "vote" : "votes",
+        "message":"Message",
+        "personalInfo":"Personal Info",
+        "businessInfo":"Bussines Info",
+        "category":"Category",
+        "establishmentDate":"Establishment Date",
+        "gender":"Gender",
+        "birthday":"Birthday",
+        "contactInfo":"Contact Info",
+        "email":"Email",
+        "mobile":"Phone Number",
+        "img":"Photos",
+        "ask":"Ask",
+        "askAll":"Ask all information",
+        "reqSent":"Request Sent",
+        "reqRejected":"Request Rejected",
+
+        "openInApp": "Open In App",
+        "openInBrowser": "Open In Browser",
+        "call": "Call",
+        "sendMessage": "Message",
+
+        "noMyProfileSend":"You can not send messages to your account.",
+        "messaging": "Send message",
+        "callvideo" : "Video Call",
+        "callvoice" : "Voice Call"
+
+    },
+
+    "ACCOUNT_TYPE":{
+        "title":"Account Type",
+        "req":"Account type is required",
+        "inv":"Account type is invalid",
+        "personal":"Personal",
+        "business":"Business",
+        "continue":"Continue Sign Up",
+        "select":"Select"
+    },
+
+    "SIGNUP":{
+        "title":"Personal Account",
+        "subTitle": "Create New Account",
+        "name":"Name",
+        "nameReq":"Name is required",
+        "symbolNotAllowed":"Symbols are not allowed",
+        "email":"Email",
+        "emailReq":"Email is required",
+        "emailExample":"Example: username@name.com",
+        "password":"Password",
+        "passwordReq":"Password is required",
+        "minPass": "Password needs to be at least 6 characters",
+        "birthday":"Birthday",
+        "birthdayReq":"Birthday is required",
+        "gender":"Gender",
+        "genderReq":"Gender is required",
+        "signup":"Sign Up",
+        "select":"Select",
+        "male":"Male",
+        "female":"Female",
+        "other":"Other",
+
+        "emailRegistered":"Email already registered."
+
+    },
+
+    "SIGNUP2":{
+        "title":"Business Account",
+        "subTitle": "Create New Account"
+
+    },
+
+    "ADVERT":{
+        "satilikkiralik" : "For sale / to rent",
+
+        "adsdesc" : "Ads Description",
+        "boostnow" : "Boost now",
+        "all" : "All",
+
+        "yes":"yes",
+        "details" : "Details",
+        "desc" : "Description",
+        "rent":"To rent",
+        "sell": "For sale",
+        "daily": "Daily",
+        "projects": "Projects",
+        "estate" : "Ads",
+        "vehicles" : "Ads",
+        "filter" : "Filter",
+        "choosecategory" : "Select category",
+        "catover" : "category selection completed",
+        "adddetail" : "Add more detail",
+        "changecat" : "Change category",
+        "adsstatus" : "status",
+        "il" : "City",
+        "ilce" : "District",
+        "resimyukle" : "Upload image",
+        "adsnumber" : "Ads number"
+
+
+        
+
+  
+
+    },
+
+    "LOGIN":{
+        "title":"Log in",
+        "subTitle":"Welcome",
+        "email":"Email",
+        "emailReq":"Email is required",
+        "emailExample":"Example: username@name.com",
+        "password":"Password",
+        "passwordReq":"Password is required",
+        "minPass":"Password needs to be at least 6 characters",
+        "forPassword":"Forgot Password?",
+        "askSignUp":"Not Yet A Member? Sign Up!",
+        "loginslogan1":"Login now",
+        "loginslogan2":"then start to buy and sell",
+
+    "loginslogan3":"By ‘logging in to’ our site, you agree to our",
+    "loginslogan4":" terms and conditions",
+    "loginslogan5":"and privacy policy",
+    "loginslogan6":"",
+    "loginslogan7":"Without login"
+
+    },
+
+    "FORGOT_PASSWORD":{
+        "title":"Reset Password",
+        "email":"Email",
+        "emailReq":"Email is required",
+        "emailExample":"Example: username@name.com",
+        "verCode":"Verification Code",
+        "verCodeReq":"Verification code is required",
+        "newPassword":"New Password",
+        "passwordReq":"Password is required",
+        "minPass":"Password needs to be at least 6 characters",
+        "setNewPass":"Set New Password",
+        "hint":"Enter email address to receive verification code to reset password.",
+        "sendCode":"Send Code"
+    },
+
+    "CHAT":{
+        "visit":"Visit Profile",
+        "block":"Block User",
+        "blocked":"Blocked"
+    },
+
+    "PRESENT_AD":{
+        "more":"More",
+        "visit":"Visit Profile",
+        "noAds":"No advertisements are available to show."
+    },
+
+    "PRESENT_SURVEY":{
+        "title":"Surveys",
+        "submit":"Submit",
+        "noSurvey": "No surveys are available to show.",
+        "pleaseComplete": "Please Complete The Survey",
+        "noTwice": "Can not Submit twice"
+    },
+    "CALLS": {
+        "missed": "Missed call",
+        "incoming": "Incoming call",
+        "outgoing": "Outgoing call",
+        "before": "before",
+        "newcall": "New call"
+      },
+    "ALERTS":{
+        "LOGIN":{
+            "wrongData":"Wrong email address or password",
+            "unknown":"Unknown Error",
+            "loginFailed":"Log In Failed"
+        }
+    },
+    "CALLING":{
+        "incoming":"Incoming Call",
+        "outgoing":"Outgoing Call"
+    },
+    "NOTIFICATION":{
+        "newReq":"Sent a new request",
+        "newMes":"Sent a new message",
+        "newvideocall": "A new video call",
+        "newvoiceCall": "a new voice call"
+    },
+
+    "ALERT":{
+        "success":"The operation was done successfully.",
+        "fail":"There was an error, try again."
+    },
+    "CALLLIST": {
+        "incomingvideocall": "Incoming video call ",
+        "outgoingvideocall": "Outgoing video call",
+        "missedvideocall": "Missed video call",
+        "incomingvoicecall": "Incoming voice call",
+        "outgoingvoicecall": "Outgoing voice call",
+        "missedvoicecall": "Missed voice call"
+      }
+    
+}

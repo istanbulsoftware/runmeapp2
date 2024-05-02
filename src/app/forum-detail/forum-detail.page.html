@@ -1,0 +1,93 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar class="padding-all-10">
+    <ion-buttons slot="start">
+      <ion-back-button text="" mode="ios" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-icon (click)="createFav('remove')" name="bookmark"         *ngIf="isFav === true"   style="font-size: x-large; margin-right: 20px; color: var(--ion-color-warning);" slot="end"></ion-icon>
+    <ion-icon (click)="createFav('add')"    name="bookmark-outline" *ngIf="isFav === false"  style="font-size: x-large; margin-right: 20px; color: var(--ion-color-warning);" slot="end"></ion-icon>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="warning">
+    <ion-card-content>
+      <ion-card-subtitle class="bolder">{{title}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card color="light" routerLink="/profile/{{titleReplies?.userId._id}}">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="3">
+                  <ion-avatar>
+                    <img *ngIf="titleReplies?.userId.profilePicture.publicPath" src="{{titleReplies?.userId.profilePicture.publicPath}}">
+                    <img *ngIf="!titleReplies?.userId.profilePicture.publicPath" src="../../assets/profile.webp">                  
+                  </ion-avatar>
+                </ion-col>
+                <ion-col size="9" style="padding-top: 15px;">
+                  <div style="font-size: small; font-weight: 700; color: darkgrey;">{{titleReplies?.userId.name}}</div>
+                  <div style="font-size: small; font-weight: 700;  color: darkgrey;">Üyelik Tarihi : {{titleReplies?.userId.createdAt}}</div>
+                </ion-col>
+              </ion-row>
+          
+          
+            </ion-grid>
+          </ion-card>
+        </ion-col>
+        <ion-col class="ion-text-center" class="textsmall"><b>Cevaplar:</b> {{replyCount}}</ion-col>
+        <ion-col class="ion-text-center" class="textsmall"><b>Görüntü:</b> {{viewCount}}
+        </ion-col>
+        <ion-col class="ion-text-center" class="textsmall"><b>{{ago(titlecreatedAt)}} önce</b></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-button color="warning" mode="ios" expand="block" *ngIf="!replies">İlk cevap yazan siz olun</ion-button>
+  <ion-card *ngFor="let rep of replies">
+    <ion-item lines="none">
+      <ion-label slot="start">
+        <div>{{rep?.title}}</div>
+      </ion-label>
+      <ion-label slot="end">
+        <small>{{ago(rep?.createdAt)}}</small>
+      </ion-label>
+    </ion-item>
+    <ion-card-content >
+      <ion-item lines="none" routerLink="/profile/{{rep.userId?._id}}">
+        <ion-avatar slot="start">
+          <img *ngIf="rep.userId?.publicPath" src="{{rep.userId?.publicPath}}">
+          <img *ngIf="!rep.userId?.publicPath" src="../../assets/profile.webp">
+        </ion-avatar>
+        <ion-card-subtitle slot="start">{{rep.userId?.name}} --</ion-card-subtitle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" >
+    <ion-fab-button id="open-reply">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-modal  trigger="open-reply"  [initialBreakpoint]="0.75"  [breakpoints]="[0.75]"  handleBehavior="cycle">
+    <ng-template>
+      <ion-content class="ion-padding modal-content" >
+        <div class="ion-margin-top">
+          <ion-label>Cevabınızı yazınız</ion-label>
+          <br><br>
+          <ion-textarea
+          (ionChange)="count($event)"
+          label="Email:"
+          maxlength="100"
+          rows="6"
+          [(ngModel)]="newTitle"
+
+        ></ion-textarea>  
+        <div class="ion-text-right"><small>Maksimum karakter uzunluğu : {{countChar}}/100</small></div> 
+        <br>
+        <ion-button mode="ios" color="danger" *ngIf="countChar > 5" (click)="saveForum()">Kaydet</ion-button>
+      </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

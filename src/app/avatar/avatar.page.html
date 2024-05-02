@@ -1,0 +1,21 @@
+<ion-header class="ion-padding">
+  <ion-toolbar mode="ios" >
+    <ion-buttons slot="start" >
+      <ion-back-button text="" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <h1>Avatarını seç</h1>
+  <ion-text color="medium">Kendini avatarlar ile ifade et</ion-text>
+  <br>
+<!--segment top-->
+
+</ion-header>
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col size="4" style="color: aliceblue;" *ngFor="let a of avatarcount" (click)="changeAvatar(a)">
+    <img src="../../assets/avatars/{{a}}.png">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

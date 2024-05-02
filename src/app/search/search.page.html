@@ -1,0 +1,66 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item class="itemcls">
+    <ion-searchbar class="more-padding" mode="ios" showClearButton="never" showCancelButton="never" [placeholder]=" 'SEARCH.search' | translate "
+      (input)="search($event.target.value)"></ion-searchbar>
+
+  </ion-item>
+
+  <h3 *ngIf="!isLoading && conversations.length < 1" style="font-size: medium; text-align: center; width: 100%; color: var(--ion-color-medium);" >{{ 'SEARCH.noUser'| translate}}</h3>
+  <ion-spinner *ngIf="isLoading" style="width: 100%;"></ion-spinner>
+
+  <div *ngIf="!isLoading">
+    <div *ngFor="let conv of conversations ">
+    <ion-item lines="full" class="my-item"  [routerLink]="'/profile/' + conv._id">
+      <ion-avatar slot="start" class="my-avatar"
+      [ngClass]= 
+    "{
+      'boy': conv.accountType == 'personal' && conv.gender =='male', 
+      'girl': conv.accountType == 'personal' && conv.gender =='female', 
+      'other-gender': conv.accountType == 'personal' && conv.gender =='other',
+      
+      'restaurant': conv.accountType == 'business' && conv.businessCategory == 'restaurant',
+      'fastfood': conv.accountType == 'business' && conv.businessCategory == 'fastFood',
+      'cafe': conv.accountType == 'business' && conv.businessCategory == 'cafe',
+      'bakery': conv.accountType == 'business' && conv.businessCategory == 'bakery',
+      'pastry': conv.accountType == 'business' && conv.businessCategory == 'pastry',
+      'store': conv.accountType == 'business' && conv.businessCategory == 'store',
+      'hotel': conv.accountType == 'business' && conv.businessCategory == 'hotel',
+      'bar': conv.accountType == 'business' && conv.businessCategory == 'bar',
+      'carservice': conv.accountType == 'business' && conv.businessCategory == 'carService',
+      'carrepair': conv.accountType == 'business' && conv.businessCategory == 'carRepair',
+      'carstore': conv.accountType == 'business' && conv.businessCategory == 'carStore',
+      'gym': conv.accountType == 'business' && conv.businessCategory == 'gym',
+      'barber': conv.accountType == 'business' && conv.businessCategory == 'barber',
+      'pharmacy': conv.accountType == 'business' && conv.businessCategory == 'pharmacy',
+      'taxi': conv.accountType == 'business' && conv.businessCategory == 'taxi',
+      'other': conv.accountType == 'business' && conv.businessCategory != 'taxi' && conv.businessCategory != 'pharmacy' &&conv.businessCategory != 'barber' &&conv.businessCategory != 'gym' &&conv.businessCategory != 'carStore' &&conv.businessCategory != 'carRepair' &&conv.businessCategory != 'carService' &&conv.businessCategory != 'bar' &&conv.businessCategory != 'hotel' &&conv.businessCategory != 'store' &&conv.businessCategory != 'pastry' &&conv.businessCategory != 'bakery' &&conv.businessCategory != 'cafe' &&conv.businessCategory != 'fastFood' &&conv.businessCategory != 'restaurant' 
+    }"
+      
+      >
+        <img *ngIf="conv.profilePicture && conv.profilePicture.publicPath" [src] ="conv.profilePicture.publicPath" alt="" width="56px" height="56px"/>
+        <ion-icon *ngIf=" !conv.profilePicture.publicPath  && conv.accountType == 'personal'" src='./../../assets/images/person.svg'></ion-icon>
+        <ion-icon *ngIf=" (!conv.profilePicture.publicPath  && conv.accountType == 'business') && (conv.businessCategory == 'taxi' || conv.businessCategory == 'pharmacy' ||conv.businessCategory == 'barber' ||conv.businessCategory == 'gym' ||conv.businessCategory == 'carStore' ||conv.businessCategory == 'carRepair' ||conv.businessCategory == 'carService' ||conv.businessCategory == 'bar' ||conv.businessCategory == 'hotel' ||conv.businessCategory == 'store' ||conv.businessCategory == 'pastry' ||conv.businessCategory == 'bakery' ||conv.businessCategory == 'cafe' ||conv.businessCategory == 'fastFood' ||conv.businessCategory == 'restaurant')" [src]="'./../../assets/images/' + conv.businessCategory + '.svg' "></ion-icon>
+        <ion-icon *ngIf=" !conv.profilePicture.publicPath  && conv.accountType == 'business' && conv.businessCategory != 'taxi' && conv.businessCategory != 'pharmacy' && conv.businessCategory != 'barber' && conv.businessCategory != 'gym' &&conv.businessCategory != 'carStore' &&conv.businessCategory != 'carRepair' &&conv.businessCategory != 'carService' &&conv.businessCategory != 'bar' &&conv.businessCategory != 'hotel' &&conv.businessCategory != 'store' &&conv.businessCategory != 'pastry' &&conv.businessCategory != 'bakery' &&conv.businessCategory != 'cafe' &&conv.businessCategory != 'fastFood' &&conv.businessCategory != 'restaurant'" src='./../../assets/images/other.svg' ></ion-icon>
+      
+      </ion-avatar>
+      
+      <ion-text>
+        <h4 *ngIf="conv.name" style="color: var(--ion-color-dark); font-size:small; margin-bottom: 4px; margin-top: 10px;">{{ conv.name }}</h4>
+
+      </ion-text>
+
+      
+    </ion-item>
+  </div>
+</div>
+</ion-content>

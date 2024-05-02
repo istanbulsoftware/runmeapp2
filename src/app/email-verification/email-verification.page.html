@@ -1,0 +1,31 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" style="font-size: x-large; color: var(--ion-color-dark);" (click)="goLogin()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="top">
+    <span class="title">Kodu Gir</span>
+    <p class="detail">Sana gelen 4 haneli kodu gir </p>
+  </ion-row>
+
+
+  <form (ngSubmit)="verifyEmail()" [formGroup]="credentials" class="ion-padding">
+
+    <ion-row class="otp">
+      <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent"
+      [config]="config"></ng-otp-input>
+    </ion-row>
+    <div style="width: 100%; margin-top: 16px; padding: 0 !important;">
+      <ion-button type="submit" mode="ios" expand="block" [disabled]="!credentials.valid" style='--background: var(--ion-color-primary-shade); color: var(--ion-color-light);'>Onayla</ion-button>
+    </div>
+  </form>
+  <ion-text color="medium">
+    <ion-button (click)="resendCode()" expand="block" fill="oultline" shape="round" color="medium">
+      <ion-row class="forgot">
+        Kodu almadın mı? <span> Tekrar Gönder</span>
+      </ion-row> 
+    </ion-button>
+  </ion-text>
+</ion-content>

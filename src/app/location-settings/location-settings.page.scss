@@ -1,0 +1,60 @@
+.errors {
+    width: 100%;
+    font-size: small;
+    color: var(--ion-color-dark);
+    background-color: var(--ion-color-warning);
+    border-radius: 7px;
+    padding: 3px;
+    padding-left: 16px;
+}
+
+.input-container{
+    margin-bottom: 10px;
+
+}
+
+
+.my-icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+ion-item.my-item {
+  height: 45px;
+  border-radius: 7px;
+  --background: var(--ion-color-light-shade);
+  color: var(--ion-color-dark);
+}
+
+ion-button {
+  width: fit-content;
+  height: 45px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 7px;
+}
+
+.mybutton{
+  --background: var(--ion-color-danger);
+  color: var(--ion-color-light);
+  width: 100%;
+
+}
+
+.loading-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  ion-spinner{
+  height: 45px;
+  color: var(--ion-color-primary-shade);
+  }
+}

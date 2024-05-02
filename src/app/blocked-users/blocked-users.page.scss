@@ -1,0 +1,119 @@
+.my-item{
+    --background:var(--ion-color-light);
+}
+
+
+.my-avatar{
+    background: var(--ion-color-light-tint);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 56px; 
+    width: 56px; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 2px;
+
+    ion-icon{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+.boy{
+    border-color: #3d6cb9;
+    ion-icon{color: #3d6cb9;}
+}
+
+.girl{
+    border-color: #ea7dc7;
+    ion-icon{color: #ea7dc7;}
+}
+
+.other-gender{
+    border-color: var(--ion-color-warning-shade);
+    ion-icon{color: var(--ion-color-warning-shade);}
+}
+
+.restaurant{
+    border-color:  #b31e6f;
+    ion-icon{color:#b31e6f;}
+
+}
+.fastfood{
+    border-color:  #be6a15;
+    ion-icon{color: #be6a15;}
+    
+}
+.cafe{
+    border-color:  #430d27;
+    ion-icon{color: #430d27;}
+}
+.bakery{
+    border-color:  #582233;
+    ion-icon{color: #582233;}
+    
+}
+.pastry{
+    border-color:  #ee5a5a;
+    ion-icon{color: #ee5a5a;}
+    
+}
+.store{
+    border-color:  #40514e;
+    ion-icon{color: #40514e;}
+    
+}
+.hotel{
+    border-color:  #fc85ae;
+    ion-icon{color: #fc85ae;}
+    
+}
+.bar{
+    border-color:  #278ea5;
+    ion-icon{color: #278ea5;}
+    
+}
+
+.carservice{
+    border-color: #88bef5;
+    ion-icon{color: #88bef5;}
+    
+}
+.carrepair{
+    border-color:  #1e4ba0;
+    ion-icon{color: #1e4ba0;}
+    
+}
+.carstore{
+    border-color:  #3d5af1;
+    ion-icon{color: #3d5af1;}
+    
+}
+.gym{
+    border-color:  #0b8457;
+    ion-icon{color: #0b8457;}
+    
+}
+.barber{
+    border-color:  #3f3b3b;
+    ion-icon{color: #3f3b3b;}
+    
+}
+.pharmacy{
+    border-color:  #10316b;
+    ion-icon{color: #10316b;}
+    
+}
+.taxi{
+    border-color:  #eac100;
+    ion-icon{color: #eac100;}
+    
+}
+.other{
+    border-color:  var(--ion-color-secondary-shade);
+    ion-icon{color: var(--ion-color-secondary-shade);}
+}

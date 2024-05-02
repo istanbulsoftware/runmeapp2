@@ -1,0 +1,94 @@
+<ion-header class="ion-no-border" no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="header">
+    Ayarlar
+  </ion-row>
+  <ion-row class="title">
+    Profil
+  </ion-row>
+  <ion-row class="item" routerLink='/edit-profile'>
+    <ion-col size="auto" class="left">
+      <ion-icon src="../../../../assets/icon/Profile.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="right">
+      Kişisel Bilgiler
+    </ion-col>
+  </ion-row>
+  <ion-row class="item" routerLink="/social-accounts">
+    <ion-col size="auto" class="left">
+      <ion-icon src="../../../../assets/icon/Message.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="right">
+      Sosyal Medyalar
+    </ion-col>
+  </ion-row>
+  <ion-row class="item" routerLink="/user-photos">
+    <ion-col size="auto" class="left">
+      <ion-icon src="../../../../assets/icon/Message.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="right">
+      Resimler
+    </ion-col>
+  </ion-row>
+  <ion-row class="title">
+    Tercihler
+  </ion-row>
+  <ion-row class="item" routerLink="/languages">
+    <ion-col size="auto" class="left">
+      <ion-icon src="../../../../assets/icon/Ticket Star.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="right">
+      Diller
+    </ion-col>
+  </ion-row>
+  <ion-row class="item" >
+    <ion-col size="auto" class="left">
+      <ion-icon src="../../../../assets/icon/Notification.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="right">
+      Bildirimler
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="title">
+    Diğer
+  </ion-row>
+  <ion-row class="item"  routerLink="/account-detail">
+    <ion-col size="auto" class="left">
+      <ion-icon src="../../../../assets/icon/Card 2.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="right">
+      Gizlilik Sözleşmesi
+    </ion-col>
+  </ion-row>
+  <ion-row class="item"  routerLink="/account-detail">
+    <ion-col size="auto" class="left">
+      <ion-icon src="../../../../assets/icon/Card 2.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="right">
+      Kullanım Sözleşmesi
+    </ion-col>
+  </ion-row>
+  <ion-row class="item" (click)="logout()">
+    <ion-col size="auto" class="left">
+      <!-- <ion-icon src="../../../../assets/icon/Notification.svg"></ion-icon> -->
+    </ion-col>
+    <ion-col class="right" >
+      Çıkış Yap
+    </ion-col>
+  </ion-row>
+  <ion-row class="item" (click)="logout()">
+    <ion-col size="auto" class="left">
+      <!-- <ion-icon src="../../../../assets/icon/Notification.svg"></ion-icon> -->
+    </ion-col>
+    <ion-col class="right" >
+      Hesabımı Sil
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,112 @@
+ion-header {
+    ion-toolbar {
+        --background: white;
+
+        .title {
+            margin-left: 10px;
+            color: #000;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .more {
+            font-size: 25px;
+        }
+
+        .user {
+            font-size: 35px;
+            margin: 0px 10px;
+        }
+    }
+}
+
+ion-content {
+    .header {
+        margin: 10px 20px;
+        color: #121214;
+        font-size: 28px;
+        font-weight: 900;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+
+        margin: 20px;
+        color: #000;
+        font-size: 20px;
+        font-weight: 600;
+
+        span {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-left: 20px;
+            background: var(--ion-color-primary);
+        }
+    }
+
+    .item {
+        margin: 10px 20px;
+
+        ion-avatar {
+            height: 45px;
+            width: 45px;
+        }
+
+        .right2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .top1 {
+                justify-content: space-between;
+
+                .left {
+                    color: #1A202C;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .right {
+                    color: #90A3BF;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+            }
+
+            .mid1 {
+                justify-content: space-between;
+                margin-top: 10px;
+                .left {
+                    color: #90A3BF;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+
+                .right {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    ion-icon {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .bottom1 {
+                margin-top: 15px;
+                color: #90A3BF;
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+    }
+}

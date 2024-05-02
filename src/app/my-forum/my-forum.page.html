@@ -1,0 +1,44 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-text slot="end">
+      Forum Konularım
+    </ion-text>
+
+
+  </ion-toolbar>
+  <ion-item lines="none">
+    <ion-icon slot="start" name="search-outline" color="light" (click)="goFilter()"></ion-icon>
+
+    <ion-label color="light" slot="start"><small>Arama yap</small> </ion-label>
+    <ion-label color="light" slot="end"><small>Filtrele</small> </ion-label>
+    <ion-icon slot="end" name="filter-outline" color="light" (click)="goFilter()"></ion-icon>
+  </ion-item>
+</ion-header>
+
+<ion-content>
+  
+  <div class="oval-light">
+    <ion-card *ngFor="let forumTitle of forumTitles">
+      <ion-card-content>
+        <ion-card-subtitle routerLink="/forum-detail/{{forumTitle._id}}"  class="bolder">{{forumTitle.title}}</ion-card-subtitle>
+        
+      </ion-card-content>
+      <ion-grid routerLink="/forum-detail/{{forumTitle._id}}" >
+        <ion-row>
+          <ion-col class="ion-text-center" class="textsmall"><b>Cevaplar:</b> {{forumTitle.replyCount}}</ion-col>
+          <ion-col class="ion-text-center" class="textsmall"><b>Görüntü:</b> {{forumTitle.viewCount}}
+          </ion-col>
+          <ion-col class="ion-text-center" class="textsmall"><b>{{ago(forumTitle.createdAt)}} önce</b></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+
+    <br> <br> <br>
+  </div>
+
+
+</ion-content>

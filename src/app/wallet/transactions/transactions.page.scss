@@ -1,0 +1,46 @@
+ion-avatar{
+    background: var(--ion-color-light);
+    width: 77px;
+    height: 77px;
+    border-width: 2px;
+    border-color: var(--ion-color-dark);
+    border-style: solid;
+    //border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.date-text{
+    font-size: small;
+    color: var(--ion-color-medium-shade);
+}
+.amount-text{
+    font-size: large;
+    color: var(--ion-color-dark);
+    font-weight: bold;
+}
+
+.email-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:flex-start;
+}
+.status-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.email-title{
+    font-weight: bold;
+    color: var(--ion-color-dark);
+    font-size: medium;
+}
+.email-text{
+    color: var(--ion-color-medium-shade);
+    font-size: small;
+}

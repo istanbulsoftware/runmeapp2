@@ -1,0 +1,57 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/tabs/tab5"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf='images.length < 6' (click)="onAdd()">
+        <ion-icon slot="icon-only" name="add" color="danger"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-header mode='ios'>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/edit-account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'USER_PHOTOS.title' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf='images.length < 6' (click)="onAdd()">
+        <ion-icon slot="icon-only" name="add" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header> -->
+
+
+
+
+
+<ion-content >
+  <ion-spinner *ngIf='isLoading'></ion-spinner>
+  <p style="text-align: center; font-size: medium; color: var(--ion-color-medium);" *ngIf='images.length < 1 && !isLoading'>
+    {{'USER_PHOTOS.noPhoto' | translate}}
+  </p>
+  <ion-row *ngIf = '!isLoading'>
+    <ion-col size="6" *ngFor='let image of images'>
+      <ion-card>
+        
+        <ion-button class="trash-button" (click)="onDelete(image._id)"  shape='rounded' class="ion-no-padding">
+          <ion-icon class="trash" slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+
+        <ion-img [src]="image.publicPath" alt=""></ion-img>
+
+      </ion-card>
+    </ion-col>
+
+  </ion-row>
+  
+
+</ion-content>

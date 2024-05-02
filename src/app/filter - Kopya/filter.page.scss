@@ -1,0 +1,21 @@
+ion-content {
+    padding : 20px;
+}
+ion-radio {
+    --border-radius: 20%;
+    --color : red;
+    --color-checked : yellow;
+    --inner-border-radius : 10%;
+}
+.unchecked {
+    background-color: #e6e6e6;
+    color: #000;
+    border-radius: 5px;
+    padding: 8px;
+}
+.checked {
+    background-color: #F94C72;
+    color: #000;
+    border-radius: 5px;
+    padding: 8px;
+}

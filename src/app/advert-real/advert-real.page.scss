@@ -1,0 +1,178 @@
+ion-content {
+    --padding-bottom: 80px;
+    .header {
+        height: 200px;
+        border-radius: 0px 0px 16px 16px;
+        background: #A40407;
+        padding: 20px 25px;
+
+        .user {
+            margin-top: 20px;
+
+            img {
+                height: 50px;
+                width: 50px;
+                border-radius: 50px;
+                object-fit: cover;
+            }
+
+            .mid {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+
+                .title {
+                    color: #FFF;
+                    font-family: var(--ion-font-family2);
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+
+                .name {
+                    color: #FFF;
+                    font-family: var(--ion-font-family2);
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+
+            .end {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            ion-icon {
+                font-size: 26px;
+            }
+        }
+    }
+
+    .detailItem {
+        margin: -85px 25px 0px 25px;
+        padding: 25px 20px;
+        border-radius: 9px;
+        border: 1px solid rgba(104, 110, 222, 0.10);
+        background: #FFF;
+        box-shadow: 0px 10px 64px 0px rgba(75, 79, 156, 0.10);
+
+        ion-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            color: #1C1E21;
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .value {
+            color: #1C1E21;
+            font-size: 20px;
+            font-weight: 800;
+        }
+    }
+
+    .locationInput {
+        margin: 25px;
+        border-radius: 15px;
+        border: 1px solid rgba(104, 110, 222, 0.10);
+        box-shadow: 0px 0px 5px 0px rgba(75, 79, 156, 0.25);
+        display: flex;
+        align-items: center;
+
+        .icon {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+
+            ion-icon {
+                font-size: 20px;
+            }
+        }
+
+        .input {
+            flex: 1;
+
+            ion-input {
+                --padding-start: 10px;
+            }
+        }
+    }
+
+    .itemTitle {
+        margin: 0px 25px 25px 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+            color: #1C1E21;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .right {
+            color: var(--ion-color-primary);
+            font-size: 15px;
+            font-weight: 800;
+        }
+    }
+
+    .mapItem {
+        border-radius: 9px;
+        border: 1px solid rgba(104, 110, 222, 0.10);
+        background: #FFF;
+        box-shadow: 0px 10px 64px 0px rgba(75, 79, 156, 0.10);
+        margin: 0px 25px 0px 25px;
+        padding: 25px;
+        .mapRow {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            .left {
+                img {
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 12px;
+                    object-fit: cover;
+                }
+            }
+
+            .mapData {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;            
+
+                .date {
+                    color: #323232;
+                    font-size: 11px;
+                    font-weight: 400;
+                }
+
+                .distance {
+                    color: #323232;
+                    font-size: 15px;
+                    font-weight: 700;
+                }
+
+                .milage {
+                    span {
+                        color: #323232;
+                        font-size: 11px;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            .forward {
+                display: flex;
+                align-items: center;
+            }
+        }
+        .mapRow:last-child{
+            border-bottom: 0px;
+        }
+    }
+}

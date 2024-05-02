@@ -1,0 +1,37 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="ios">
+      <ion-back-button text="" color="dark" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark" > Haftanın Enleri</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="full" *ngFor="let itemlist of randomusers">
+    
+    <ion-avatar (click)="goP(itemlist.userId._id)"  *ngIf="itemlist.userId.profilePicture.publicPath" class="profile-thumbnail ion-avatar100" slot="start">
+      <ion-badge color="success" style="position: absolute;" mode="ios" *ngIf="itemlist.userId.isOnline == 'online'"><span style="color: var(--ion-color-success);">.</span></ion-badge>
+      <img class="ion-th-radius" src="{{itemlist.userId.profilePicture.publicPath}}">
+    </ion-avatar>
+
+    <ion-avatar  (click)="goP(itemlist.userId._id)"  *ngIf="!itemlist.userId.profilePicture.publicPath" class="profile-thumbnail ion-avatar100" slot="start">
+      <ion-badge color="success" style="position: absolute;" mode="ios" *ngIf="itemlist.userId.isOnline == 'online'"><span style="color: var(--ion-color-success);">.</span></ion-badge>
+      <img class="ion-th-radius" src="../../assets/images/other.png">
+
+    </ion-avatar>
+    <ion-label style="font-size: small;" slot="start" (click)="onSendMessage(itemlist.userId._id)">
+      <div style="font-weight: bold; font-size: large; color: var(--ion-color-danger);">{{ itemlist.userId.name }}</div>
+      <!-- <div style="color: var(--ion-color-dark);">
+        <span *ngIf="itemlist.city !== null">{{ itemlist.city }}</span>
+        <span *ngIf="itemlist.birthday !== null && itemlist.city !== null">, </span>
+        <span *ngIf="itemlist.birthday !== null">{{ getAge(itemlist.birthday) }}</span>
+        <span *ngIf="itemlist.birthday !== null">, </span>
+        <span *ngIf="itemlist.birthday !== null">{{ dateToSgin(itemlist.birthday) }} </span>
+      </div> -->
+
+      <ion-note>{{ itemlist.userId.bio }}</ion-note>
+    </ion-label>
+    <ion-text  (click)="onSendMessage(itemlist.userId._id)" slot="end" color="warning">{{itemlist.token}}</ion-text>
+  </ion-item>
+</ion-content>

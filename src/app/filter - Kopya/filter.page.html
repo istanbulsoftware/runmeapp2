@@ -1,0 +1,76 @@
+<ion-content class="ion-text-center">
+  <div style="padding: 20px;">
+    <div>
+      <h4>Arama Yapın</h4>
+    </div>
+    <div>
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-list-header class="ion-text-left">
+            <ion-label>Cinsiyet</ion-label>
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6" class="{{genderf}}" (click)="selectFr()">
+                Kadın
+              </ion-col>
+              <ion-col size="6" class="{{genderm}}" (click)="selectM()">
+                Erkek
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+      </ion-list>
+    </div>
+    <div>
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-list-header class="ion-text-left">
+            <ion-label>Şehir Seç</ion-label>
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12" class="unchecked">
+                <ion-item class="my-item" lines='none'>
+                  <ion-select value="city" multiple="false" placeholder="İl seçiniz" (ionChange)="selectCity($event)">
+                    <div *ngFor="let il of iller">
+                    <ion-select-option  value="{{il}}">{{il}}</ion-select-option>
+                    </div>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+      </ion-list>
+    </div>
+    <div>
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-list-header class="ion-text-left">
+            <ion-label>Yaş Aralığı Seç</ion-label>
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12" class="unchecked">
+                <ion-item class="my-item" lines='none'>
+                  <ion-range (ionChange)="ageRange($event)" dualKnobs="true"   min="18" max="72" step="3"  color="primary" [pin]="true" [ticks]="true" [snaps]="true"></ion-range>
+
+                </ion-item>
+                <span style="font-size: small; font-weight: bold;" *ngIf="lowerAge">Başlangış yaşı: {{lowerAge}}</span><br>
+                <span  style="font-size: small; font-weight: bold;" *ngIf="upperAge">Bitiş yaşı : {{upperAge}}</span>
+              </ion-col>
+              
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+      </ion-list>
+    </div>
+    <ion-button shape="round" mode="ios" color="danger" (click)="goFilterResult()">Arama Yap</ion-button>
+  
+
+    <div>
+    </div>
+  </div>
+
+</ion-content>

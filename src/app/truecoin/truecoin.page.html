@@ -1,0 +1,44 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/tabs/tab5"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen='false'>
+  <form *ngIf = "!isCodeSent" (ngSubmit)="sendResetCode()" [formGroup]="metamaskForm" class="ion-padding">
+  <div class="top">
+    <ion-avatar>
+      <ion-icon src="./../../assets/images/tc.svg" alt="" ></ion-icon>
+    </ion-avatar>
+    <ion-label style="text-align: center;">True Coin : {{ coins }}</ion-label>
+
+  </div><br><br>
+  <div class="ion-text-left">
+    <h6 style="padding-left: 20px;">{{'WALLET.SendMetamask' | translate}}</h6>
+  </div>
+  <div class="ion-text-center">
+    <ion-item lines='none' detail='false' >
+
+      <ion-input type="number" max="{{coins}}" formControlName="quantity" placeholder="{{'WALLET.quantity' | translate}}" color="dark"  style="background-color: rgb(212, 212, 212); padding: 10px; border-radius: 10px;" ></ion-input>    
+    </ion-item>
+    <ion-item lines='none' detail='false' >
+
+      <ion-input type="text" formControlName="metamask" placeholder="{{'WALLET.yourTrue' | translate}}" color="dark"  style="background-color: rgb(212, 212, 212); padding: 10px; border-radius: 10px;" ></ion-input>    
+    </ion-item>
+    <ion-item lines='none' detail='false' >
+      <ion-button type="submit" expand="block" mode="ios" [disabled]="!metamaskForm.valid" style='--background: var(--ion-color-danger-shade); color: var(--ion-color-light);'>{{ 'WALLET.sendCode' | translate }}</ion-button>
+
+    </ion-item>
+    <br><br>
+    <ion-item lines='none' detail='false' >
+      <ion-label>{{'WALLET.metaMask' | translate}}</ion-label>
+    </ion-item>
+  </div>
+</form>
+</ion-content>

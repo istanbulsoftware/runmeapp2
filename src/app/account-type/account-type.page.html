@@ -1,0 +1,48 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="my-icon-container">
+    <img src="../../assets/logo.png">
+  </div>
+  
+  <form (ngSubmit)="accountType()" [formGroup]="credentials" class="ion-padding">
+
+
+
+    <ion-list>
+      <ion-radio-group value="account"  formControlName="account" color="danger">
+        <ion-list-header lines="full">
+          <ion-label><h2 style="font-weight: bold;">{{ 'ACCOUNT_TYPE.title' | translate }}</h2></ion-label>
+        </ion-list-header>
+    
+        <ion-item lines="none">
+          <ion-label>{{ 'ACCOUNT_TYPE.personal' | translate }}</ion-label>
+          <ion-radio slot="start" value="personal"  color="danger"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="none">
+          <ion-label>{{ 'ACCOUNT_TYPE.business' | translate }}</ion-label>
+          <ion-radio slot="start" value="business" color="danger"></ion-radio>
+        </ion-item>
+        <div *ngIf="(account.dirty || account.touched) && account.errors" class="errors">
+          <span *ngIf="account.errors?.required">{{ 'ACCOUNT_TYPE.req' | translate }}</span>
+          <span *ngIf="account.errors?.invalid">{{ 'ACCOUNT_TYPE.inv' | translate }}</span>
+        </div>
+      </ion-radio-group>
+    </ion-list>
+    <div class="input-container">
+
+      <div style="margin-top: 16px; padding: 0 !important; text-align: right;">
+        <ion-button type="submit" mode="ios" color="danger" shape="round" [disabled]="!credentials.valid"
+          style='--background: var(--ion-color-primary-danger); color: var(--ion-color-light);'>{{
+          'ACCOUNT_TYPE.continue' | translate }}</ion-button>
+      </div>
+    </div>
+  </form>
+</ion-content>

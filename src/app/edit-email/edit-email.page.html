@@ -1,0 +1,53 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/edit-account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'EDIT_EMAIL.title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form *ngIf = "isCodeSent" (ngSubmit)="changeEmail()" [formGroup]="credentials" class="ion-padding">
+
+    <div class="input-container">
+      <ion-item class="my-item" lines="none" >
+        <ion-icon slot="start" name="key-outline" color='dark'></ion-icon>
+        <ion-input type="number" [placeholder]=" 'EDIT_EMAIL.verCode' | translate " formControlName="code"></ion-input>
+      </ion-item>
+      <div *ngIf="(code.dirty || code.touched) && code.errors" class="errors">
+        <span *ngIf="code.errors?.required">{{ 'EDIT_EMAIL.codeReq' | translate }}</span>
+        
+      </div>
+    </div>
+
+    <div style="width: 100%; margin-top: 16px; padding: 0 !important;">
+      <ion-button type="submit" expand="block" [disabled]="!credentials.valid" style='--background: var(--ion-color-primary-shade); color: var(--ion-color-dark);'>{{ 'EDIT_EMAIL.title' | translate }}</ion-button>
+    </div>
+  </form>
+
+  <!-- Send Code to email form -->
+  <form *ngIf = "!isCodeSent" (ngSubmit)="sendResetCode()" [formGroup]="emailForm" class="ion-padding">
+    <ion-text color="medium">
+      <p>{{ 'EDIT_EMAIL.hint' | translate }}</p>
+    </ion-text>
+    <div class="input-container">
+      <ion-item class="my-item" lines="none" >
+        <ion-icon slot="start" name="mail-outline" color='dark'></ion-icon>
+        <ion-input type="email" [placeholder]="'EDIT_EMAIL.email' | translate" formControlName="email"></ion-input>
+      </ion-item>
+      <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+        <span *ngIf="email.errors?.required">{{ 'EDIT_EMAIL.emailReq' | translate }}</span>
+        <span *ngIf="email.errors?.email">{{ 'EDIT_EMAIL.emailExample' | translate }}</span>
+      </div>
+    </div>
+
+
+    <div style="width: 100%; margin-top: 16px; padding: 0 !important;">
+      <ion-button type="submit" expand="block" [disabled]="!emailForm.valid" style='--background: var(--ion-color-primary-shade); color: var(--ion-color-dark);'>{{ 'EDIT_EMAIL.sendCode' | translate }}</ion-button>
+    </div>
+  </form>
+
+</ion-content>
+

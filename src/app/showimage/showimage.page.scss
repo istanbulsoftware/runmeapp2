@@ -1,0 +1,17 @@
+.closeBtn {
+    position: fixed;
+    padding: 5px;
+    right: 15px;
+    top: 15px;
+    background-color: red;
+    color: #fff;
+    font-size: x-large;
+    z-index: 99999;
+}
+
+.alignCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 800px;
+}

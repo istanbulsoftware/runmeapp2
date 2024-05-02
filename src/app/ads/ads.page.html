@@ -1,0 +1,74 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/tabs/tab5"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'ADS.title' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink='/ads/new-ad'>
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner *ngIf="isLoading" style="color: var(--ion-color-primary-shade); height: 5vh;"></ion-spinner>
+  <ion-list *ngIf="!isLoading && ads.length > 0" color="light">
+
+    
+    <ion-item *ngFor="let ad of ads; let i = index" [attr.data-index]="i" lines="full" color="light" (click)="onAdClick(ad._id, ad.payment, i)">
+      <ion-avatar slot="start">
+        <ion-icon *ngIf="ad.photo && ad.photo.publicPath" name="image" color="dark"></ion-icon>
+        <ion-icon *ngIf="ad.video && ad.video.publicPath" name="film" color="dark"></ion-icon>
+      </ion-avatar>
+      <div class="my-main">
+        <div class="my-sub-main">
+          
+          <ion-label class="my-main-label" style="color: var(--ion-color-medium-shade);"><ion-label class="my-main-label">{{'ADS.adId' |translate}}</ion-label> : {{ ad._id }}</ion-label>
+        </div>
+        <div class="my-sub-main">
+          
+          <ion-label class="my-main-label" style="color: var(--ion-color-medium-shade);"> <ion-label class="my-main-label">{{'ADS.location' |translate}}</ion-label> : {{ ad.placename }}</ion-label>
+        </div>
+        <div class="my-sub-main">
+          
+          <ion-label class="my-main-label" style="color: var(--ion-color-medium-shade);"><ion-label class="my-main-label">{{'ADS.gender' |translate}}</ion-label> : {{ad.gender}}</ion-label>
+        </div>
+        <div class="my-sub-main">
+          
+          <ion-label class="my-main-label" style="color: var(--ion-color-medium-shade);"><ion-label class="my-main-label">{{'ADS.age' |translate}}</ion-label> : {{ad.ageFrom}} - {{ad.ageTo}}</ion-label>
+        </div>
+        <div class="my-sub-main">
+          
+          <ion-label class="my-main-label" style="color: var(--ion-color-medium-shade);"><ion-label class="my-main-label">{{'ADS.days' |translate}}</ion-label> : {{countDays(ad.endDate.split("T")[0])}}</ion-label>
+        </div>
+        <div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
+          <div class="my-sub-main">
+            
+            <ion-label class="my-main-label" style="color: var(--ion-color-medium-shade);"><ion-label class="my-main-label">{{'ADS.status' |translate}}</ion-label> : {{ ('ADS.' + ad.status) |translate}}</ion-label>
+          </div>
+
+        </div>
+
+      </div>
+      <div slot="end" class="my-cont">
+        <div class="my-sub-cont">
+          <ion-icon name="eye" color="dark"></ion-icon>
+          <ion-label class="my-sub-label">{{ad.views.length}}</ion-label>
+        </div>
+        <div class="my-sub-cont">
+          <ion-icon src="./../../assets/images/click.svg" color="dark"></ion-icon>
+          <ion-label class="my-sub-label">{{ad.clicks.length}}</ion-label>
+        </div>
+        <div class="my-sub-cont">
+          <ion-icon [name]="ad.status == 'active' ? 'pause-circle-outline' : 'play-circle-outline'" (click)="editAds(ad._id, ad.status)"  style="font-weight: bold; font-size: x-large; color: rgb(89, 152, 0);"></ion-icon>
+          
+        </div>
+      </div>
+    </ion-item>
+
+    
+    
+  </ion-list>
+</ion-content>

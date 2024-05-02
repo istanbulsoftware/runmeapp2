@@ -1,0 +1,40 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark"></ion-back-button>
+
+    </ion-buttons>
+    <ion-text slot="end"  style="color: var(--ion-color-dark); font-size: small;" (click)="showAwarAds()">Reklam izle kazan</ion-text>
+    <ion-icon name="camera" slot="end" style="color: var(--ion-color-dark);" (click)="showAwarAds()"> </ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="a === 0">
+
+  <ion-grid>
+    <ion-row class="yellow-row">
+      <ion-col size="12" class="ion-no-margin ion-text-center">
+        <h1 style="font-weight: bolder ; color: #F94C72; font-size: medium;">{{ 'WALLET.boost' | translate }}</h1>
+        <span style="font-size: small;">{{ 'WALLET.boosttext' | translate }}</span>
+      </ion-col>
+      <ion-col size="12">
+        <div *ngFor="let offeringGroup of offerings | async" >
+          <ion-item lines="none" color="none" (click)="purchase(sku)"*ngFor="let sku of offeringGroup.skus" class="cols">
+            <ion-img  src="./../../assets/images/coin.png" alt="" slot="start"></ion-img>
+            <ion-label>
+              <div><b>{{ sku.product.price  }} ₺</b></div>
+              <div *ngIf="sku.product.identifier === 'apack'">5 Coin Al</div>
+              <div *ngIf="sku.product.identifier === 'bpack'">10 Coin Al</div>
+              <div *ngIf="sku.product.identifier === 'cpack'">20 Coin Al</div>
+              <div *ngIf="sku.product.identifier === 'dpack'">50 Coin Al</div>
+            </ion-label>
+          </ion-item>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center ion-padding"
+        style="color: aliceblue; padding: 18px 0px 8px 0px; background-color: #F2A40F; width: 100%; border-radius: 0px 0px 8px 8px;">Eğlenceye şimdi katılın
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

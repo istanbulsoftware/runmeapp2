@@ -1,0 +1,40 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-label slot="start">
+      <ion-img style="width: 150px; height: 50px;" src="../../assets/logo-pink.png"></ion-img>
+    </ion-label>
+    <ion-text slot="end">
+      Mesajlar
+    </ion-text>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="grd">
+  <div class="oval-light">
+  <ion-item-sliding  *ngFor="let list of favs">
+    <ion-item-options side="end">
+      <ion-item-option color="danger" *ngIf="getLang === 'tr'" (click)="createFavorite(list._id, 'remove')">Favorilerden çıkart</ion-item-option>
+      <ion-item-option color="danger" *ngIf="getLang === 'en'" (click)="createFavorite(list._id, 'remove')">Remove</ion-item-option>
+    </ion-item-options>
+    <ion-item lines="full" routerLink="/advert-detail/{{list._id}}">
+      <ion-thumbnail slot="start">
+        <img *ngIf="list.photos?.length < 1" src="../../assets/images/other.png">
+        <img *ngIf="list.photos?.length > 0" src="{{list.photos[0]?.publicPath}}">
+      </ion-thumbnail>
+      <ion-label>
+        <div>
+          <ion-text>{{list.title}}</ion-text>
+        </div>
+        <div> <small>{{list.userId?.name}}</small></div>
+        <div> <small>
+          <p class="msg" style="color: rgb(164, 164, 164); font-size: small;">
+            {{list.createdAt |date : 'dd/MM/yyyy HH:mm' }}</p>
+          </small></div>
+
+      </ion-label>
+      
+
+
+    </ion-item>
+ </ion-item-sliding>
+</div>
+</ion-content>

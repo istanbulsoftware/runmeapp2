@@ -1,0 +1,84 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon slot="end" name="close-circle" style="margin: 10px; font-size: x-large;" (click)="dismiss()"></ion-icon>
+
+
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-text-center">
+  <div style="padding: 20px;">
+    <div>
+      <h4>Arama Yapın</h4>
+    </div>
+    <div>
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-list-header class="ion-text-left">
+            <ion-label>Türü seçiniz</ion-label>
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6" class="{{genderf}}" (click)="selectFr()">
+                Konut
+              </ion-col>
+              <ion-col size="6" class="{{genderm}}" (click)="selectM()">
+                Vakıt
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+      </ion-list>
+    </div>
+    <div>
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-list-header class="ion-text-left">
+            <ion-label>Şehir Seç</ion-label>
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12" class="unchecked">
+                <ion-item class="my-item" lines='none'>
+                  <ion-select value="city" multiple="false" placeholder="İl seçiniz" (ionChange)="selectCity($event)">
+                    <div *ngFor="let il of iller">
+                    <ion-select-option  value="{{il.name}}">{{il.name}}</ion-select-option>
+                    </div>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+      </ion-list>
+    </div>
+    <div>
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-list-header class="ion-text-left">
+            <ion-label>Fiyat aralığı</ion-label>
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12" class="unchecked">
+                <ion-item class="my-item" lines='none'>
+                  <ion-range (ionChange)="ageRange($event)" dualKnobs="true"   min="0" max="7200000000" step="3"  color="primary" [pin]="true" [ticks]="true" [snaps]="true"></ion-range>
+
+                </ion-item>
+                <span style="font-size: small; font-weight: bold;" *ngIf="lowerAge">Başlangış fiyatı: {{lowerAge}}</span><br>
+                <span  style="font-size: small; font-weight: bold;" *ngIf="upperAge">Bitiş fyatı : {{upperAge}}</span>
+              </ion-col>
+              
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+      </ion-list>
+    </div>
+    <ion-button shape="round" mode="ios" color="danger" (click)="goFilterResult()">Arama Yap</ion-button>
+  
+
+    <div>
+    </div>
+  </div>
+
+</ion-content>

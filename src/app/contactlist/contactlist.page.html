@@ -1,0 +1,24 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="dark" *ngIf='!isLoading'>İletişim listesi</ion-title>
+    <ion-title *ngIf='isLoading'>
+      <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" *ngFor="let name of names"><b style="color: #e0aa13; border-bottom: solid 1px #f5f5f5; padding: 7px 0px;">{{name.displayName}}</b>
+
+        <div style="font-size: small; " *ngFor="let phones of name.phoneNumbers; let i = index"><span *ngIf="i == 0">{{phones.value}}</span></div>
+        <div style="font-size: small;" *ngFor="let emails of name.emails; let z = index"><span *ngIf="z == 0">{{emails.value}}</span></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

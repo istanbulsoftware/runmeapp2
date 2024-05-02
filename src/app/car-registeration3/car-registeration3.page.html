@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border" no-border>
+  <ion-toolbar>
+    <span slot="start" class="title">RunME App</span>
+    
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="title">
+    <ion-icon src="../../../../assets/icon/arrow-left.svg"></ion-icon>Hazırsan Başlayalım!
+  </ion-row>
+  <ion-row class="desc">
+   <span class="left">2/3 Adım</span>
+   <span class="mid"> | Sıradaki: Detaylar | </span>
+   <span class="right">Yeniden Başla</span>
+  </ion-row>
+  <ion-row class="progress">
+    <app-progress-bar [progress]="66"></app-progress-bar>
+  </ion-row>
+  <ion-row class="chip">
+    <span>Tüm Adımları Gör</span>
+  </ion-row>
+  <hr>
+  <ion-row class="img" (click)="presentActionSheet()">
+    <img src="../../../../assets/icon/target.png" alt="">
+    <span>Fotoğraf ekle</span>
+  </ion-row>
+  <ion-row class="btn">
+    <ion-button color="dark" routerLink="/car-registeration4" shape="round">İlerle</ion-button>
+  </ion-row>
+</ion-content>

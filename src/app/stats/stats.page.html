@@ -1,0 +1,60 @@
+<ion-header class="ion-no-border" no-border>
+  <ion-toolbar>
+    <span slot="start" class="title">RunME App</span>
+    
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="search">
+    <ion-col class="left">
+      <ion-input placeholder="Buradan Aara">
+        <ion-icon src="../../../../assets/icon/search-normal.svg"></ion-icon>
+      </ion-input>
+    </ion-col>
+    <ion-col size="auto">
+      <div class="filter">
+        <ion-icon src="../../../../assets/icon/filter 2.svg"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="grid1">
+    <ion-row class="top2">
+      <span>İstatistiklerin</span>
+      <ion-icon src="../../../../assets/icon/moreHorizontal.svg"></ion-icon>
+    </ion-row>
+    <ion-row class="chart">
+      <img src="../../../../assets/images/donutCHart.png" alt="">
+    </ion-row>
+    <ion-row class="bottom1" *ngFor="let a of [1,2,3,4,5]">
+      <div class="left">
+        <div class="circle"></div>
+        Spor 
+      </div>
+      <span>
+        17,439
+      </span>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="grid2">
+    <ion-row class="top2">
+      <span class="left">İstatistiklerin</span>
+      <span class="right">Hepsini Gör</span>
+    </ion-row>
+    <ion-row class="item" *ngFor="let a of [1,2,3]">
+      <ion-col size="auto" class="left2">
+          <img src="../../../../assets/images/car.png" alt="">
+      </ion-col>
+      <ion-col class="right2">
+        <ion-row class="top1">
+          <span class="left">Nissan GT - R</span>
+          <span class="right">20 Ağustos</span>
+        </ion-row>
+        <ion-row class="mid1">
+          <span class="left">Spor</span>
+          <span class="right">₺80.00</span>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

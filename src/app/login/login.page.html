@@ -1,0 +1,58 @@
+<ion-content>
+  <ion-row class="header">
+    <ion-col size="auto">
+      <ion-icon src="assets/icon/iconLogo.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="text">
+      <span class="title">Giriş Yap</span>
+      <span class="desc">Run Mee’e Hoşgeldiniz</span>
+    </ion-col>
+  </ion-row>
+  <span class="loginText">Hızlı giriş</span>
+  <ion-row class="social">
+    <ion-col class="google">
+      <div class="btn">
+        <ion-icon src="../../../../assets/icon/google.svg"></ion-icon>
+        Google İle Giriş Yap
+      </div>
+    </ion-col>
+    <ion-col size="auto">
+      <div class="facebook">
+        <ion-icon src="../../../../assets/icon/Facebook.svg"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-col size="auto">
+      <div class="apple">
+        <ion-icon src="../../../../assets/icon/apple.svg"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+  <form (ngSubmit)="login()" [formGroup]="credentials" >
+    <ion-row class="input mt40">
+      <ion-label>Telefon numarası veya e-posta adresi giriniz</ion-label><br>
+    </ion-row>
+  <ion-row class="input ">
+    <ion-input placeholder="E-posta adresi" formControlName="email"></ion-input>
+  </ion-row>
+  <ion-row class="input mt20">
+    <ion-label>Parola giriniz</ion-label><br>
+  </ion-row>
+  <ion-row class="input ">
+    <ion-input placeholder="Parola" formControlName="password"></ion-input>
+  </ion-row>
+  <ion-row class="check mt20">
+    <ion-checkbox value="true" labelPlacement="end">Beni Hatırla</ion-checkbox>
+    <span routerLink="/forgot">Parolanızı mı unuttunuz?</span>
+  </ion-row>
+  <ion-row class="btn mt20">
+    <ion-button [disabled]="!credentials.valid" type="submit">Giriş Yap</ion-button>
+  </ion-row>
+</form>
+  <ion-row class="btn mt10">
+    <ion-button color="dark" routerLink="/signup">Kayıt Ol</ion-button>
+  </ion-row>
+  <ion-row class="detail mt10">
+    <span>Henüz hesabınız yoksa kayıt olabilirsiniz.</span>
+  </ion-row>
+  <div class="info mt40">Giriş yaparak, Run Mee-nin <span>Kullanım Koşullarını</span> ve <span>Gizlilik Politikasını</span> kabul etmiş olursunuz.</div>
+</ion-content>

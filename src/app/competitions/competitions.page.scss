@@ -1,0 +1,126 @@
+ion-content{
+    --padding-start: 20px;
+    --padding-end: 20px;
+    .segment {
+        border-bottom: 1px solid #D9D9D9;
+        margin-top: 20px;
+        ion-segment {
+            border-bottom: 1px solid #999;
+            ion-segment-button{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                span{
+                    font-size: 17px;
+                    font-weight: 700;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+
+    .item {
+        margin-top: 10px;
+        border-radius: 9px;
+        border: 1px solid #D9D9D9;
+        background: #FCFCFC;
+        padding: 10px;
+
+        .left1 {
+            img {
+                height: 80px;
+                width: 80px;
+                object-fit: cover;
+            }
+        }
+
+        .mid1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            .top2 {
+                color: #1C1E21;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .mid2 {
+                color: #1C1E21;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .bottom2 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                ion-icon {
+                    font-size: 15px;
+                }
+
+                color: #3D3D3D;
+                font-size: 12px;
+                font-weight: 600;
+                gap: 5px;
+            }
+        }
+
+    }
+
+    .item:first-child {
+        margin-top: 20px !important;
+    }
+    .item2 {
+        margin-top: 10px;
+        border-radius: 9px;
+        border: 1px solid #D9D9D9;
+        background: #FCFCFC;
+        padding: 10px;
+
+        .left1 {
+            img {
+                height: 80px;
+                width: 80px;
+                object-fit: cover;
+            }
+        }
+
+        .mid1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            .top2 {
+                color: #1C1E21;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .mid2 {
+                color: #1C1E21;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .bottom2 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                ion-icon {
+                    font-size: 15px;
+                }
+
+                color: #3D3D3D;
+                font-size: 10px;
+                font-weight: 600;
+                gap: 5px;
+            }
+        }
+
+    }
+
+    .item2:first-child {
+        margin-top: 20px !important;
+    }
+}

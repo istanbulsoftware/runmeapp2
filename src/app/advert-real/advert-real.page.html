@@ -1,0 +1,62 @@
+<ion-content>
+  <ion-grid class="header">
+      <ion-row class="user">
+          <ion-col size="auto">
+              <img src="../../assets/person.jpg" alt="">
+          </ion-col>
+          <ion-col class="mid">
+              <span class="title">Hoş Geldiniz</span>
+              <span class="name">{{user.name}}</span>
+          </ion-col>
+          <ion-col size="auto" class="end">
+              <ion-icon src="../../assets/icon/bell.svg" routerLink="/notifications"></ion-icon>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  <ion-row class="detailItem">
+      <ion-col size="7">
+          <span class="title">Zaman</span>
+          <span class="value">0:00:00</span>
+      </ion-col>
+      <ion-col size="5">
+          <span class="title">Mesafe</span>
+          <span class="value">0,00 km</span>
+      </ion-col>
+      <ion-col size="7">
+          <span class="title">Hız</span>
+          <span class="value">0,0 km/saat</span>
+      </ion-col>
+      <ion-col size="5">
+          <span class="title">Kalori</span>
+          <span class="value">0,00 kCal</span>
+      </ion-col>
+  </ion-row>
+  <ion-row class="locationInput">
+      <ion-col class="input">
+          <ion-input routerLink="/advert-create/1" placeholder="Koşucağınız konumu giriniz"></ion-input>
+      </ion-col>
+      <ion-col size="auto" class="icon">
+          <ion-icon src="../../assets/icon/mapPin.svg"></ion-icon>
+      </ion-col>
+  </ion-row>
+  <ion-row class="itemTitle">
+      <span class="left">Geçmiş</span>
+      <span class="right">Hepsi</span>
+  </ion-row>
+  <ion-button (click)="routeMap()">Open Map</ion-button>
+  <ion-grid class="mapItem">
+      <ion-row class="mapRow" *ngFor="let a of [1,2,3]" routerLink="/running">
+          <ion-col class="left" size="auto">
+              <img src="../../assets/mapImg.png">
+          </ion-col>
+          <ion-col class="mapData">
+              <span class="date">26 Eylül 2023</span>
+              <span class="distance">10,12 km</span>
+              <div class="milage"><span>701 kCal</span> <span style="margin-left: 5px;">11,2 km/saat</span></div>
+          </ion-col>
+          <ion-col size="auto" class="forward">
+              <ion-icon src="../../assets/icon/forward.svg"></ion-icon>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

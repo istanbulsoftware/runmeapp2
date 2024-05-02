@@ -1,0 +1,53 @@
+<ion-content>
+  <ion-row class="header">
+    <ion-col size="auto">
+      <ion-icon src="assets/icon/iconLogo.svg"></ion-icon>
+    </ion-col>
+    <ion-col class="text">
+      <span class="title">Kayıt Ol</span>
+      <span class="desc">Run Mee’e Hoşgeldiniz</span>
+    </ion-col>
+  </ion-row>
+  <form (ngSubmit)="signup()" [formGroup]="credentials" >
+
+  <ion-row class="input mt20">
+    <ion-col size="6">
+      <ion-label>Adınız</ion-label>
+      <ion-input placeholder="Ad"  type="text" formControlName="name"></ion-input>
+    </ion-col>
+    <ion-col size="6">
+      <ion-label>Soyadınız</ion-label>
+      <ion-input placeholder="Soyad"  type="text" formControlName="surname"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row class="input mt20">
+    <ion-label>E-posta adresiniz</ion-label>
+  </ion-row>
+  <ion-row class="input ">
+    <ion-input placeholder="E-posta adresi" type="email" formControlName="email"></ion-input>
+  </ion-row>
+  <ion-row class="input mt20">
+    <ion-label>Telefon numarası giriniz.</ion-label>
+  </ion-row>
+  <ion-row class="input ">
+    <ion-input placeholder="Telefon Numarası" formControlName="mobile"></ion-input>
+  </ion-row>
+  <ion-row class="input mt20">
+    <ion-label>Parola giriniz.</ion-label>
+  </ion-row>
+  <ion-row class="input">
+    <ion-input placeholder="Parola" tyoe="password" formControlName="password"></ion-input>
+  </ion-row>
+  <ion-row class="btn mt20">
+    <ion-button color="primary" mode="ios" type="submit" [disabled]="!credentials.valid">Hesap Oluştur</ion-button>
+  </ion-row>
+  <ion-row class="btn mt20">
+    <ion-button color="dark"  mode="ios" routerLink="/login">Giriş yap</ion-button>
+  </ion-row>
+
+  </form>
+  <ion-row class="detail mt10">
+    <span>Henüz hesabınız yoksa kayıt olabilirsiniz.</span>
+  </ion-row>
+  <div class="info mt40">Giriş yaparak, Run Mee-nin <span>Kullanım Koşullarını</span> ve <span>Gizlilik Politikasını</span> kabul etmiş olursunuz.</div>
+</ion-content>

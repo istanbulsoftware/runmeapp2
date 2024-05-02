@@ -1,0 +1,34 @@
+<ion-header mode='ios' class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark" defaultHref="/edit-account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="../../assets/header-logo.png">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAdd()">
+        <ion-icon color="danger" slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p *ngIf='accounts.length < 1  && !spin' style="font-size: medium; ">{{'SOCIAL_ACCOUNTS.noAccount' | translate}}</p>
+  <ion-spinner *ngIf='spin'></ion-spinner>
+
+  <ion-item *ngFor='let item of accounts'  lines='full' (click)='presentActionSheet(item._id)'>
+    <ion-avatar slot="start">
+      <ion-icon [src]="'./../../assets/images/socialIcons/' + item.type + '.svg' " ></ion-icon>
+    </ion-avatar>
+    <div>
+      <ion-label style="color: var(--ion-color-dark); padding-top: 7px; text-transform: capitalize;">{{item.type}}</ion-label>
+      <ion-label style="color: var(--ion-color-medium); padding-bottom: 7px; font-size: x-small;">{{item.name}}</ion-label>
+    </div>
+  </ion-item>
+
+  
+
+
+</ion-content>

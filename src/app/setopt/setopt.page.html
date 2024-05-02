@@ -1,0 +1,49 @@
+<ion-content>
+  <br>
+  <br>  <br>  <br>  <br>
+  <br>
+  <div class="ion-text-center ion-padding">
+    <h4 style="color : red"  (click)='onEditPhoto()' ><b>Profil Resmini Güncelle</b></h4>
+  </div>
+  
+  <ion-avatar 
+    (click)='onEditPhoto()' tappable
+    [ngClass]= 
+    "{
+      'boy': user.accountType == 'personal' && user.gender =='male', 
+      'girl': user.accountType == 'personal' && user.gender =='female', 
+
+      'restaurant': user.accountType == 'business' && user.businessCategory == 'restaurant',
+      'fastfood': user.accountType == 'business' && user.businessCategory == 'fastFood',
+      'cafe': user.accountType == 'business' && user.businessCategory == 'cafe',
+      'bakery': user.accountType == 'business' && user.businessCategory == 'bakery',
+      'pastry': user.accountType == 'business' && user.businessCategory == 'pastry',
+      'store': user.accountType == 'business' && user.businessCategory == 'store',
+      'hotel': user.accountType == 'business' && user.businessCategory == 'hotel',
+      'bar': user.accountType == 'business' && user.businessCategory == 'bar',
+      'carservice': user.accountType == 'business' && user.businessCategory == 'carService',
+      'carrepair': user.accountType == 'business' && user.businessCategory == 'carRepair',
+      'carstore': user.accountType == 'business' && user.businessCategory == 'carStore',
+      'gym': user.accountType == 'business' && user.businessCategory == 'gym',
+      'barber': user.accountType == 'business' && user.businessCategory == 'barber',
+      'pharmacy': user.accountType == 'business' && user.businessCategory == 'pharmacy',
+      'taxi': user.accountType == 'business' && user.businessCategory == 'taxi',
+      'other': other
+    }"
+
+    >
+    <img *ngIf='croppedImage' [src]="croppedImage" alt="True Contact User"/>
+    <ion-icon *ngIf="!croppedImage  && !other &&user.accountType == 'business'" [src]="'./../../assets/images/' + user.businessCategory + '.svg' "></ion-icon>
+    <ion-icon *ngIf="!croppedImage  && !other && user.accountType == 'personal'" src='./../../assets/images/person.svg'></ion-icon>
+    <ion-icon *ngIf='!croppedImage  && other' [src]="'./../../assets/images/other.svg' " ></ion-icon>
+      
+  </ion-avatar>
+
+  
+<div class="ion-text-center ion-padding">
+  Güzel bir profil resmi daha fazla kullanıcı almanızı sağlar
+</div>
+
+
+
+</ion-content>

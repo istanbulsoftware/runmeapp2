@@ -1,0 +1,146 @@
+<ion-content>
+  <div style="position: fixed; width: 100%; padding: 10px; top: 40px; z-index: 99999;">
+      <ion-item lines="none" color="none">
+        <ion-icon name="chevron-back-circle" slot="start" style="color: black; font-size: xx-large;" (click)="goBack()"></ion-icon>
+
+        <ion-icon slot="end" (click)="createFav('remove')" name="bookmark" *ngIf="isFav === true"
+          style="font-size: x-large; margin-right: 20px; color: var(--ion-color-dark);"></ion-icon>
+        <ion-icon slot="end" (click)="createFav('add')" name="bookmark-outline" *ngIf="isFav === false"
+          style="font-size: x-large; margin-right: 20px; color: var(--ion-color-dark);" ></ion-icon>
+      </ion-item>
+  </div>
+
+
+  <ion-slides [options]="slideOptsOne">
+    <ion-slide *ngIf="images?.length < 1">
+      <img src="../../assets/no-photo.png">
+    </ion-slide>
+    <ion-slide *ngFor="let img of images">
+      <img style=" border-radius: 10px;" src="{{img.publicPath}}">
+    </ion-slide>
+  </ion-slides>
+
+<div>
+  <h3 style="text-align: center; font-size: medium; font-weight: bold;">{{details?.title}}</h3>
+<ion-grid>
+  <ion-row>
+    <ion-col size="4">
+      <ion-icon name="star" color="warning"></ion-icon>
+      <ion-icon name="star" color="warning"></ion-icon>
+      <ion-icon name="star" color="warning"></ion-icon>
+      <ion-icon name="star" color="warning"></ion-icon>
+      <ion-icon name="star" color="warning"></ion-icon>
+    </ion-col>
+    <ion-col size="2">
+      <ion-icon name="chatbox-ellipses"></ion-icon>
+      33
+    </ion-col>
+    <ion-col size="2">
+      <ion-icon name="heart"></ion-icon>
+      33
+    </ion-col>
+    <ion-col size="4" style="font-size: medium;">
+      <ion-icon name="car"></ion-icon>
+      850 km
+    </ion-col>
+    <ion-col offset="8" size="4">
+      <div *ngIf="details?.userId._id === myId">
+        <ion-button mode="ios" size="small" color="dark" (click)="presentActionSheet()">
+          <ion-icon name="camera" style="margin-right: 10px;"></ion-icon> {{ 'ADVERT.resimyukle' | translate }}
+        </ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</div>
+
+  <ion-card color="warning" routerLink="/profile/{{details?.userId._id}}">
+    <ion-item lines="none"  color="warning" >
+      <ion-avatar slot="start">
+        <img *ngIf="details?.userId.profilePicture?.publicPath"
+          src="{{details?.userId.profilePicture?.publicPath}}">
+        <img *ngIf="!details?.userId.profilePicture?.publicPath" src="../../assets/profile.webp">
+      </ion-avatar>
+      <ion-label>
+        <div style="font-size: medium; font-weight: 700;">{{details?.userId.name}}</div>
+        <div style="font-size: small; font-weight: 700;">{{details?.userId.mobile}}</div>
+        <div style="font-size: small; font-weight: 700;">Üyelik Tarihi : {{details?.userId.createdAt | date:
+          'dd/MM/yyyy'}}</div>
+      </ion-label>
+    </ion-item>
+
+  </ion-card>
+  <div>
+    <div style="font-size: small; padding: 10px 15px;">{{details?.desc}}</div>
+
+  </div>
+<div  style="padding: 10px;">
+  <h4><b><small>Yorumlar</small></b></h4>
+</div>
+<ion-card mode="mf" color="medium" style="font-size: small;">
+  <ion-item color="none" lines="none">
+    <ion-avatar slot="start">
+      <img src="../../assets/profile.webp">
+    </ion-avatar>
+    <ion-label><small>Muzaffer şen</small></ion-label>
+    <ion-label><small>{{details?.createdAt | date: 'dd/MM/yyyy HH:mm'}}</small></ion-label>
+  </ion-item>
+  <ion-card-content style="font-size: small;">
+    Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. 
+  </ion-card-content>
+  
+</ion-card>
+
+<ion-card mode="mf" color="medium" style="font-size: small;">
+  <ion-item color="none" lines="none">
+    <ion-avatar slot="start">
+      <img src="../../assets/profile.webp">
+    </ion-avatar>
+    <ion-label><small>Muzaffer şen</small></ion-label>
+    <ion-label><small>{{details?.createdAt | date: 'dd/MM/yyyy HH:mm'}}</small></ion-label>
+  </ion-item>
+  <ion-card-content>
+    Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. 
+  </ion-card-content>
+  
+</ion-card>
+<ion-card mode="mf" color="medium" style="font-size: small;">
+  <ion-item color="none" lines="none">
+    <ion-avatar slot="start">
+      <img src="../../assets/profile.webp">
+    </ion-avatar>
+    <ion-label><small>Muzaffer şen</small></ion-label>
+    <ion-label><small>{{details?.createdAt | date: 'dd/MM/yyyy HH:mm'}}</small></ion-label>
+  </ion-item>
+  <ion-card-content style="font-size: small;">
+    Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. 
+  </ion-card-content>
+  
+</ion-card>
+<ion-card mode="mf" color="medium" style="font-size: small;">
+  <ion-item color="none" lines="none">
+    <ion-avatar slot="start">
+      <img src="../../assets/profile.webp">
+    </ion-avatar>
+    <ion-label><small>Muzaffer şen</small></ion-label>
+    <ion-label><small>{{details?.createdAt | date: 'dd/MM/yyyy HH:mm'}}</small></ion-label>
+  </ion-item>
+  <ion-card-content style="font-size: small;">
+    Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. 
+  </ion-card-content>
+  
+</ion-card>
+<ion-card mode="mf" color="medium" style="font-size: small;">
+  <ion-item color="none" lines="none">
+    <ion-avatar slot="start">
+      <img src="../../assets/profile.webp">
+    </ion-avatar>
+    <ion-label><small>Muzaffer şen</small></ion-label>
+    <ion-label><small>{{details?.createdAt | date: 'dd/MM/yyyy HH:mm'}}</small></ion-label>
+  </ion-item>
+  <ion-card-content style="font-size: small;">
+    Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. Rota ile iglili yorumum. 
+  </ion-card-content>
+  
+</ion-card>
+</ion-content>

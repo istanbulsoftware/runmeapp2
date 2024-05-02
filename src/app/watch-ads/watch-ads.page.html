@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="ios">
+      <ion-back-button text="" color="dark" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Günlük Jeton Kazan</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style=" padding: 13px; border-radius:3px; color: #7b6100; text-align: right;">Mevcut Jeton : <b>{{truecoin}}
+    Jeton</b> </div>
+  <br><br>
+  <ion-item lines="full">
+    <ion-icon   name="flame" color="warning" slot="start"></ion-icon>
+    <ion-text slot="start"><small> Günlük jeton hediyesi  </small></ion-text>
+    <ion-badge color="warning" (click)="dailyCoins(2)" *ngIf="isDailyToken === false" slot="end">Topla</ion-badge>
+    <ion-icon name="checkmark-circle" color="success" style="font-size: x-large;" *ngIf="isDailyToken === true" slot="end">
+    </ion-icon>
+  </ion-item>
+  <br> 
+  <ion-item lines="full">
+    <ion-icon name="images" color="warning" style="font-size: x-large;"  slot="start"></ion-icon>
+    <ion-text slot="start"> <small>Günlük hikaye paylaşımı</small><br> <small style="color: red;" *ngIf="getShare === false">Son 24 saatde hiç hikaye paylaşmadınız</small></ion-text>
+
+
+    
+        <!-- Günlük alındıysa -->
+
+        <!-- paylaşım yok toplanmış -->
+
+    <ion-icon name="checkmark-circle" color="success" style="font-size: x-large;" *ngIf="getShare === true && isShareCollected === true" slot="end"></ion-icon>
+    <!-- Paylaşım yok -->
+    <ion-icon name="close-circle" color="danger" style="font-size: x-large;" *ngIf="getShare === false" slot="end"></ion-icon> 
+            <!-- Günlük paylaşım ypıldı ama toplanmadı -->
+
+            <ion-badge color="warning" (click)="shareCoins(2)" *ngIf="getShare === true && isShareCollected === false" slot="end">Topla</ion-badge>
+  </ion-item>
+
+  <br><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center" (click)="showAwarAds()">
+        Reklam izle Jeton Kazan<br>
+        <ion-icon size="large" src="../../assets/icon/coin-svgrepo-com.svg"> </ion-icon><br>
+        <ion-button color="dark" mode="ios" size="medium" shape="round">
+          <ion-icon name="play-circle"></ion-icon> Reklam izle
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

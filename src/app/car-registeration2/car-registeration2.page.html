@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border" no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text="" ></ion-back-button> 
+    </ion-buttons>
+    <span slot="start" class="title">RunME App</span>
+    
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-row class="title">
+    <!-- <ion-icon routerLink="/car-registeration" src="../../../../assets/icon/arrow-left.svg" style="margin-right: 15px;"> </ion-icon>-->
+   
+  </ion-row>
+  <ion-row class="desc">
+   <span class="left">1/3 Adım</span>
+   <span class="mid"> | Sıradaki: Koşu Bilgileri | </span>
+   <span class="right" routerLink="/car-registeration">Yeniden Başla</span>
+  </ion-row>
+  <ion-row class="progress">
+    <app-progress-bar [progress]="25"></app-progress-bar>
+  </ion-row>
+  <!-- <ion-row class="chip">
+    <span>Tüm Adımları Gör</span>
+  </ion-row> -->
+  <hr>
+  <!-- <ion-row class="scrollItems" style="padding-top: 10px; padding-bottom: 10px;">
+   <ion-col size="12" style="padding-top: 6px; padding-bottom: 6px;"> <ion-label>Koşu Tipi</ion-label></ion-col>
+    <ion-row class="scroll">
+      <ion-col size="auto" class="span">Binek Koşu</ion-col>
+      <ion-col size="auto" class="span selected">İş Makinesi</ion-col>
+      <ion-col size="auto" class="span">Motor</ion-col>
+    </ion-row>
+  </ion-row> -->
+
+  <!-- <ion-row class="input">
+    <ion-label>Koşu Nerede?</ion-label>
+    <ion-input placeholder="Adres Gir"></ion-input>
+  </ion-row> -->
+  <ion-row class="title5">
+    <ion-col size="6" *ngFor="let c of categories" (click)="selectCat(c._id)">
+      <div [ngClass]="selectedCat === c._id ? 'selected' : 'selectedNo'"><img src="{{c?.profilePicture?.publicPath}}"></div>
+      <div style="font-size: small; text-align: center;">{{c.name}}</div>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-row class="input">
+    <ion-label>Aracının Marka ve Modeli Nedir?</ion-label>
+    <ion-input placeholder="Marka Model Gir"></ion-input>
+  </ion-row> -->
+  <ion-row class="btn" *ngIf="selectedCat">
+    <ion-button color="dark" routerLink="/car-registeration4/{{selectedCat}}" shape="round">İlerle</ion-button>
+  </ion-row>
+  
+</ion-content>

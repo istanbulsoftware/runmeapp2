@@ -1,0 +1,160 @@
+ion-header {
+    ion-toolbar {
+        --background: white;
+
+        .title {
+            margin-left: 10px;
+            color: #000;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .more {
+            font-size: 25px;
+        }
+
+        .user {
+            font-size: 35px;
+            margin: 0px 10px;
+        }
+    }
+}
+.selected{
+    background-color: #e8e8e8;
+    border-radius: 10px;
+}
+.selectedNo{
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+ion-content {
+    .scrollItems {
+        margin: 10px 20px;
+
+        ion-label {
+            color: #1A1E25;
+            font-size: 18px;
+            font-weight: 100;
+        }
+
+        .scroll {
+            flex-wrap: nowrap;
+            overflow-x: scroll !important;
+            overflow-y: hidden;
+
+            .span {
+                border-radius: 24px;
+                border: 0.8px solid #E3E3E7;
+                background: #F2F2F3;
+                color: #7D7F88;
+                font-size: 16px;
+                font-weight: 400;
+                padding: 8px 16px;
+                width: max-content;
+                margin-right: 10px;
+            }
+
+            .selected {
+                color: white !important;
+                background: var(--ion-color-primary) !important;
+            }
+        }
+    }
+
+    .title {
+        margin: 10px 20px;
+        color: #121214;
+        font-size: 28px;
+        font-weight: 900;
+        align-items: center;
+    }
+
+    .desc {
+        margin: 10px 20px;
+        align-items: center;
+        gap: 10px;
+
+        .left {
+            color: #121214;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .mid {
+            color: #898989;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .right {
+            color: #3474FF;
+            font-size: 11px;
+            font-weight: 900;
+        }
+    }
+
+    .progress {
+        margin: 10px;
+
+        app-progress-bar {
+            width: 100%;
+        }
+    }
+
+    .chip {
+        margin: 10px 20px;
+
+        span {
+            padding: 8px 12px;
+            color: #414143;
+            font-size: 11px;
+            font-weight: 900;
+            border-radius: 46px;
+            border: 1px solid #D0D0D0;
+        }
+    }
+
+    hr {
+        margin: 10px 20px;
+        background: #C7C7C7;
+        width: -webkit-fill-available;
+    }
+
+    .title5 {
+        margin: 10px 20px;
+        color: #121214;
+        font-size: 21px;
+        font-weight: 900;
+    }
+
+    .input {
+        margin: 20px;
+        ion-label {
+            color: #121214;
+            font-size: 16px;
+            font-weight: 900;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        ion-input {
+            border-radius: 42px;
+            border: 1px solid #C7C7C7;
+            --padding-start: 20px;
+        }
+    }
+
+    .btn {
+        position: absolute;
+        bottom: 20px;
+        justify-content: flex-end;
+        width: 100%;
+
+        ion-button {
+            --padding-start: 50px;
+            --padding-end: 50px;
+            margin-right: 10px;
+        }
+    }
+}

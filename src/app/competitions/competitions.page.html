@@ -1,0 +1,44 @@
+<ion-content>
+  <ion-row class="segment">
+    <ion-segment mode="md" [(ngModel)]="segment">
+      <ion-segment-button value="first">
+        <span>Yarışma</span>
+      </ion-segment-button>
+      <ion-segment-button value="second">
+        <span>Konaklama</span>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-row>
+  <ion-grid class="first" *ngIf="segment=='first'" >
+    <ion-row class="item" *ngFor="let a of [1,2,3,4,5,6,7]" routerLink="/new-detail">
+      <ion-col size="auto" class="left1">
+        <img src="../../assets/postImg.jpeg">
+      </ion-col>
+      <ion-col class="mid1">
+        <span class="top2">Maraton koşusu</span>
+        <span class="mid2">Münhen/Almanya</span>
+        <div class="bottom2">
+          <ion-icon src="../../assets/icon/people.svg"></ion-icon>
+          11.555
+          <ion-icon src="../../assets/icon/time.svg"></ion-icon>
+          3:49
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="first" *ngIf="segment=='second'">
+    <ion-row class="item2" *ngFor="let a of [1,2,3,4,5,6,7]" routerLink="/place-detail">
+      <ion-col size="auto" class="left1">
+        <img src="../../assets/postImg.jpeg">
+      </ion-col>
+      <ion-col class="mid1">
+        <span class="top2">Hilton Hotel</span>
+        <span class="mid2">İzmir/Turkiye</span>
+        <div class="bottom2">
+          <ion-icon src="../../assets/icon/Star.svg" *ngFor="let a of [1,2,3,4,5]"></ion-icon>
+          <span>(5)</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

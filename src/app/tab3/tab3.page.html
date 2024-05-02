@@ -1,0 +1,114 @@
+<ion-content scrollY='false' [fullscreen]='true'>
+<div style="position: fixed; left: 20px; top: 20px; z-index: 99999;  border-radius: 50%; padding: 10px; background-color: var(--ion-color-light); text-align: center; font-size: x-small;">
+  <ion-icon name="chevron-back-outline" style="font-size: x-large;" (click)="goTo()"></ion-icon>
+</div>
+<div style="position: fixed; right: 20px; top: 20px; z-index: 99999;  border-radius: 10px; padding: 10px; background-color: var(--ion-color-light); text-align: center; font-size: x-small;">
+  Konumum<br>
+  <ion-toggle  (ionChange)="changeLocationSettings($event)"  color="success" *ngIf="appUser.location !== 'liveLocation'"></ion-toggle>
+  <ion-toggle  (ionChange)="changeLocationSettings($event)"  [checked]="true" color="success" *ngIf="appUser.location === 'liveLocation'"></ion-toggle>
+</div>
+  <!-- <div id="stores"
+    style="display:none; position: fixed; right: 5px; top: 190px; z-index: 9999; width: 100%; width: 90%; background-color: rgba(255, 255, 255, 0.891); border-radius: 10px; padding: 10px; ">
+    <div class="hidebuttons" (click)="hideAll()" style="color: brown; font-weight: bold;" *ngIf="allchecked != 'false'"> {{ 'TAB3.removeAll' | translate }}</div>
+    <div class="hidebuttons"></div>
+
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'taxi')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.taxi' | translate
+      }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'bakery')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.baker' |
+      translate }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'bar')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.bar' | translate
+      }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'barber')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.barber' |
+      translate }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'cafe')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.cafe' | translate
+      }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'carRepair')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.carRepair' |
+      translate }}
+    </div>
+
+
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'fastFood')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.fastFood' |
+      translate }}
+    </div>
+
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'hotel')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.hotel' |
+      translate }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'pastry')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.pastry' |
+      translate }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'pharmacy')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.pharmacy' |
+      translate }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'restaurant')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.restaurant'
+      | translate }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'store')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.store' |
+      translate }}
+    </div>
+    <div class="hidebuttons">
+      <ion-checkbox (click)="hideNow($event, 'other')" checked="{{allchecked}}"></ion-checkbox>{{ 'TAB3.other' |
+      translate }}
+    </div>
+  </div> -->
+  <ion-grid fixed [style]="'height: calc(100% + ' + tabHeight + '); padding:0; margin:0;width: 100%;'">
+    <ion-row [style]="'height: calc(100% + ' + tabHeight + ');' ">
+      <ion-col size="12" [style]="'display:' + display" style="padding:0; margin:0;">
+
+
+        <div id="myMap" style="width: 100%; height: 100%;" data-tap-disabled="true"></div>
+
+
+
+        <ion-fab vertical="bottom" horizontal="end" [style]="'bottom: calc(2.2 * ' + tabHeight + ');' " mode='md'>
+          <ion-fab-button color="warning" (click)="myLocation()">
+            <ion-icon class="map-control" name="locate-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        <ion-fab vertical="bottom" horizontal="start" [style]="'bottom: calc(2.2 * ' + tabHeight + ');' " mode='md'>
+          <ion-fab-button color="warning" (click)="refreshMap()">
+            <ion-icon class="map-control" name="refresh"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+
+      </ion-col>
+      <ion-col *ngIf="!locationAccess" size="12" style="padding:0; margin:0;">
+        <div
+          style="height: 100% !important; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <ion-icon name="location-outline" style="width: 177px; height: 177px; color: var(--ion-color-medium-shade);">
+          </ion-icon>
+          <ion-text color="medium">
+            <p style="color: var(--ion-color-medium);">{{ 'TAB3.turnOnLocation' | translate }}</p>
+          </ion-text>
+          <ion-button *ngIf="!isLoading" (click)="tryAgain()" expand="block" fill="solid" shape="round" color="medium">
+            {{ 'TAB3.refresh' | translate }}
+          </ion-button>
+
+          <ion-spinner *ngIf="isLoading"></ion-spinner>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+</ion-content>

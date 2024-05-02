@@ -1,0 +1,19 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onCancel()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onClick()">
+        <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ 'ADS.NEW_AD.locSelector' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="false" [scrollY]='false' [scrollX]='false'>
+  <div id="myMap3" style="width: 100%; height: 105%;" data-tap-disabled="true"></div> 
+</ion-content>
